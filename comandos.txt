@@ -1,0 +1,9 @@
+Comandos
+
+-criando um componente
+$ ng generate component NomeDoComponente
+
+-executar a aplicacao
+$ ng serve —-open
+
+Git

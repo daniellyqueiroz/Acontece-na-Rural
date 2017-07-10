@@ -1,0 +1,134 @@
+
+<!--menu-->
+<nav class="navbar navbar-static-top">
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-custom-menu">
+        <ul class="nav navbar-nav pull-right">
+         
+          <!-- Notifications: style can be found in dropdown.less -->
+          <li class="dropdown notifications-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu pull-right">
+              <li class="header">You have 10 notifications</li>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
+                      page and may cause design problems
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-users text-red"></i> 5 new members joined
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user text-red"></i> You changed your username
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="footer"><a href="#">View all</a></li>
+            </ul>
+          </li>
+          
+          <!-- User Account: style can be found in dropdown.less -->
+          <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+              <img src="assets/img/fotouser.jpg" class="user-image" alt="User Image">
+              <span class="hidden-xs">Danielly Queiroz</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- User image -->
+              <li class="user-header">
+                <img src="assets/img/fotouser.jpg" class="img-circle" alt="User Image">
+
+                <p>
+                  Danielly Queiroz
+                  <small>Member since Nov. 2012</small>
+                </p>
+              </li>
+              <!-- Menu Body -->
+              <li class="user-body">
+                <div class="row">
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Followers</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Sales</a>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <a href="#">Friends</a>
+                  </div>
+                </div>
+                <!-- /.row -->
+              </li>
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <!-- Control Sidebar Toggle Button -->
+          <li>
+            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+
+<!--Perfil-->
+<body >
+  <div class="row">
+    <div class="col col-sm-3">
+    	<div class="box box-primary">
+          <div class="box-body box-profile">
+            <img class="profile-user-img img-responsive img-circle" src="assets/img/fotouser.jpg" alt="User profile picture">
+            <h3 class="profile-username text-center">Danielly Queiroz</h3>
+            <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
+            <ul class="list-group list-group-unbordered">
+              <li class="list-group-item">
+                <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed de Notícias</b></a>
+              </li>
+              <li class="list-group-item">
+                <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Cronograma de Atividades </b></a>
+              </li>
+              <li class="list-group-item">
+                <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed de Notícias Oficiais </b></a>
+              </li>
+              <li class="list-group-item">
+                <a href="#"><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
+              </li>
+            </ul>
+            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+          </div>
+      </div>
+ </div>
+
+<router-outlet></router-outlet>
