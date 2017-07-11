@@ -19,17 +19,20 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      {
+    {
 	    path: '',
 	    component: BaseSiteComponent,
       children:[]
 	  },
+    { 
+      path: 'login', 
+      component: LoginComponent 
+    },
     {
       path: 'user',
       component: BaseAdminComponent,
       children:[
-        { path: '', component: FeedNoticiasComponent},
-        { path: 'calendar', component: LoginComponent }
+        { path: '', component: FeedNoticiasComponent}
       ]
     }
 	])
