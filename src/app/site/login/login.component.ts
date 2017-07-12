@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -7,21 +9,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  senha: string = "dois";
-	tamMaximoSenha: number = 8;
-	tamMinimoSenha: number = 12;
-	maxCaract: boolean = true;
-	minCaract: boolean = true;
-	conteudoSenha: boolean = true;
-	senhaMaiusc: boolean = true;
-	letraMin: boolean = true;
-	caractEsp: boolean = true;
-	semPV: boolean = true;
-	semAspasD: boolean = true;
-  
-  constructor() { }
+	public formLogin: FormGroup;
 
+  constructor(private fb: FormBuilder) {
+		this.createForm();
+	 }
+
+	doLogin(event) {
+    console.log(event);
+    console.log(this.formLogin.value);
+  }
+
+	createForm(){
+		this.formLogin = this.fb.group({
+    usuario: ["", Validators.required],
+    senha: ["", Validators.required]
+  });
+	}
   ngOnInit() {
+		
   }
 
 }

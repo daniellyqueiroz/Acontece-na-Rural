@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule }   from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { BaseSiteComponent } from './site/base-site/base-site.component';
@@ -18,6 +20,8 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
+    HttpModule,
     RouterModule.forRoot([
     {
 	    path: '',

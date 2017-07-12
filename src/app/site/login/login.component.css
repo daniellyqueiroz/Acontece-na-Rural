@@ -1,20 +1,20 @@
 /* Base CSS */
 .alignleft {
     float: left;
-    margin-right: 15px;
+    margin-right: 15px
 }
 .alignright {
     float: right;
-    margin-left: 15px;
+    margin-left: 15px
 }
 .aligncenter {
     display: block;
-    margin: 0 auto 200px;
+    margin: 0 auto 200px
 }
 a:focus { outline: 0 solid }
 img {
     max-width: 100%;
-    height: auto;
+    height: auto
 }
 
 #container_image{
@@ -22,7 +22,7 @@ img {
  background-attachment: fixed;
  background-repeat: no-repeat;
  background-color: #fb044a;
- background-size: 600px;
+ background-size: 600px
 }
 .fix { overflow: hidden }
 h1,
@@ -33,11 +33,11 @@ h5,
 h6 {
     margin: 0 0 15px;
     font-weight: 900;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
 html,
 body { 
-    height: 100%;
+    height: 100%
 }
 
 a {
@@ -45,73 +45,27 @@ a {
     -o-transition: 0.3s;
     -webkit-transition: 0.3s;
     transition: 0.3s;
-    color: #333;
+    color: #333
 }
+
 a:hover { text-decoration: none }
 
-
-.search-box{margin:2% auto;position:absolute;font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
-.caption{margin-bottom:50px;}
-.loginForm input[type=text], .loginForm input[type=password]{
-	margin-bottom:10px;
+.login-box{
+    margin: 20% auto;
+    position: absolute;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-.loginForm input[type=submit]{
+
+.caption{
+    margin-bottom: 50px;
+}
+.loginForm input[type=text], .loginForm input[type=password]{
+	margin-bottom: 60px
+}
+
+#btn_enviar{
 	background:#fb044a;
 	color:#fff;
 	font-weight:700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;	
-}
-
-#pswd_info {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	background: #dfdfdf none repeat scroll 0 0;
-	color: #fff;
-	left: 20px;
-	position: absolute;
-	top: 115px;
-}
-#pswd_info h4{
-    background: black none repeat scroll 0 0;
-    display: block;
-    font-size: 14px;
-    letter-spacing: 0;
-    padding: 17px 0;
-    text-align: center;
-    text-transform: uppercase;
-}
-#pswd_info ul {
-    list-style: outside none none;
-}
-#pswd_info ul li {
-   padding: 10px 45px;
-}
-
-.valid {
-	background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/vq43s2wib/valid.png") no-repeat scroll 2px 6px;
-	color: green;
-	line-height: 21px;
-	padding-left: 22px;
-}
-
-.invalid {
-	background: rgba(0, 0, 0, 0) url("https://s19.postimg.org/olmaj1p8z/invalid.png") no-repeat scroll 2px 6px;
-	color: red;
-	line-height: 21px;
-	padding-left: 22px;
-}
-
-
-#pswd_info::before {
-    background: #dfdfdf none repeat scroll 0 0;
-    content: "";
-    height: 25px;
-    left: -13px;
-    margin-top: -12.5px;
-    position: absolute;
-    top: 50%;
-    transform: rotate(45deg);
-    width: 25px;
-}
-#pswd_info {
-    display:none;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
