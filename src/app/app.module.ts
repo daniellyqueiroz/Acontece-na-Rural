@@ -20,7 +20,6 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
   ],
   imports: [
     BrowserModule,
-    ReactiveFormsModule,
     HttpModule,
     RouterModule.forRoot([
     {
@@ -30,7 +29,8 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
 	  },
     { 
       path: 'login', 
-      component: LoginComponent 
+      component: LoginComponent,
+      children: []
     },
     {
       path: 'user',
@@ -39,7 +39,7 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
         { path: '', component: FeedNoticiasComponent}
       ]
     }
-	])
+  ])
   ],
   providers: [],
   bootstrap: [AppComponent]

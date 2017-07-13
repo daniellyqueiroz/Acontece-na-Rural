@@ -4,12 +4,12 @@
       <h1>Entre com seus dados e fique informado sobre tudo que acontece na UFRPE</h1>
     </div>
     <div class="login-box">
-      <form [formGroup]="formLogin" (ngSubmit)="doLogin($event)" class="loginForm">
+      <form class="loginForm">
         <label>Usuário</label>
-        <input formControlName="usuario" type="text" placeholder="Nome de Usuário" />
+        <input type="text" placeholder="Nome de Usuário" />
         <br/>
         <label>Senha</label>
-        <input formControlName="senha" type="password" placeholder="Senha de Serviços Integrados" />
+        <input type="password" placeholder="Senha de Serviços Integrados" />
         <input id="btn_enviar" type="submit" value="Enviar" />
       </form>
     </div>
