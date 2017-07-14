@@ -9,6 +9,7 @@ import { BaseSiteComponent } from './site/base-site/base-site.component';
 import { LoginComponent } from './site/login/login.component';
 import { FeedNoticiasComponent } from './admin/feed-noticias/feed-noticias.component';
 import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
+import { ConfiguracaoComponent } from './admin/configuracao/configuracao.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
     BaseSiteComponent,
     LoginComponent,
     FeedNoticiasComponent,
-    BaseAdminComponent
+    BaseAdminComponent,
+    ConfiguracaoComponent
   ],
   imports: [
     BrowserModule,
@@ -25,18 +27,22 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
     {
 	    path: '',
 	    component: BaseSiteComponent,
-      children:[]
+      children:[
+        { path: '', component: LoginComponent},
+
+        { path: 'login', component: LoginComponent}
+
+
+      ]
 	  },
-    { 
-      path: 'login', 
-      component: LoginComponent,
-      children: []
-    },
+
     {
       path: 'user',
       component: BaseAdminComponent,
       children:[
-        { path: '', component: FeedNoticiasComponent}
+        { path: '', component: FeedNoticiasComponent},
+        { path: 'feed', component: FeedNoticiasComponent},
+        { path: 'feed/configuracao', component: ConfiguracaoComponent}
       ]
     }
   ])

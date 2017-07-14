@@ -44,13 +44,23 @@ table.text-center th {
 }
 
 .btn-primary {
-  background-color: #000080;;
-  border-color: #000080;;
+  
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #005aa8;
+  background-image: linear-gradient(to bottom,#0070a8,#0038a8);
+  background-repeat: repeat-x;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-  background-color: #000080;;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #005aa8;
+  background-image: linear-gradient(to bottom,#0070a8,#0038a8);
+  background-repeat: repeat-x;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
 .box-widget {
   border: none;
@@ -288,5 +298,10 @@ table.text-center th {
 .textArea{
   padding-top: 40px;
   padding-bottom: 10px;
+  margin-bottom: 10px;
+ }
+ #publicar{
+  margin-top: 20px;
+  width: 150px;
  }
 

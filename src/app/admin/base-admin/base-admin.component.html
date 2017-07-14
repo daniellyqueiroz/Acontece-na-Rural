@@ -72,10 +72,10 @@
               <li class="user-body">
                 <div class="row">
                   <div class="col-xs-4 text-center">
-                    <a href="#">Followers</a>
+                    <a href="#">Atividades</a>
                   </div>
                   <div class="col-xs-4 text-center">
-                    <a href="#">Sales</a>
+                    <a href="#">Calendario</a>
                   </div>
                   <div class="col-xs-4 text-center">
                     <a href="#">Friends</a>
@@ -86,17 +86,17 @@
               <!-- Menu Footer-->
               <li class="user-footer">
                 <div class="pull-left">
-                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  <a [routerLink]="'/user/feed'" class="btn btn-default btn-flat">Feed de Notícias</a>
                 </div>
                 <div class="pull-right">
-                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                  <a [routerLink]="'/login'" class="btn btn-default btn-flat">Sair</a>
                 </div>
               </li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
           <li>
-            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+            <a [routerLink]="'/user/feed/configuracao'" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
           </li>
         </ul>
       </div>
@@ -126,7 +126,7 @@
                 <a href="#"><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
               </li>
             </ul>
-            <a href="#" class="btn btn-primary btn-block"><b>Follow</b></a>
+            <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a>
           </div>
       </div>
  </div>
