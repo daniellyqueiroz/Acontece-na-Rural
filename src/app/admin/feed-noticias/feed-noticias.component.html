@@ -4,15 +4,15 @@
 	
 			<div class="col col-sm-11">
 				<div class="textArea">
-				<textarea class="form-control" rows="3" cols="3" title="aqui" id="area"></textarea>
-				<button type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
+				<textarea class="form-control" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
+				<button (click)="publicacao( texto.value)" type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
 			    </div>
-				<div class="box box-widget">
-	                <div class="box-header with-border">
+				<div class="box box-widget" *ngFor="let pub of feed" >
+	                <div class="box-header with-border" >
 	                  <div class="user-block">
-	                    <img class="img-circle" src="assets/img/bruno.jpg" alt="User Image">
-	                    <span class="username"><a href="#">Bruno Marques</a></span>
-	                    <span class="description"> Publicado - 7:30 PM Hoje</span>
+	                    <img class="img-circle" src= {{pub.imagem}} alt="User Image">
+	                    <span class="username"><a href="#">{{pub.nome}}</a></span>
+	                    <span class="description"> {{pub.data}}</span>
 	                  </div>
 	                  <!-- /.user-block -->
 	                  <div class="box-tools">
@@ -27,13 +27,7 @@
 	                <!-- /.box-header -->
 	                <div class="box-body">
 	                  <!-- post text -->
-	                  <p>Muito longe, atrás da palavra montanhas, 
-						longe dos países Vokalia e Consonantia, vivem os textos cegos. 
-						Separados eles vivem no Bookmarksgrove  </p>
-
-	                  <p>diretamente na costa da semântica, um grande oceano de língua. 
-	                  	Um pequeno rio chamado Duden flui pelo seu lugar e fornece-lhe o necessário regelialia.
-	                    É um país paradisemático!!!</p>
+	                  {{pub.texto}}
 
 	                  <!-- Attachment -->
 	                  <div class="attachment-block clearfix">
@@ -55,39 +49,10 @@
 	                  <!-- Social sharing buttons -->
 	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> compartilhar </button>
 	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Curtir</button>
-	                  <span class="pull-right text-muted">45 curtidas - 2 comentários</span>
+	                  <span class="pull-right text-muted">{{pub.qntCurtidas}} curtidas - {{pub.qntComentarios}} comentários</span>
 	                </div>
 	                <!-- /.box-body -->
-	                <div class="  box-footer box-comments">
-	                  <div class="box-comment">
-	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
-
-	                    <div class="comment-text">
-	                          <span class="username">
-	                            Danielly Queiroz
-	                            <span class="text-muted pull-right">8:03 PM Hoje</span>
-	                          </span><!-- /.username -->
-	                      Que massa, adorei conhecer mais sobre esse assunto!
-	                    </div>
-	                    <!-- /.comment-text -->
-	                  </div>
-	                  <!-- /.box-comment -->
-	                  <div class="box-comment">
-	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src="assets/img/joao.jpg" alt="User Image">
-
-	                    <div class="comment-text">
-	                          <span class="username">
-	                            João Marcos
-	                            <span class="text-muted pull-right">8:03 PM Hoje</span>
-	                          </span><!-- /.username -->
-	                      		Muito bom, parabéns cara. 
-	                    </div>
-	                    <!-- /.comment-text -->
-	                  </div>
-	                  <!-- /.box-comment -->
-	                </div>
+	                
 	                <!-- /.box-footer -->
 	                <div class="box-footer">
 	                  <form action="#" method="post">
