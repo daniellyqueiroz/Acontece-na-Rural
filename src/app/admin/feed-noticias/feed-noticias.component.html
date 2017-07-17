@@ -12,7 +12,7 @@
 	                  <div class="user-block">
 	                    <img class="img-circle" src= {{pub.imagem}} alt="User Image">
 	                    <span class="username"><a href="#">{{pub.nome}}</a></span>
-	                    <span class="description"> {{pub.data}}</span>
+	                    <span class="description"> {{pub.data| date: 'medium'}}</span>
 	                  </div>
 	                  <!-- /.user-block -->
 	                  <div class="box-tools">
@@ -41,7 +41,7 @@
 	                    <div class="comment-text">
 	                          <span class="username">
 	                            {{comentario.nome}}
-	                            <span class="text-muted pull-right">{{comentario.data}}</span>
+	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
 
 	                          </span><!-- /.username -->
 	                      {{comentario.texto}}

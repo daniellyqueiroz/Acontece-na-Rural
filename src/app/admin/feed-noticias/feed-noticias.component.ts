@@ -33,7 +33,7 @@ export class FeedNoticiasComponent implements OnInit {
   			texto : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.',
   			fotos: [],
   			videos: [],
-  			data: 'Publicado - 7:30 PM Hoje',
+  			data: 890809,
   			qntCurtidas: '98',
   			qntComentarios: '2',
   			comentarios: [{
@@ -44,7 +44,7 @@ export class FeedNoticiasComponent implements OnInit {
           curso: 'BCC',
           imagem: "assets/img/joao.jpg",
           texto: "meu comentario",
-          data: '15/07/2017 22:58:14',
+          data: 897987,
           qntCurtidas: 3
           },
           {
@@ -55,7 +55,7 @@ export class FeedNoticiasComponent implements OnInit {
           curso: 'BCC',
           imagem: "assets/img/joao.jpg",
           texto: "meu comentario",
-          data: '15/07/2017 22:58:14',
+          data: 89908,
           qntCurtidas: 3
           },
           {
@@ -66,7 +66,7 @@ export class FeedNoticiasComponent implements OnInit {
           curso: 'BCC',
           imagem: "assets/img/joao.jpg",
           texto: "meu comentario",
-          data: '15/07/2017 22:58:14',
+          data: 7897,
           qntCurtidas: 3
           }]
 
@@ -78,7 +78,7 @@ export class FeedNoticiasComponent implements OnInit {
             texto : 'Vestibulum auctor dolor vel est vestibulum, ut sodales arcu convallis. Sed faucibus dictum varius. Donec a dictum ante. Vestibulum sollicitudin dui non quam mollis, eget volutpat arcu tristique. Curabitur id accumsan lacus. Nunc vestibulum felis in felis tincidunt porta. Nam vulputate pellentesque hendrerit. Nullam laoreet lectus nunc, sed sollicitudin nisi pulvinar id. Integer pulvinar ipsum nec sapien vestibulum, at ornare quam auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus scelerisque nisl sed fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque malesuada nunc quis erat facilisis, eget aliquet augue lobortis. Fusce quis diam justo.',
             fotos: [],
             videos: [],
-            data: 'Publicado - 7:30 PM Hoje',
+            data: 890809,
             qntCurtidas: '98',
             qntComentarios: '2',
             comentarios: [{
@@ -89,7 +89,7 @@ export class FeedNoticiasComponent implements OnInit {
               curso: 'BCC',
               imagem: "assets/img/joao.jpg",
               texto: "meu comentario",
-              data: '15/07/2017 22:58:14',
+              data: 89080,
               qntCurtidas: 88
               }
             ]
@@ -101,7 +101,7 @@ export class FeedNoticiasComponent implements OnInit {
             texto : 'Proin suscipit porta lacus quis suscipit. Morbi dapibus sed felis non congue. Aliquam mollis ac eros ut dictum. Nullam fermentum arcu lacus, eu sagittis purus egestas a. Suspendisse ut cursus velit, ut pretium lacus. Etiam dapibus dolor urna. Nunc blandit urna maximus, convallis libero in, sagittis est. Nam sem ipsum, pretium non lacus et, gravida placerat est. Proin vestibulum ex odio, et eleifend libero rutrum nec. Donec id sapien lacus.',
             fotos: [],
             videos: [],
-            data: 'Publicado - 7:30 PM Hoje',
+            data:  890809,
             qntCurtidas: '98',
             qntComentarios: '2',
             comentarios: [{
@@ -112,7 +112,7 @@ export class FeedNoticiasComponent implements OnInit {
               curso: 'BCC',
               imagem: "assets/img/joao.jpg",
               texto: "Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.",
-              data: '15/07/2017 22:58:14',
+              data: 80989,
               qntCurtidas: 3
             }]
           }
@@ -130,7 +130,7 @@ export class FeedNoticiasComponent implements OnInit {
         
       id: 4,
       texto: pubTexto,
-      data: "16/07/2017 00:18",
+      data: Date.now(),
       fotos: [],
       videos: [],
       comentarios:[],
@@ -156,7 +156,7 @@ export class FeedNoticiasComponent implements OnInit {
       id: 1,
       idPublicacao:10,
       texto: comentarioTexto,
-      data: "16/07/2017 18:28",
+      data: Date.now(),
       curtidas: 0,
     
           nome: publicacao.nome,

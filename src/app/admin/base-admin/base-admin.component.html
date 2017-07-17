@@ -63,31 +63,26 @@
               <li class="user-header">
                 <img src="assets/img/fotouser.jpg" class="img-circle" alt="User Image">
 
-                <p>
+                <p id="info-user">
                   Danielly Queiroz
-                  <small>Member since Nov. 2012</small>
+                  <small>Recife-PE</small>
                 </p>
               </li>
               <!-- Menu Body -->
               <li class="user-body">
                 <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Atividades</a>
+                  <div class="col-xs-6 text-center">
+                    <a href="#">Registro de Atividades</a>
                   </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Calendario</a>
+                  <div class="col-xs-6 text-center">
+                    <a href="#">Configurações</a>
                   </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#">Amigos</a>
-                  </div>
-                </div>
+                  
+                </div> 
                 <!-- /.row -->
               </li>
               <!-- Menu Footer-->
               <li class="user-footer">
-                <div class="pull-left">
-                  <a [routerLink]="'/user/feed'" class="btn btn-default btn-flat">Feed de Notícias</a>
-                </div>
                 <div class="pull-right">
                   <a [routerLink]="'/login'" class="btn btn-default btn-flat">Sair</a>
                 </div>
@@ -114,19 +109,19 @@
             <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
             <ul class="list-group list-group-unbordered">
               <li class="list-group-item">
-                <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed de Notícias</b></a>
+                <a [routerLink]="'/user/feed'" href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</b></a>
               </li>
               <li class="list-group-item">
-                <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Cronograma de Atividades </b></a>
+                <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Atividades do AVA </b></a>
               </li>
               <li class="list-group-item">
-                <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed de Notícias Oficiais </b></a>
+                <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias Oficiais </b></a>
               </li>
               <li class="list-group-item">
                 <a href="#"><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
               </li>
             </ul>
-            <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a>
+            <!--> <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a> -->
           </div>
       </div>
  </div>
