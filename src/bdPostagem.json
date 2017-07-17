@@ -1,0 +1,65 @@
+[
+    {
+        "nome_usuario": "jnmarcos",
+        "publicacao": "Amanhã tem a calourada mais tecnológica da UFRPE",
+        "quem_curtiu": [
+            "dani",
+            "brunomax",
+            "alx"
+        ],
+        "comentarios": [
+            {
+                "comentario": "Esperando por essa calourada",
+                "curtidas": 10
+            },
+            {
+                "comentario": "Chega logo terça-feira",
+                "curtidas": 4
+            },
+            {
+                "comentario": "Esperando por essa calourada",
+                "curtidas": 9
+            }
+        ]
+    },
+    {
+        "nome_usuario": "dani",
+        "publicacao": "Ain gente, Caloujava bem que poderia ser Caloujavascript",
+        "quem_curtiu": [
+            "jnmarcos",
+            "brunomax"
+        ],
+        "comentarios": [
+            {
+                "comentario": "Concordo",
+                "curtidas": 15
+            },
+            {
+                "comentario": "Chega logo terça-feira",
+                "curtidas": 4
+            }
+        ]
+    },
+    {
+        "nome_usuario": "dani",
+        "publicacao": "Deveria ser hoje",
+        "quem_curtiu": [
+            "jnmarcos",
+            "brunomax"
+        ],
+        "comentarios": [
+            {
+                "comentario": "Concordo",
+                "curtidas": 15
+            },
+            {
+                "comentario": "Chega logo terça-feira",
+                "curtidas": 4
+            },
+            {
+                "comentario": "Esperando por essa calourada",
+                "curtidas": 9
+            }
+        ]
+    }
+]

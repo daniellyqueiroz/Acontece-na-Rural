@@ -1,3 +1,7 @@
+<div class="navbar">
+  <label id="nome-site">Acontece na Rural</label>
+  <img id="ufrpe" src="..\..\..\assets\img\ufrpe.png" alt="">
+</div>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
     <div class="caption">
@@ -6,12 +10,13 @@
     <div class="login-box">
       <form class="loginForm">
         <label>Usuário</label>
-        <input type="text" placeholder="Nome de Usuário" />
+        <input #usuario type="text" placeholder="Nome de Usuário" />
         <br/>
         <label>Senha</label>
-        <input type="password" placeholder="Senha de Serviços Integrados" />
-        <input id="btn_enviar" type="submit" value="Enviar" />
+        <input #senha type="password" placeholder="Senha de Serviços Integrados" />
+        <button #enviar id="btn_enviar" (click)="logar()">Enviar</button>
       </form>
     </div>
+    <img src="..\..\..\assets\img\ed_ufrpe.jpg" alt="">
   </div>
 </div>

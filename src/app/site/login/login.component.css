@@ -1,7 +1,7 @@
 /* Base CSS */
 .alignleft {
     float: left;
-    margin-right: 15px
+    margin-right: 1%;
 }
 .alignright {
     float: right;
@@ -17,13 +17,17 @@ img {
     height: auto
 }
 
-#container_image{
- background-image: url("../../../assets/img/ed_ufrpe.jpg");
- background-attachment: fixed;
- background-repeat: no-repeat;
- background-color: #fb044a;
- background-size: 600px
+#nome-site{
+    font-style: italic;
+    font-size: 3em;
+    margin-left: 5%;
+    vertical-align: 0%;
 }
+#ufrpe{
+    width: 10%;
+
+}
+
 .fix { overflow: hidden }
 h1,
 h2,
@@ -31,7 +35,7 @@ h3,
 h4,
 h5,
 h6 {
-    margin: 0 0 15px;
+    margin: 0 0 15%;
     font-weight: 900;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
@@ -51,20 +55,33 @@ a {
 a:hover { text-decoration: none }
 
 .login-box{
-    margin: 20% auto;
+    margin: 10% auto;
     position: absolute;
+    padding-bottom: 2%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .caption{
-    margin-bottom: 50px;
+    margin-bottom: 10%;
 }
 .loginForm input[type=text], .loginForm input[type=password]{
-	margin-bottom: 60px
+    margin-bottom: 10%;
+    padding-right: 3%;
 }
 
+.navbar{
+    border-radius: 0%;
+    border-style: none;
+    background:#fb044a;
+    color:#fff;
+    font-weight: 900;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+
 #btn_enviar{
-	background:#fb044a;
+    background:#fb044a;
+    border-style: none;
 	color:#fff;
 	font-weight:700;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
