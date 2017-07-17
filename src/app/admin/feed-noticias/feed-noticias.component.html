@@ -5,7 +5,7 @@
 			<div class="col col-sm-11">
 				<div class="textArea">
 				<textarea class="form-control" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
-				<button (click)="publicacao( texto.value)" type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
+				<button (click)="publicacao(texto.value)" type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
 			    </div>
 				<div class="box box-widget" *ngFor="let pub of feed" >
 	                <div class="box-header with-border" >
@@ -28,8 +28,8 @@
 	                  <!-- Attachment -->
 	                  <div class="curtidas">
 
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> descurtir </button>
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Curtir</button>
+	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei </button>
+	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Gostei</button>
 	                  <span class="pull-right text-muted">{{pub.qntCurtidas}} curtidas - {{pub.qntComentarios}} comentários</span>
 	                </div>
 

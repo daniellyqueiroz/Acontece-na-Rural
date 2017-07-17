@@ -87,7 +87,7 @@ export class FeedNoticiasComponent implements OnInit {
               idUsuario: 76,
               nome: 'Joao',
               curso: 'BCC',
-              imagem: "assets/img/fotouser.jpg",
+              imagem: "assets/img/joao.jpg",
               texto: "meu comentario",
               data: '15/07/2017 22:58:14',
               qntCurtidas: 88
@@ -176,7 +176,7 @@ export class FeedNoticiasComponent implements OnInit {
       id: 50,
       idComentario:20,
       idUsuario: 9,
-      data: "16/07/2017 18:28"
+      data: Date.now()
     }
   }
 

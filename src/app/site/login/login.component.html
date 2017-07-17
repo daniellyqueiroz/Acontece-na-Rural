@@ -14,9 +14,9 @@
         <br/>
         <label>Senha</label>
         <input #senha type="password" placeholder="Senha de Serviços Integrados" />
-        <button #enviar id="btn_enviar" (click)="logar()">Enviar</button>
+        <button #enviar id="btn_enviar" (click)="logar(usuario.value, senha.value)">Enviar</button>
       </form>
     </div>
-    <img src="..\..\..\assets\img\ed_ufrpe.jpg" alt="">
+    <img id="edufrpe" src="..\..\..\assets\img\ed_ufrpe.jpg" alt="">
   </div>
 </div>

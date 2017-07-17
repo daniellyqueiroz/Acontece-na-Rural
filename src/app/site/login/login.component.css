@@ -25,7 +25,11 @@ img {
 }
 #ufrpe{
     width: 10%;
+    float: right;
+}
 
+#edufrpe{
+    float: right;
 }
 
 .fix { overflow: hidden }
