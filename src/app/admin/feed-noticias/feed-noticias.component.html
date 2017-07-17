@@ -16,10 +16,6 @@
 	                  </div>
 	                  <!-- /.user-block -->
 	                  <div class="box-tools">
-	                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
-	                      <i class="fa fa-circle-o"></i></button>
-	                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus" aria-hidden="true"></i>
-	                    </button>
 	                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times" aria-hidden="true"></i></button>
 	                  </div>
 	                  <!-- /.box-tools -->
@@ -30,36 +26,40 @@
 	                  {{pub.texto}}
 
 	                  <!-- Attachment -->
-	                  <div class="attachment-block clearfix">
-	                    <img class="attachment-img" src="assets/img/teste.jpg" alt="Attachment Image">
+	                  <div class="curtidas">
 
-	                    <div class="attachment-pushed">
-	                      <h4 class="attachment-heading"><a href="http://www.lipsum.com/">Lorem ipsum text generator</a></h4>
-
-	                      <div class="attachment-text">
-	                        Description about the attachment can be placed here.
-	                        Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">Mais</a>
-	                      </div>
-	                      <!-- /.attachment-text -->
-	                    </div>
-	                    <!-- /.attachment-pushed -->
-	                  </div>
-	                  <!-- /.attachment-block -->
-
-	                  <!-- Social sharing buttons -->
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> compartilhar </button>
+	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> descurtir </button>
 	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Curtir</button>
 	                  <span class="pull-right text-muted">{{pub.qntCurtidas}} curtidas - {{pub.qntComentarios}} comentários</span>
 	                </div>
+
+	                <div class="  box-footer box-comments"*ngFor="let comentario of pub.comentarios" >
+	                  <div class="box-comment">
+	                    <!-- User image -->
+	                    <img class="img-circle img-sm" src={{comentario.imagem}} alt="User Image">
+
+	                    <div class="comment-text">
+	                          <span class="username">
+	                            {{comentario.nome}}
+	                            <span class="text-muted pull-right">{{comentario.data}}</span>
+
+	                          </span><!-- /.username -->
+	                      {{comentario.texto}}
+	                    </div>
+	                    <!-- /.comment-text -->
+	                  </div>
+	                 </div>
+
 	                <!-- /.box-body -->
 	                
 	                <!-- /.box-footer -->
 	                <div class="box-footer">
-	                  <form action="#" method="post">
-	                    <img class="img-responsive img-circle img-sm" src="assets/img/fotouser.jpg" alt="Alt Text">
+	                  <form >
+	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
 	                    <!-- .img-push is used to add margin to elements next to floating images -->
-	                    <div class="img-push">
-	                      <input type="text" class="form-control input-sm" placeholder="Pressione enter para postar seu comentário">
+	                    <div  class="img-push">
+	                      <input type="text" class="form-control input-sm" placeholder="poste seu comentário" #comentarioTexto>
+	                      <button (click) = "addComentario( pub, comentarioTexto.value)" type="button" class="btn btn-default btn-xs"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> enviar</button>
 	                    </div>
 	                  </form>
 	                </div> <!-- /.box-footer -->
