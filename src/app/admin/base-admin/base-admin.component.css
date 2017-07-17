@@ -1,3 +1,16 @@
+
+@media (max-width: 767px) {
+.btn-primary{background-color: #123456 !important;}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .btn-primary{background-color: #fff !important;}
+}
+@media (min-width: 992px ) and (max-width: 1199px) {
+  .btn-primary{background-color: #000 !important;}
+ }
+@media (min-width: 1200px) {
+
+}
 .box {
   position: relative;
   border-radius: 3px;
@@ -36,7 +49,7 @@ table.text-center th {
 }
 
 .box.box-primary {
-  border-top-color: #000080;
+  border-top-color: #fff;
 }
 
   .nav-tabs-custom > .nav-tabs.pull-right {
@@ -44,13 +57,22 @@ table.text-center th {
 }
 
 .btn-primary {
-  background-color: #000080;
-  border-color: #000080;
+   color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #005aa8;
+  background-image: linear-gradient(to bottom,#0070a8,#0038a8);
+  background-repeat: repeat-x;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
 .btn-primary:hover,
 .btn-primary:active,
 .btn-primary.hover {
-  background-color: #000080;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #005aa8;
+  background-image: linear-gradient(to bottom,#0070a8,#0038a8);
+  background-repeat: repeat-x;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
 }
 /*
  * Page: Profile
