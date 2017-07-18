@@ -1,12 +1,21 @@
 
-	<div class="col col-sm-9">
+	<div class="col col-md-9">
 		<div class="row">
-	
-			<div class="col col-sm-11">
-				<div class="textArea">
-				<textarea class="form-control" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
-				<button (click)="publicacao(texto.value)" type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
+			<div class="col col-md-11 col-sm-12">
+				<div class="box box-widget">
+					<div class="box-header with-border" style="padding: 5px 12px;">
+		              <h4 class="box-title">O que aconteceu?</h4>
+		            </div>
+            		<div class="box-body">
+						<textarea class="form-control" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
+						<button (click)="publicacao(texto.value)" type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
+			    	</div>
 			    </div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col col-md-11 col-sm-12">
 				<div class="box box-widget" *ngFor="let pub of feed" >
 	                <div class="box-header with-border" >
 	                  <div class="user-block">
@@ -64,11 +73,12 @@
 	                  </form>
 	                </div> <!-- /.box-footer -->
 				</div>
-			</div><!--col1-->
-			
+				</div><!--col1-->
+			</div>
 		</div> <!--row1-->
+
 		<div class="row">
-			<div class="col col-sm-11">
+			<div class="col col-md-11 col-sm-12">
 				<div class="box box-widget">
 	                <div class="box-header with-border">
 	                  <div class="user-block">
@@ -170,10 +180,10 @@
 			</div><!--col2-->
 			
 		</div><!--row2-->
-		<div class="row">
 
-			<div class="col col-sm-11">
-				<div class="box box-widget">
+		<div class="row">
+			<div class="col col-md-11 col-sm-12">
+			  <div class="box box-widget">
                 <div class="box-header with-border">
                   <div class="user-block">
                     <img class="img-circle" src="assets/img/bruno.jpg" alt="User Image">

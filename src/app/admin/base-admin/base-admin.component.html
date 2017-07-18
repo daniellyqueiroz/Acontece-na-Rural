@@ -1,6 +1,6 @@
-
-<!--menu-->
-<nav class="navbar navbar-static-top">
+<div style="background-color: #f7f7f7;">
+  <!--menu-->
+  <nav class="navbar navbar-static-top navbar-fixed-top">
       <!-- Sidebar toggle button-->
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
@@ -8,9 +8,8 @@
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav pull-right">
-         
           <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown notifications-menu">
+          <li class="dropdown messages-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               <i class="fa fa-bell-o"></i>
               <span class="label label-warning">10</span>
@@ -20,73 +19,109 @@
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-                  <li>
+                  <li><!-- start message -->
                     <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <div class="pull-left">
+                        <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Bruno Marques
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fa fa-warning text-yellow"></i> Very long description here that may not fit into the
-                      page and may cause design problems
+                      <div class="pull-left">
+                        <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Bruno Marques
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fa fa-users text-red"></i> 5 new members joined
+                      <div class="pull-left">
+                        <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Bruno Marques
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fa fa-shopping-cart text-green"></i> 25 sales made
+                      <div class="pull-left">
+                        <img src="assets/img/joao.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Joao
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                   <li>
                     <a href="#">
-                      <i class="fa fa-user text-red"></i> You changed your username
+                      <div class="pull-left">
+                        <img src="assets/img/joao.jpg" class="img-circle" alt="User Image">
+                      </div>
+                      <h4>
+                        Joao
+                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p>Why not buy a new awesome theme?</p>
                     </a>
                   </li>
                 </ul>
               </li>
-              <li class="footer"><a href="#">View all</a></li>
             </ul>
           </li>
           
           <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu">
+          <li class="dropdown user user-menu notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
               <img src="assets/img/fotouser.jpg" class="user-image" alt="User Image">
               <span class="hidden-xs">Danielly Queiroz</span>
             </a>
             <ul class="dropdown-menu">
-              <!-- User image -->
-              <li class="user-header">
-                <img src="assets/img/fotouser.jpg" class="img-circle" alt="User Image">
-
-                <p id="info-user">
-                  Danielly Queiroz
-                  <small>Recife-PE</small>
-                </p>
+              <li>
+                <!-- inner menu: contains the actual data -->
+                <ul class="menu">
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-newspaper-o"></i> Feed
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-newspaper-o"></i> Noticias oficiais
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-edit"></i> Atividades do AVA
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-calendar"></i> Calendario academico
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <i class="fa fa-user"></i> Registro de atividades
+                    </a>
+                  </li>
+                </ul>
               </li>
-              <!-- Menu Body -->
-              <li class="user-body">
-                <div class="row">
-                  <div class="col-xs-6 text-center">
-                    <a href="#">Registro de Atividades</a>
-                  </div>
-                  <div class="col-xs-6 text-center">
-                    <a href="#">Configurações</a>
-                  </div>
-                  
-                </div> 
-                <!-- /.row -->
-              </li>
-              <!-- Menu Footer-->
-              <li class="user-footer">
-                <div class="pull-right">
-                  <a [routerLink]="'/login'" class="btn btn-default btn-flat">Sair</a>
-                </div>
-              </li>
+              <li class="footer"><a href="#">Sair</a></li>
             </ul>
           </li>
           <!-- Control Sidebar Toggle Button -->
@@ -95,35 +130,40 @@
           </li>
         </ul>
       </div>
+  </nav>
 
-    </nav>
-
-<!--Perfil-->
-<body >
-  <div class="row">
-    <div class="col col-sm-3">
-    	<div class="box box-primary">
-          <div class="box-body box-profile">
-            <img class="profile-user-img img-responsive img-circle" src="assets/img/fotouser.jpg" alt="User profile picture">
-            <h3 class="profile-username text-center">Danielly Queiroz</h3>
-            <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
-            <ul class="list-group list-group-unbordered">
-              <li class="list-group-item">
-                <a [routerLink]="'/user/feed'" href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</b></a>
-              </li>
-              <li class="list-group-item">
-                <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Atividades do AVA </b></a>
-              </li>
-              <li class="list-group-item">
-                <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias Oficiais </b></a>
-              </li>
-              <li class="list-group-item">
-                <a href="#"><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
-              </li>
-            </ul>
-            <!--> <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a> -->
-          </div>
+  <!--Perfil-->
+  <div class="container">
+    <div class="row" style="margin-top: 60px;">
+      <div class="col col-sm-3 hidden-sm hidden-xs">
+      	<div class="box box-primary">
+            <div class="box-body box-profile">
+              <img class="profile-user-img img-responsive img-circle" src="assets/img/fotouser.jpg" alt="User profile picture">
+              <h3 class="profile-username text-center">Danielly Queiroz</h3>
+              <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <a [routerLink]="'/user/feed'" href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</b></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Atividades do AVA </b></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias Oficiais </b></a>
+                </li>
+                <li class="list-group-item">
+                  <a href="#"><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
+                </li>
+                <li class="list-group-item">
+                  <a href="#"><b><i class="fa fa-user" aria-hidden="true"></i> Registro de atividades </b></a> 
+                </li>
+              </ul>
+              <!--> <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a> -->
+            </div>
+        </div>
       </div>
- </div>
 
-<router-outlet></router-outlet>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

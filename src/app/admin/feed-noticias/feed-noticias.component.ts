@@ -16,9 +16,7 @@ export class FeedNoticiasComponent implements OnInit {
 
   constructor() { 
 
-  	this.usuarioLogado =
-      {
-
+  	this.usuarioLogado = {
   		id: '1',
   		imagem: "assets/img/fotouser.jpg",
   		curso: 'Ciência da Computação',
@@ -26,7 +24,7 @@ export class FeedNoticiasComponent implements OnInit {
     };
 
   	this.feed =[
-  		{
+      {
   			id: '2',
   			nome: this.usuarioLogado.nome,
   			imagem: this.usuarioLogado.imagem,
@@ -112,7 +110,7 @@ export class FeedNoticiasComponent implements OnInit {
               curso: 'BCC',
               imagem: "assets/img/joao.jpg",
               texto: "Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.",
-              data: 80989,
+              data: 890809,
               qntCurtidas: 3
             }]
           }
@@ -125,9 +123,7 @@ export class FeedNoticiasComponent implements OnInit {
   }
 
   publicacao(pubTexto: any){
-
     let novaPublicacao= {
-        
       id: 4,
       texto: pubTexto,
       data: Date.now(),
@@ -135,7 +131,6 @@ export class FeedNoticiasComponent implements OnInit {
       videos: [],
       comentarios:[],
       curtidas: 0,
-        
       nome: this.usuarioLogado.nome,
       curso: this.usuarioLogado.curso,
       imagem: this.usuarioLogado.imagem,
@@ -144,31 +139,26 @@ export class FeedNoticiasComponent implements OnInit {
     }
     
     if(pubTexto!=null && pubTexto.length >0){
-      
        this.feed.unshift(novaPublicacao);
     }
         
   }
 
   addComentario(publicacao: any, comentarioTexto: any){
-   
     let novoComentario = {
       id: 1,
       idPublicacao:10,
       texto: comentarioTexto,
       data: Date.now(),
       curtidas: 0,
-    
-          nome: publicacao.nome,
-          curso: publicacao.curso,
-          imagem: publicacao.imagem
-      
+      nome: publicacao.nome,
+      curso: publicacao.curso,
+      imagem: publicacao.imagem
     }
-     if(comentarioTexto!=null && comentarioTexto.length >0){
+
+    if(comentarioTexto!=null && comentarioTexto.length >0){
         publicacao.comentarios.push(novoComentario);
     }
-
-
   }
 
   contCurtidas(){
