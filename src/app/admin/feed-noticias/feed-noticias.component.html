@@ -2,15 +2,22 @@
 	<div class="col col-md-9">
 		<div class="row">
 			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget">
-					<div class="box-header with-border" style="padding: 5px 12px;">
-		              <h4 class="box-title">O que aconteceu?</h4>
-		            </div>
+				<div class="box box-widget box-post">
             		<div class="box-body">
-						<textarea class="form-control" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
-						<button (click)="publicacao(texto.value)" type="button" class ="btn btn-primary" id="publicar"> Publicar </button>
+						<textarea class="form-control" placeholder="O que aconteceu?" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
 			    	</div>
-			    </div>
+			    	<div class="box-footer box-comments">
+	                	<div class="box-comment">
+	                		<button type="button" class ="btn bg-gray">
+	                			<i class="fa fa-camera" aria-hidden="true"></i>
+	                		</button>
+	                		<button type="button" class ="btn bg-gray">
+	                			<i class="fa fa-film" aria-hidden="true"></i>
+	                		</button>
+	                    	<button (click)="publicacao(texto.value)" type="button" class ="btn bg-primary pull-right" id="publicar"> Publicar </button>
+	                    </div>
+	                </div> 
+               	</div>
 			</div>
 		</div>
 
@@ -55,13 +62,13 @@
 	                  <!-- /.attachment-block -->
 
 	                  <!-- Social sharing buttons -->
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei </button>
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Gostei</button>
-	                  <span class="pull-right text-muted">45 likes - 2 comments</span>
+	                  <a class="link-black link-action link-unlike text-sm margin-r-5"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei (1)</a>
+	                  <a class="link-black link-action link-like text-sm"><i class="fa fa-thumbs-o-up"></i> Gostei ({{pub.qntCurtidas}})</a>
+	                  <span class="pull-right link-black text-sm">comentarios ({{pub.qntComentarios}})</span>
 	                </div>
 	                <!-- /.box-body -->
-	                <div class="  box-footer box-comments" *ngFor="let comentario of pub.comentarios">
-	                  <div class="box-comment">
+	                <div class="  box-footer box-comments">
+	                  <div class="box-comment" *ngFor="let comentario of pub.comentarios">
 	                    <!-- User image -->
 	                    <img class="img-circle img-sm" src="{{comentario.imagem}}" alt="User Image">
 
@@ -75,7 +82,7 @@
 	                    <!-- /.comment-text -->
 	                  </div> 
 
-               	 </div>
+               	 	</div>
 	                <!-- /.box-footer -->
 	                <div class="box-footer">
 	                  <form >

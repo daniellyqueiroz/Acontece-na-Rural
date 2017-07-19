@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FeedNoticiasComponent } from '../feed-noticias/feed-noticias.component';
 
+declare function setAdminBg();
+
 @Component({
   selector: 'app-base-admin',
   templateUrl: './base-admin.component.html',
@@ -15,6 +17,7 @@ export class BaseAdminComponent implements OnInit {
   }
 
   ngOnInit() {
+  	setAdminBg();
   }
 
 }

@@ -301,12 +301,31 @@ table.text-center th {
   margin-bottom: 10px;
  }
  #publicar{
-  margin-top: 20px;
   width: 150px;
  }
  .curtidas{
   margin-top: 20px;
   margin-bottom: 10px;
  }
+ .link-action{
+  cursor: pointer;
+ }
+ .link-unlike{
+  color: #dc5847;
+  font-weight: bold;
+ }
+ .link-like{
+  color: #3c8dbc;
+  font-weight: bold;
+ }
+
+/* POST AREA */
+.box-post textarea, .box-post textarea:focus{
+  border-color: transparent;
+  max-width: 100%;
+}
+.box-post .box-comment{
+  padding: 0px;
+}
  
 

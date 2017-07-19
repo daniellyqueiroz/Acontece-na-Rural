@@ -33,7 +33,7 @@ export class FeedNoticiasComponent implements OnInit {
   			videos: [],
   			data: 890809,
   			qntCurtidas: '98',
-  			qntComentarios: '2',
+  			qntComentarios: '3',
   			comentarios: [{
   				id :11,
           idPublicacao: 54,
@@ -77,8 +77,8 @@ export class FeedNoticiasComponent implements OnInit {
             fotos: [],
             videos: [],
             data: 890809,
-            qntCurtidas: '98',
-            qntComentarios: '2',
+            qntCurtidas: '28',
+            qntComentarios: '1',
             comentarios: [{
               id :32,
               idPublicacao: 65,
@@ -100,8 +100,8 @@ export class FeedNoticiasComponent implements OnInit {
             fotos: [],
             videos: [],
             data:  890809,
-            qntCurtidas: '98',
-            qntComentarios: '2',
+            qntCurtidas: '40',
+            qntComentarios: '1',
             comentarios: [{
               id:11,
               idPublicacao: 54,
