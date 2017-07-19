@@ -14,84 +14,19 @@
 			</div>
 		</div>
 
-		<div class="row">
-			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget" *ngFor="let pub of feed" >
-	                <div class="box-header with-border" >
-	                  <div class="user-block">
-	                    <img class="img-circle" src= {{pub.imagem}} alt="User Image">
-	                    <span class="username"><a href="#">{{pub.nome}}</a></span>
-	                    <span class="description"> {{pub.data| date: 'medium'}}</span>
-	                  </div>
-	                  <!-- /.user-block -->
-	                  <div class="box-tools">
-	                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times" aria-hidden="true"></i></button>
-	                  </div>
-	                  <!-- /.box-tools -->
-	                </div>
-	                <!-- /.box-header -->
-	                <div class="box-body">
-	                  <!-- post text -->
-	                  {{pub.texto}}
 
-	                  <!-- Attachment -->
-	                  <div class="curtidas">
-
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei </button>
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Gostei</button>
-	                  <span class="pull-right text-muted">{{pub.qntCurtidas}} curtidas - {{pub.qntComentarios}} comentários</span>
-	                </div>
-
-	                <div class="  box-footer box-comments"*ngFor="let comentario of pub.comentarios" >
-	                  <div class="box-comment">
-	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src={{comentario.imagem}} alt="User Image">
-
-	                    <div class="comment-text">
-	                          <span class="username">
-	                            {{comentario.nome}}
-	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
-
-	                          </span><!-- /.username -->
-	                      {{comentario.texto}}
-	                    </div>
-	                    <!-- /.comment-text -->
-	                  </div>
-	                 </div>
-
-	                <!-- /.box-body -->
-	                
-	                <!-- /.box-footer -->
-	                <div class="box-footer">
-	                  <form >
-	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
-	                    <!-- .img-push is used to add margin to elements next to floating images -->
-	                    <div  class="img-push">
-	                      <input type="text" class="form-control input-sm" placeholder="poste seu comentário" #comentarioTexto>
-	                      <button (click) = "addComentario( pub, comentarioTexto.value)" type="button" class="btn btn-default btn-xs"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> enviar</button>
-	                    </div>
-	                  </form>
-	                </div> <!-- /.box-footer -->
-				</div>
-				</div><!--col1-->
-			</div>
-		</div> <!--row1-->
 
 		<div class="row">
 			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget">
+				<div class="box box-widget" *ngFor="let pub of feed">
 	                <div class="box-header with-border">
 	                  <div class="user-block">
-	                    <img class="img-circle" src="assets/img/bruno.jpg" alt="User Image">
-	                    <span class="username"><a href="#">Bruno Marques</a></span>
-	                    <span class="description">Shared publicly - 7:30 PM Today</span>
+	                    <img class="img-circle" src="{{pub.imagem}}" alt="User Image">
+	                    <span class="username">{{pub.nome}}</span>
+	                    <span class="description">{{pub.data| date: 'medium'}}</span>
 	                  </div>
 	                  <!-- /.user-block -->
 	                  <div class="box-tools">
-	                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
-	                      <i class="fa fa-circle-o"></i></button>
-	                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus" aria-hidden="true"></i>
-	                    </button>
 	                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times" aria-hidden="true"></i></button>
 	                  </div>
 	                  <!-- /.box-tools -->
@@ -99,17 +34,10 @@
 	                <!-- /.box-header -->
 	                <div class="box-body">
 	                  <!-- post text -->
-	                  <p>Far far away, behind the word mountains, far from the
-	                    countries Vokalia and Consonantia, there live the blind
-	                    texts. Separated they live in Bookmarksgrove right at</p>
-
-	                  <p>the coast of the Semantics, a large language ocean.
-	                    A small river named Duden flows by their place and supplies
-	                    it with the necessary regelialia. It is a paradisematic
-	                    country, in which roasted parts of sentences fly into
-	                    your mouth.</p>
+	                  <p>{{pub.texto}}</p>
 
 	                  <!-- Attachment -->
+	                  <!-- PARTE DA FOTO NA PUTLIBACAO
 	                  <div class="attachment-block clearfix">
 	                    <img class="attachment-img" src="assets/img/teste.jpg" alt="Attachment Image">
 
@@ -120,58 +48,42 @@
 	                        Description about the attachment can be placed here.
 	                        Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
 	                      </div>
-	                      <!-- /.attachment-text -->
+	                      <!-- /.attachment-text 
 	                    </div>
-	                    <!-- /.attachment-pushed -->
-	                  </div>
+	                    <!-- /.attachment-pushed 
+	                  </div> -->
 	                  <!-- /.attachment-block -->
 
 	                  <!-- Social sharing buttons -->
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
-	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei </button>
+	                  <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Gostei</button>
 	                  <span class="pull-right text-muted">45 likes - 2 comments</span>
 	                </div>
 	                <!-- /.box-body -->
-	                <div class="  box-footer box-comments">
+	                <div class="  box-footer box-comments" *ngFor="let comentario of pub.comentarios">
 	                  <div class="box-comment">
 	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
+	                    <img class="img-circle img-sm" src="{{comentario.imagem}}" alt="User Image">
 
 	                    <div class="comment-text">
 	                          <span class="username">
-	                            Maria Gonzales
-	                            <span class="text-muted pull-right">8:03 PM Today</span>
+	                            {{comentario.nome}}
+	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
 	                          </span><!-- /.username -->
-	                      It is a long established fact that a reader will be distracted
-	                      by the readable content of a page when looking at its layout.
+	                      	{{comentario.texto}}
 	                    </div>
 	                    <!-- /.comment-text -->
-	                  </div>
-	                  <!-- /.box-comment -->
-	                  <div class="box-comment">
-	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
+	                  </div> 
 
-	                    <div class="comment-text">
-	                          <span class="username">
-	                            Nora Havisham
-	                            <span class="text-muted pull-right">8:03 PM Today</span>
-	                          </span><!-- /.username -->
-	                      The point of using Lorem Ipsum is that it has a more-or-less
-	                      normal distribution of letters, as opposed to using
-	                      'Content here, content here', making it look like readable English.
-	                    </div>
-	                    <!-- /.comment-text -->
-	                  </div>
-	                  <!-- /.box-comment -->
-	                </div>
+               	 </div>
 	                <!-- /.box-footer -->
 	                <div class="box-footer">
-	                  <form action="#" method="post">
-	                    <img class="img-responsive img-circle img-sm" src="assets/img/fotouser.jpg" alt="Alt Text">
+	                  <form >
+	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
 	                    <!-- .img-push is used to add margin to elements next to floating images -->
 	                    <div class="img-push">
-	                      <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+	                      <input type="text" class="form-control input-sm" placeholder="Comente essa publicação" #comentarioTexto>
+	                      <button (click) = "addComentario( pub, comentarioTexto.value)" type="button" class="btn btn-default btn-xs"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> enviar</button>
 	                    </div>
 	                  </form>
 	                </div> <!-- /.box-footer -->

@@ -1,92 +1,9 @@
-/* Base CSS */
-.alignleft {
-    float: left;
-    margin-right: 1%;
-}
-.alignright {
-    float: right;
-    margin-left: 15px
-}
-.aligncenter {
-    display: block;
-    margin: 0 auto 200px
-}
-a:focus { outline: 0 solid }
-img {
-    max-width: 100%;
-    height: auto
-}
-
-#nome-site{
-    font-style: italic;
-    font-size: 3em;
-    margin-left: 5%;
-    vertical-align: 0%;
-}
-#ufrpe{
-    width: 10%;
-    float: right;
-}
-
-#edufrpe{
-    float: right;
-}
-
-.fix { overflow: hidden }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    margin: 0 0 15%;
-    font-weight: 900;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
-}
-html,
-body { 
-    height: 100%
-}
-
-a {
-    -moz-transition: 0.3s;
-    -o-transition: 0.3s;
-    -webkit-transition: 0.3s;
-    transition: 0.3s;
-    color: #333
-}
-
-a:hover { text-decoration: none }
-
-.login-box{
-    margin: 10% auto;
-    position: absolute;
-    padding-bottom: 2%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-.caption{
-    margin-bottom: 10%;
-}
-.loginForm input[type=text], .loginForm input[type=password]{
-    margin-bottom: 10%;
-    padding-right: 3%;
-}
-
-.navbar{
-    border-radius: 0%;
-    border-style: none;
-    background-color: #1b2d4f;
+.login-logo{
     color:#fff;
-    font-weight: 900;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
-
-
-#btn_enviar{
-    background:#fb044a;
-    border-style: none;
-	color:#fff;
-	font-weight:700;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+.login-page{
+    background: #1b2d4f!important ;
+}
+.bg-app{
+    background: #1b2d4f!important ;
 }
