@@ -89,8 +89,14 @@
 	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
 	                    <!-- .img-push is used to add margin to elements next to floating images -->
 	                    <div class="img-push">
-	                      <input type="text" class="form-control input-sm" placeholder="Comente essa publicação" #comentarioTexto>
-	                      <button (click) = "addComentario( pub, comentarioTexto.value)" type="button" class="btn btn-default btn-xs"><i class="fa fa-paper-plane-o" aria-hidden="true"></i> enviar</button>
+	                    	<div class="input-group">
+					      		<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
+					      		<div class="input-group-btn">
+			               			<button (click)="addComentario( pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
+			                		<span class="fa fa-comment" aria-hidden="true"></span>
+									</button>
+						  		</div>
+					    	</div>
 	                    </div>
 	                  </form>
 	                </div> <!-- /.box-footer -->
@@ -167,7 +173,14 @@
                     <img class="img-responsive img-circle img-sm" src="assets/img/fotouser.jpg" alt="Alt Text">
                     <!-- .img-push is used to add margin to elements next to floating images -->
                     <div class="img-push">
-                      <input type="text" class="form-control input-sm" placeholder="Press enter to post comment">
+                      <div class="input-group">
+					      <input type="text" class="form-control" placeholder="Type your comment" #dComment>
+					      <div class="input-group-btn">
+			                <button (click)="sendComment(dish, dComment)" type="button" class="btn btn-warning input-md">
+			                	<span class="fa fa-comment" aria-hidden="true"></span>
+							</button>
+						  </div>
+					    </div>
                     </div>
                   </form>
                 </div>
