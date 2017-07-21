@@ -35,8 +35,7 @@ export class FeedNoticiasComponent implements OnInit {
         data: 890809,
         pessoasCurtiram: [],
         pessoasDescurtiram: [],
-        qntCurtidas: '98',
-        qntComentarios: '3',
+        nomeUsuario: 'dani',
         comentarios: [{
           id: 11,
           idPublicacao: 54,
@@ -82,8 +81,7 @@ export class FeedNoticiasComponent implements OnInit {
         data: 890809,
         pessoasCurtiram: [],
         pessoasDescurtiram: [],
-        qntCurtidas: '28',
-        qntComentarios: '1',
+        nomeUsuario: 'dani',
         comentarios: [{
           id: 32,
           idPublicacao: 65,
@@ -107,8 +105,7 @@ export class FeedNoticiasComponent implements OnInit {
         data: 890809,
         pessoasCurtiram: [],
         pessoasDescurtiram: [],
-        qntCurtidas: '40',
-        qntComentarios: '1',
+        nomeUsuario: 'dani',
         comentarios: [{
           id: 11,
           idPublicacao: 54,
@@ -132,19 +129,18 @@ export class FeedNoticiasComponent implements OnInit {
   publicacao(pubTexto: any) {
     let novaPublicacao = {
       id: 4,
-      texto: pubTexto,
       data: Date.now(),
+      texto: pubTexto,
       fotos: [],
       videos: [],
       comentarios: [],
       pessoasCurtiram: [],
       pessoasDescurtiram: [],
-      curtidas: 0,
-      descurtidas: 0,
       nome: this.usuarioLogado.nome,
       curso: this.usuarioLogado.curso,
       imagem: this.usuarioLogado.imagem,
-      idUsuario: this.usuarioLogado.id
+      idUsuario: this.usuarioLogado.id,
+      nomeUsuario: this.usuarioLogado.nomeUsuario
     }
 
     if (pubTexto != null && pubTexto.length > 0) {
@@ -156,39 +152,50 @@ export class FeedNoticiasComponent implements OnInit {
   gostarPublicacao(publicacao: any, nomeUsuario: string){
     //se true: gostar
     let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
-    let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
     let gostou = true;
     if (indexGostar == -1) {//pessoa ainda não curtiu
       publicacao.pessoasCurtiram.unshift(nomeUsuario);
+      let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
       publicacao.pessoasDescurtiram.splice(indexNaoGostar, 1);
     } else {
       publicacao.pessoasCurtiram.splice(indexGostar, 1);
     }
 }
 
+removerPublicacao(publicacao: any, nomeUsuario: string){
+  if (publicacao.nomeUsuario == nomeUsuario){
+      let index = this.feed.indexOf(publicacao);
+      this.feed.splice(index,1);
+  }
+}
+
 gostou(publicacao: any, nomeUsuario: string): boolean {
   let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
-  let retorno = true;
-  if (indexGostar == -1){
-    let retorno = false;
+  let retorno = false;
+  if (indexGostar != -1){
+    let retorno = true;
   }
   return retorno;
 }
 
 naoGostou(publicacao: any, nomeUsuario: string): boolean {
   let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
-  let retorno = true;
-  if (indexNaoGostar == -1){
-    let retorno = false;
+  let retorno = false;
+  if (indexNaoGostar != -1){
+    let retorno = true;
   }
   return retorno;
 }
 
+registrarAtividade(atividade: any, nomeUsuario: string){
+
+}
+
 naoGostarPublicacao(publicacao: any, nomeUsuario: string){
-  let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
   let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
   if (indexNaoGostar == -1) {//pessoa ainda não clicou em 'não gostei'
     publicacao.pessoasDescurtiram.unshift(nomeUsuario);
+    let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
     publicacao.pessoasCurtiram.splice(indexGostar, 1);
   } else {
     publicacao.pessoasDescurtiram.splice(indexNaoGostar, 1);

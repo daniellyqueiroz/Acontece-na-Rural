@@ -311,7 +311,7 @@ table.text-center th {
   cursor: pointer;
  }
  .link-likeunlike{
-  color: #d2d6de;
+  color: #444;
   font-weight: bold;
  }
  .link-unlike{
