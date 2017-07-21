@@ -310,6 +310,10 @@ table.text-center th {
  .link-action{
   cursor: pointer;
  }
+ .link-likeunlike{
+  color: #d2d6de;
+  font-weight: bold;
+ }
  .link-unlike{
   color: #dc5847;
   font-weight: bold;
