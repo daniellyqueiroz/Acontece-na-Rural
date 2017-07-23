@@ -1,0 +1,74 @@
+
+
+h1, h2, h3, h4, h5, h6 {
+    
+    text-shadow: 1px 1px 1px #eaf1ea;
+}
+
+h1 {
+    font-size: 32px;
+    margin: 0 0 20px 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  
+    line-height: 120%;
+    
+    font-family: Myriad Pro, "Lucida Grande", "Lucida Sans Unicode", Segoe UI, Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    display: block;
+   
+    -webkit-margin-before: 0.67em;
+    -webkit-margin-after: 0.67em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    font-weight: bold;
+}
+
+
+
+.panel-flexible .panel-separator {
+    margin: 0 0 1em 0;
+}
+
+div {
+    display: block;
+}
+
+.region-content {
+    line-height: 155%;
+}
+
+
+
+img.file-icon, div.file-widget img {
+    vertical-align: middle;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: bottom;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+img {
+    border: 0;
+}
+
+a, li a.active, #footer a:hover, #footer li a.active:hover, #footer-bottom a:hover, #footer-bottom li a.active:hover, #header a, #header-menu ul.menu li a:hover, #header-menu ul.menu li a.active, #header-menu ul.menu li ul.menu li a:hover, #navigation .block-superfish ul.sf-menu li a:focus, #navigation .block-superfish ul.sf-menu li a:hover, #navigation .block-superfish ul.sf-menu li a.active, .front .node h1.front-heading {
+    
+}
+
+a, li a.active {
+    text-decoration: none;
+}

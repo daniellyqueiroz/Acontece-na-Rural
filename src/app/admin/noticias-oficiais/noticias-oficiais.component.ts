@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+declare function getRss();
+
 @Component({
   selector: 'app-noticias-oficiais',
   templateUrl: './noticias-oficiais.component.html',
@@ -118,6 +120,7 @@ export class NoticiasOficiaisComponent implements OnInit {
 
 
   ngOnInit() {
+    getRss();
   }
 
   publicacao(pubTexto: any){

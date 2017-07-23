@@ -5,167 +5,182 @@
       <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+      
+        
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
-        <ul class="nav navbar-nav pull-right">
-          <!-- Notifications: style can be found in dropdown.less -->
-          <li class="dropdown messages-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
-            </a>
-            <ul class="dropdown-menu pull-right">
-              <li class="header">You have 10 notifications</li>
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li><!-- start message -->
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Bruno Marques
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Bruno Marques
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Bruno Marques
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="assets/img/joao.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Joao
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <div class="pull-left">
-                        <img src="assets/img/joao.jpg" class="img-circle" alt="User Image">
-                      </div>
-                      <h4>
-                        Joao
-                        <small><i class="fa fa-clock-o"></i> 5 mins</small>
-                      </h4>
-                      <p>Why not buy a new awesome theme?</p>
-                    </a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          
-          <!-- User Account: style can be found in dropdown.less -->
-          <li class="dropdown user user-menu notifications-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-              <img src="assets/img/fotouser.jpg" class="user-image" alt="User Image">
-              <span class="hidden-xs">Danielly Queiroz</span>
-            </a>
-            <ul class="dropdown-menu">
-              <li>
-                <!-- inner menu: contains the actual data -->
-                <ul class="menu">
-                  <li>
-                    <a [routerLink]="'/user/feed'">
-                      <i class="fa fa-newspaper-o"></i> Feed
-                    </a>
-                  </li>
-                  <li>
-                    <a [routerLink]="'/user/oficial'">
-                      <i class="fa fa-newspaper-o"></i> Noticias oficiais
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-edit"></i> Atividades do AVA
-                    </a>
-                  </li>
-                  <li>
-                    <a [routerLink]="'/user/calendario'">
-                      <i class="fa fa-calendar"></i> Calendario academico
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="fa fa-user"></i> Registro de Atividades
-                    </a>
-                  </li>
-                  <li>
-                    <a [routerLink]="'/user/configuracao'">
-                      <i class="fa fa-gears"></i>Configuração
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="footer"><a [routerLink]="''">Sair</a></li>
-            </ul>
-          </li>
-          <!-- Control Sidebar Toggle Button -->
-          
-        </ul>
-      </div>
-  </nav>
+        <div class="container">
+          <ul class="nav navbar-nav pull-left">
+            <img class="img-logo" src="./assets/ANR-LOGO/anr_light.svg">
+            <div class="logo-texto">Acontece na Rural</div>
+          </ul>
+        
+          <ul class="nav navbar-nav pull-right">
 
-  <!--Perfil-->
-  <div class="container">
-    <div class="row" style="margin-top: 60px;">
-      <div class="col col-sm-3 hidden-sm hidden-xs">
-      	<div class="box box-primary">
-            <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="assets/img/fotouser.jpg" alt="User profile picture">
-              <h3 class="profile-username text-center">Danielly Queiroz</h3>
-              <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <a [routerLink]="'/user/feed'"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</b></a>
-                </li>
-                <li class="list-group-item">
-                  <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Atividades do AVA </b></a>
-                </li>
-                <li class="list-group-item">
-                  <a [routerLink]="'/user/oficial'"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias Oficiais </b></a>
-                </li>
-                <li class="list-group-item">
-                  <a [routerLink]="'/user/calendario'" ><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
-                </li>
-                <li class="list-group-item">
-                  <a href="#"><b><i class="fa fa-user" aria-hidden="true"></i> Registro de atividades </b></a> 
-                </li>
-                 <li class="list-group-item">
-                  <a [routerLink]="'/user/configuracao'"><b><i class="fa fa-gears" aria-hidden="true"></i> Configuração </b></a> 
+            <!-- Notifications: style can be found in dropdown.less -->
+            <li class="dropdown messages-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <i class="fa fa-bell"></i>
+                <span class="label label-warning">10</span>
+              </a>
+              <ul class="dropdown-menu pull-right">
+                <li class="header">You have 10 notifications</li>
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <ul class="menu">
+                    <li><!-- start message -->
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                          Bruno Marques
+                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                          Bruno Marques
+                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="assets/img/bruno.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                          Bruno Marques
+                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="assets/img/joao.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                          Joao
+                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <div class="pull-left">
+                          <img src="assets/img/joao.jpg" class="img-circle" alt="User Image">
+                        </div>
+                        <h4>
+                          Joao
+                          <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                        </h4>
+                        <p>Why not buy a new awesome theme?</p>
+                      </a>
+                    </li>
+                  </ul>
                 </li>
               </ul>
-              <!--> <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a> -->
-            </div>
+            </li>
+            
+            <!-- User Account: style can be found in dropdown.less -->
+            <li class="dropdown user user-menu notifications-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <img src="assets/img/fotouser.jpg" class="user-image" alt="User Image">
+                <span class="hidden-xs">Danielly Queiroz</span>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <!-- inner menu: contains the actual data -->
+                  <ul class="menu">
+                    <li>
+                      <a [routerLink]="'/user/feed'">
+                        <i class="fa fa-newspaper-o"></i> Feed
+                      </a>
+                    </li>
+                    <li>
+                      <a [routerLink]="'/user/oficial'">
+                        <i class="fa fa-newspaper-o"></i> Noticias oficiais
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-edit"></i> Atividades do AVA
+                      </a>
+                    </li>
+                    <li>
+                      <a [routerLink]="'/user/calendario'">
+                        <i class="fa fa-calendar"></i> Calendario academico
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <i class="fa fa-user"></i> Registro de Atividades
+                      </a>
+                    </li>
+                    <li>
+                      <a [routerLink]="'/user/configuracao'">
+                        <i class="fa fa-gears"></i>Configuração
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="footer"><a [routerLink]="''">Sair</a></li>
+              </ul>
+            </li>
+            <!-- Control Sidebar Toggle Button -->
+            
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!--Perfil-->
+    <div class="container">
+      <div class="row" style="margin-top: 60px;">
+        <div class="col col-sm-3 hidden-sm hidden-xs">
+        	<div class="box box-primary">
+              <div class="box-body box-profile">
+                <img class="profile-user-img img-responsive img-circle" src="assets/img/fotouser.jpg" alt="User profile picture">
+                <h3 class="profile-username text-center">Danielly Queiroz</h3>
+                <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
+                <ul class="list-group list-group-unbordered">
+                  <li class="list-group-item">
+                    <a [routerLink]="'/user/feed'"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</b></a>
+                  </li>
+                 
+                  <li class="list-group-item">
+                    <a [routerLink]="'/user/oficial'"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias Oficiais </b></a>
+                  </li>
+                   <li class="list-group-item">
+                    <a href="#"><b><i class="fa fa-calendar-check-o" aria-hidden="true"></i> Atividades do AVA </b></a>
+                  </li>
+                  <li class="list-group-item">
+                    <a [routerLink]="'/user/calendario'" ><b><i class="fa fa-calendar" aria-hidden="true"></i> Calendário Acadêmico </b></a> 
+                  </li>
+                  <li class="list-group-item">
+                    <a href="#"><b><i class="fa fa-star" aria-hidden="true"></i> Publicações Favoritas </b></a> 
+                  </li>
+                   <li class="list-group-item">
+                    <a [routerLink]="'/user/configuracao'"><b><i class="fa fa-gears" aria-hidden="true"></i> Configuração </b></a> 
+                  </li>
+
+                  <li class="list-group-item">
+                    <a [routerLink]="'/login'"><b><i class="fa fa-sign-out" aria-hidden="true"></i> Sair </b></a> 
+                  </li>
+                </ul>
+                <!--> <a href="#" class="btn btn-primary btn-block"><b>**definir**</b></a> -->
+              </div>
         </div>
       </div>
 

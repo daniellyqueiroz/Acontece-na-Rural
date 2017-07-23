@@ -4,3 +4,8 @@
 .login-page{
 	background-color: transparent;
 }
+.img-logo{
+	 max-width: 150px;
+	  max-height: 300px; 
+	 margin-bottom:5px;
+}

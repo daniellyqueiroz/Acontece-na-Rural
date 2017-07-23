@@ -604,3 +604,17 @@ margin-bottom: 0px;
     box-shadow: none;
     border-color: #d2d6de;
 }
+
+.img-logo{
+  width: 40px;
+  margin-top: 5px;
+}
+
+.logo-texto{
+  color: #fff;
+  margin-top: 8px;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  margin-left: 12px;
+}

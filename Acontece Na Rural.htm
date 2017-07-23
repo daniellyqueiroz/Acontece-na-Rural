@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://localhost:4200/user/oficial -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Acontece Na Rural</title>
+  <!--<base href="/">--><base href=".">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="http://localhost:4200/favicon.ico">
+  <link rel="stylesheet" type="text/css" href="./Acontece Na Rural_files/bootstrap.min.css">
+   <link rel="stylesheet" type="text/css" href="./Acontece Na Rural_files/AdminLTE.css">
+  <link rel="stylesheet" href="./Acontece Na Rural_files/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./Acontece Na Rural_files/font-awesome.min(1).css">
+
+  <script type="text/javascript" src="./Acontece Na Rural_files/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="./Acontece Na Rural_files/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="./Acontece Na Rural_files/fullcalendar.min.css">
+
+  <script type="text/javascript" src="./Acontece Na Rural_files/moment.min.js"></script>
+  <script type="text/javascript" src="./Acontece Na Rural_files/fullcalendar.min.js"></script>
+  <script type="text/javascript" src="./Acontece Na Rural_files/app.js"></script>
+  <script type="text/javascript" src="./Acontece Na Rural_files/pt-br.js"> </script>
+  <script type="text/javascript" src="./Acontece Na Rural_files/events.json"> </script>
+
+
+
+<style type="text/css">/* You can add global styles to this file, and also import other style files */
+</style><style>.jumbotron[_ngcontent-c0]{
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	margin-top:20px;
+}
+footer[_ngcontent-c0]{
+	margin-top: 75px;
+	color: #fff;
+}</style><style>@media (max-width: 767px) {
+.btn-primary[_ngcontent-c1]{background-color: #123456 !important;}
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .btn-primary[_ngcontent-c1]{background-color: #fff !important;}
+}
+@media (min-width: 992px ) and (max-width: 1199px) {
+  .btn-primary[_ngcontent-c1]{background-color: #000 !important;}
+ }
+@media (min-width: 1200px) {
+
+}
+
+.box[_ngcontent-c1] {
+  position: relative;
+  border-radius: 3px;
+  background: #ffffff;
+  border-top: 3px solid #d2d6de;
+  margin-bottom: 20px;
+  width: 100%;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.box-body[_ngcontent-c1] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 10px;
+}
+.box-comments[_ngcontent-c1]   .text-muted[_ngcontent-c1] {
+  font-weight: 400;
+  font-size: 12px;
+}
+
+
+
+table.text-center[_ngcontent-c1], table.text-center[_ngcontent-c1]   td[_ngcontent-c1], table.text-center[_ngcontent-c1]   th[_ngcontent-c1] {
+  text-align: center;
+}
+.list-group-unbordered[_ngcontent-c1]    > .list-group-item[_ngcontent-c1] {
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.box.box-primary[_ngcontent-c1] {
+  border-top-color: #fff;
+}
+
+  .nav-tabs-custom[_ngcontent-c1]    > .nav-tabs.pull-right[_ngcontent-c1] {
+  float: none !important;
+}
+
+.btn-primary[_ngcontent-c1] {
+   color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #005aa8;
+  background-image: linear-gradient(to bottom,#0070a8,#0038a8);
+  background-repeat: repeat-x;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+.btn-primary[_ngcontent-c1]:hover, .btn-primary[_ngcontent-c1]:active, .btn-primary.hover[_ngcontent-c1] {
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0,0,0,0.25);
+  background-color: #005aa8;
+  background-image: linear-gradient(to bottom,#0070a8,#0038a8);
+  background-repeat: repeat-x;
+  border-color: rgba(0,0,0,0.1) rgba(0,0,0,0.1) rgba(0,0,0,0.25);
+}
+
+.profile-user-img[_ngcontent-c1] {
+  margin: 0 auto;
+  width: 100px;
+  padding: 3px;
+  border: 3px solid #d2d6de;
+}
+.profile-username[_ngcontent-c1] {
+  font-size: 21px;
+  margin-top: 5px;
+}
+.post[_ngcontent-c1] {
+  border-bottom: 1px solid #d2d6de;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  color: #666;
+}
+.post[_ngcontent-c1]:last-of-type {
+  border-bottom: 0;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.post[_ngcontent-c1]   .user-block[_ngcontent-c1] {
+  margin-bottom: 15px;
+}
+
+
+.navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1] {
+  position: relative;
+}
+.navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1] {
+  position: absolute;
+  right: 0;
+  left: auto;
+}
+@media (max-width: 991px) {
+  .navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1] {
+    float: right;
+  }
+  .navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1] {
+    position: static;
+  }
+  .navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1] {
+    position: absolute;
+    right: 5%;
+    left: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+}
+
+main-sidebar[_ngcontent-c1] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding-top: 50px;
+  min-height: 100%;
+  width: 230px;
+  z-index: 810;
+  transition: width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out, width 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+}
+@media (max-width: 767px) {
+  .main-sidebar[_ngcontent-c1] {
+    padding-top: 100px;
+  }
+}
+@media (max-width: 767px) {
+  .main-sidebar[_ngcontent-c1] {
+    -webkit-transform: translate(-230px, 0);
+    transform: translate(-230px, 0);
+  }
+}
+@media (min-width: 768px) {
+  .sidebar-collapse[_ngcontent-c1]   .main-sidebar[_ngcontent-c1] {
+    -webkit-transform: translate(-230px, 0);
+    transform: translate(-230px, 0);
+  }
+}
+@media (max-width: 767px) {
+  .sidebar-open[_ngcontent-c1]   .main-sidebar[_ngcontent-c1] {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+  }
+}
+.sidebar[_ngcontent-c1] {
+  padding-bottom: 10px;
+}
+.sidebar-form[_ngcontent-c1]   input[_ngcontent-c1]:focus {
+  border-color: transparent;
+}
+
+sidebar-menu[_ngcontent-c1] {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1] {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1] {
+  padding: 12px 5px 12px 15px;
+  display: block;
+}
+.sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .fa[_ngcontent-c1], .sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .glyphicon[_ngcontent-c1], .sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .ion[_ngcontent-c1] {
+  width: 20px;
+}
+.sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .label[_ngcontent-c1], .sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .badge[_ngcontent-c1] {
+  margin-right: 5px;
+}
+.sidebar-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .badge[_ngcontent-c1] {
+  margin-top: 3px;
+}
+.sidebar-menu[_ngcontent-c1]   li.header[_ngcontent-c1] {
+  padding: 10px 25px 10px 15px;
+  font-size: 12px;
+}
+.sidebar-menu[_ngcontent-c1]   li[_ngcontent-c1]    > a[_ngcontent-c1]    > .fa-angle-left[_ngcontent-c1], .sidebar-menu[_ngcontent-c1]   li[_ngcontent-c1]    > a[_ngcontent-c1]    > .pull-right-container[_ngcontent-c1]    > .fa-angle-left[_ngcontent-c1] {
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin-right: 10px;
+  transition: -webkit-transform 0.5s ease;
+  transition: transform 0.5s ease;
+  transition: transform 0.5s ease, -webkit-transform 0.5s ease;
+}
+.sidebar-menu[_ngcontent-c1]   li[_ngcontent-c1]    > a[_ngcontent-c1]    > .fa-angle-left[_ngcontent-c1] {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  margin-top: -8px;
+}
+.sidebar-menu[_ngcontent-c1]   .menu-open[_ngcontent-c1]    > a[_ngcontent-c1]    > .fa-angle-left[_ngcontent-c1], .sidebar-menu[_ngcontent-c1]   .menu-open[_ngcontent-c1]    > a[_ngcontent-c1]    > .pull-right-container[_ngcontent-c1]    > .fa-angle-left[_ngcontent-c1] {
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.sidebar-menu[_ngcontent-c1]   .active[_ngcontent-c1]    > .treeview-menu[_ngcontent-c1] {
+  display: block;
+}
+.main-header[_ngcontent-c1]   .sidebar-toggle[_ngcontent-c1] {
+  float: left;
+  background-color: transparent;
+  background-image: none;
+  padding: 15px 15px;
+  font-family: fontAwesome;
+}
+.main-header[_ngcontent-c1]   .sidebar-toggle[_ngcontent-c1]:before {
+  content: "\F0C9";
+}
+.main-header[_ngcontent-c1]   .sidebar-toggle[_ngcontent-c1]:hover {
+  color: #fff;
+}
+.main-header[_ngcontent-c1]   .sidebar-toggle[_ngcontent-c1]:focus, .main-header[_ngcontent-c1]   .sidebar-toggle[_ngcontent-c1]:active {
+  background: transparent;
+}
+.main-header[_ngcontent-c1]   .sidebar-toggle[_ngcontent-c1]   .icon-bar[_ngcontent-c1] {
+   display: none;
+}
+.label-warning[_ngcontent-c1]{
+  color: #fff !important;
+}
+
+
+
+.dropdown-menu[_ngcontent-c1] {
+  box-shadow: none;
+  border-color: #eee;
+}
+.dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1] {
+  color: #777;
+}
+.dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .glyphicon[_ngcontent-c1], .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .fa[_ngcontent-c1], .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .ion[_ngcontent-c1] {
+  margin-right: 10px;
+}
+.dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:hover {
+  background-color: #e1e3e9;
+  color: #333;
+}
+.dropdown-menu[_ngcontent-c1]    > .divider[_ngcontent-c1] {
+  background-color: #eee;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1] {
+  width: 280px;
+  padding: 0 0 0 0;
+  margin: 0;
+  top: 100%;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1] {
+  position: relative;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.header[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.header[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.header[_ngcontent-c1] {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  background-color: #ffffff;
+  padding: 7px 10px;
+  border-bottom: 1px solid #f4f4f4;
+  color: #444444;
+  font-size: 14px;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1] {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  font-size: 12px;
+  background-color: #fff;
+  padding: 7px 10px;
+  border-bottom: 1px solid #eeeeee;
+  color: #444 !important;
+  text-align: center;
+}
+@media (max-width: 991px) {
+  .navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1] {
+    background: #fff !important;
+    color: #444 !important;
+  }
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1]:hover, .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1]:hover, .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.footer[_ngcontent-c1]    > a[_ngcontent-c1]:hover {
+  text-decoration: none;
+  font-weight: normal;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1] {
+  max-height: 200px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: hidden;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1] {
+  display: block;
+  white-space: nowrap;
+  
+  border-bottom: 1px solid #f4f4f4;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:hover, .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:hover, .navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:hover {
+  background: #f4f4f4;
+  text-decoration: none;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1] {
+  color: #444444;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 10px;
+}
+.navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .glyphicon[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .fa[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .notifications-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .ion[_ngcontent-c1] {
+  width: 20px;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1] {
+  margin: 0;
+  padding: 10px 10px;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > div[_ngcontent-c1]    > img[_ngcontent-c1] {
+  margin: auto 10px auto auto;
+  width: 40px;
+  height: 40px;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > h4[_ngcontent-c1] {
+  padding: 0;
+  margin: 0 0 0 45px;
+  color: #444444;
+  font-size: 15px;
+  position: relative;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > h4[_ngcontent-c1]    > small[_ngcontent-c1] {
+  color: #999999;
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > p[_ngcontent-c1] {
+  margin: 0 0 0 45px;
+  font-size: 12px;
+  color: #888888;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:before, .navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:after {
+  content: " ";
+  display: table;
+}
+.navbar-nav[_ngcontent-c1]    > .messages-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]:after {
+  clear: both;
+}
+.navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1] {
+  padding: 10px;
+}
+.navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > h3[_ngcontent-c1] {
+  font-size: 14px;
+  padding: 0;
+  margin: 0 0 10px 0;
+  color: #666666;
+}
+.navbar-nav[_ngcontent-c1]    > .tasks-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li[_ngcontent-c1]   .menu[_ngcontent-c1]    > li[_ngcontent-c1]    > a[_ngcontent-c1]    > .progress[_ngcontent-c1] {
+  padding: 0;
+  margin: 0;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1] {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+  padding: 1px 0 0 0;
+  border-top-width: 0;
+  width: 280px;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1], .navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1] {
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.user-header[_ngcontent-c1] {
+  height: 175px;
+  padding: 10px;
+  text-align: center;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.user-header[_ngcontent-c1]    > img[_ngcontent-c1] {
+  z-index: 5;
+  height: 90px;
+  width: 90px;
+  border: 3px solid;
+  border-color: transparent;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.user-header[_ngcontent-c1]    > p[_ngcontent-c1] {
+  z-index: 5;
+  color: #fff;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 17px;
+  margin-top: 10px;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > li.user-header[_ngcontent-c1]    > p[_ngcontent-c1]    > small[_ngcontent-c1] {
+  display: block;
+  font-size: 12px;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1] {
+  padding: 15px;
+  border-bottom: 1px solid #f4f4f4;
+  border-top: 1px solid #dddddd;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1]:before, .navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1]:after {
+  content: " ";
+  display: table;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1]:after {
+  clear: both;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1]   a[_ngcontent-c1] {
+  color: #444 !important;
+}
+@media (max-width: 991px) {
+  .navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-body[_ngcontent-c1]   a[_ngcontent-c1] {
+    background: #fff !important;
+    color: #444 !important;
+  }
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-footer[_ngcontent-c1] {
+  background-color: #f9f9f9;
+  padding: 10px;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-footer[_ngcontent-c1]:before, .navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-footer[_ngcontent-c1]:after {
+  content: " ";
+  display: table;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-footer[_ngcontent-c1]:after {
+  clear: both;
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-footer[_ngcontent-c1]   .btn-default[_ngcontent-c1] {
+  color: #666666;
+}
+@media (max-width: 991px) {
+  .navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1]    > .user-footer[_ngcontent-c1]   .btn-default[_ngcontent-c1]:hover {
+    background-color: #f9f9f9;
+  }
+}
+.navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]   .user-image[_ngcontent-c1] {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+  margin-top: -2px;
+}
+@media (max-width: 767px) {
+  .navbar-nav[_ngcontent-c1]    > .user-menu[_ngcontent-c1]   .user-image[_ngcontent-c1] {
+    float: none;
+    margin-right: 0;
+    margin-top: -8px;
+    line-height: 10px;
+  }
+}
+
+.open[_ngcontent-c1]:not(.dropup)    > .animated-dropdown-menu[_ngcontent-c1] {
+  -webkit-backface-visibility: visible !important;
+          backface-visibility: visible !important;
+  -webkit-animation: flipInX 0.7s both;
+  animation: flipInX 0.7s both;
+}
+@keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    transition-timing-function: ease-in;
+  }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  100% {
+    -webkit-transform: perspective(400px);
+            transform: perspective(400px);
+  }
+}
+@-webkit-keyframes flipInX {
+  0% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+    -webkit-transition-timing-function: ease-in;
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+    -webkit-transition-timing-function: ease-in;
+  }
+  60% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+    opacity: 1;
+  }
+  80% {
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+  }
+  100% {
+    -webkit-transform: perspective(400px);
+  }
+}
+
+.navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1] {
+  position: relative;
+}
+.navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1] {
+  position: absolute;
+  right: 0;
+  left: auto;
+}
+@media (max-width: 991px) {
+  .navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1] {
+    float: right;
+  }
+  .navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1] {
+    position: static;
+  }
+  .navbar-custom-menu[_ngcontent-c1]    > .navbar-nav[_ngcontent-c1]    > li[_ngcontent-c1]    > .dropdown-menu[_ngcontent-c1] {
+    position: absolute;
+    right: 5%;
+    left: auto;
+    border: 1px solid #ddd;
+    background: #fff;
+  }
+}
+
+.navbar[_ngcontent-c1] {
+background-color: #1b2d4f;
+margin-bottom: 0px; 
+ }
+ body[_ngcontent-c1]{
+  background:#f8f8f8;
+ }
+
+ #info-user[_ngcontent-c1]{
+  color:#1b2d4f;
+ }
+ .form-control[_ngcontent-c1] {
+    border-radius: 0;
+    box-shadow: none;
+    border-color: #d2d6de;
+}</style><style>.btn-warning[_ngcontent-c2] {
+    background-color: #337ab7;
+    border-color: #337ab7;
+}</style></head>
+<body class="bg-app" style="background: rgb(247, 247, 247);">
+  <app-root _nghost-c0="" ng-version="4.3.1"><router-outlet _ngcontent-c0=""></router-outlet><app-base-admin _nghost-c1=""><div _ngcontent-c1="" style="background-color: #f7f7f7;">
+  
+  <nav _ngcontent-c1="" class="navbar navbar-static-top navbar-fixed-top">
+      
+      <a _ngcontent-c1="" class="sidebar-toggle" data-toggle="push-menu" href="http://localhost:4200/#" role="button">
+        <span _ngcontent-c1="" class="sr-only">Toggle navigation</span>
+      </a>
+      
+      <div _ngcontent-c1="" class="navbar-custom-menu">
+        <ul _ngcontent-c1="" class="nav navbar-nav pull-right">
+          
+          <li _ngcontent-c1="" class="dropdown messages-menu">
+            <a _ngcontent-c1="" aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="http://localhost:4200/#">
+              <i _ngcontent-c1="" class="fa fa-bell"></i>
+              <span _ngcontent-c1="" class="label label-warning">10</span>
+            </a>
+            <ul _ngcontent-c1="" class="dropdown-menu pull-right">
+              <li _ngcontent-c1="" class="header">You have 10 notifications</li>
+              <li _ngcontent-c1="">
+                
+                <ul _ngcontent-c1="" class="menu">
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <div _ngcontent-c1="" class="pull-left">
+                        <img _ngcontent-c1="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/bruno.jpg">
+                      </div>
+                      <h4 _ngcontent-c1="">
+                        Bruno Marques
+                        <small _ngcontent-c1=""><i _ngcontent-c1="" class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p _ngcontent-c1="">Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <div _ngcontent-c1="" class="pull-left">
+                        <img _ngcontent-c1="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/bruno.jpg">
+                      </div>
+                      <h4 _ngcontent-c1="">
+                        Bruno Marques
+                        <small _ngcontent-c1=""><i _ngcontent-c1="" class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p _ngcontent-c1="">Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <div _ngcontent-c1="" class="pull-left">
+                        <img _ngcontent-c1="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/bruno.jpg">
+                      </div>
+                      <h4 _ngcontent-c1="">
+                        Bruno Marques
+                        <small _ngcontent-c1=""><i _ngcontent-c1="" class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p _ngcontent-c1="">Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <div _ngcontent-c1="" class="pull-left">
+                        <img _ngcontent-c1="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/joao.jpg">
+                      </div>
+                      <h4 _ngcontent-c1="">
+                        Joao
+                        <small _ngcontent-c1=""><i _ngcontent-c1="" class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p _ngcontent-c1="">Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <div _ngcontent-c1="" class="pull-left">
+                        <img _ngcontent-c1="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/joao.jpg">
+                      </div>
+                      <h4 _ngcontent-c1="">
+                        Joao
+                        <small _ngcontent-c1=""><i _ngcontent-c1="" class="fa fa-clock-o"></i> 5 mins</small>
+                      </h4>
+                      <p _ngcontent-c1="">Why not buy a new awesome theme?</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          
+          
+          <li _ngcontent-c1="" class="dropdown user user-menu notifications-menu">
+            <a _ngcontent-c1="" aria-expanded="false" class="dropdown-toggle" data-toggle="dropdown" href="http://localhost:4200/#">
+              <img _ngcontent-c1="" alt="User Image" class="user-image" src="./Acontece Na Rural_files/fotouser.jpg">
+              <span _ngcontent-c1="" class="hidden-xs">Danielly Queiroz</span>
+            </a>
+            <ul _ngcontent-c1="" class="dropdown-menu">
+              <li _ngcontent-c1="">
+                
+                <ul _ngcontent-c1="" class="menu">
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" ng-reflect-router-link="/user/feed" href="http://localhost:4200/user/feed">
+                      <i _ngcontent-c1="" class="fa fa-newspaper-o"></i> Feed
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" ng-reflect-router-link="/user/oficial" href="http://localhost:4200/user/oficial">
+                      <i _ngcontent-c1="" class="fa fa-newspaper-o"></i> Noticias oficiais
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <i _ngcontent-c1="" class="fa fa-edit"></i> Atividades do AVA
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" ng-reflect-router-link="/user/calendario" href="http://localhost:4200/user/calendario">
+                      <i _ngcontent-c1="" class="fa fa-calendar"></i> Calendario academico
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" href="http://localhost:4200/#">
+                      <i _ngcontent-c1="" class="fa fa-user"></i> Registro de Atividades
+                    </a>
+                  </li>
+                  <li _ngcontent-c1="">
+                    <a _ngcontent-c1="" ng-reflect-router-link="/user/configuracao" href="http://localhost:4200/user/configuracao">
+                      <i _ngcontent-c1="" class="fa fa-gears"></i>Configuração
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li _ngcontent-c1="" class="footer"><a _ngcontent-c1="" ng-reflect-router-link="" href="http://localhost:4200/">Sair</a></li>
+            </ul>
+          </li>
+          
+          
+        </ul>
+      </div>
+  </nav>
+
+  
+  <div _ngcontent-c1="" class="container">
+    <div _ngcontent-c1="" class="row" style="margin-top: 60px;">
+      <div _ngcontent-c1="" class="col col-sm-3 hidden-sm hidden-xs">
+      	<div _ngcontent-c1="" class="box box-primary">
+            <div _ngcontent-c1="" class="box-body box-profile">
+              <img _ngcontent-c1="" alt="User profile picture" class="profile-user-img img-responsive img-circle" src="./Acontece Na Rural_files/fotouser.jpg">
+              <h3 _ngcontent-c1="" class="profile-username text-center">Danielly Queiroz</h3>
+              <p _ngcontent-c1="" class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
+              <ul _ngcontent-c1="" class="list-group list-group-unbordered">
+                <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" ng-reflect-router-link="/user/feed" href="http://localhost:4200/user/feed"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-newspaper-o"></i> Feed</b></a>
+                </li>
+               
+                <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" ng-reflect-router-link="/user/oficial" href="http://localhost:4200/user/oficial"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-newspaper-o"></i> Notícias Oficiais </b></a>
+                </li>
+                 <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" href="http://localhost:4200/#"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-calendar-check-o"></i> Atividades do AVA </b></a>
+                </li>
+                <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" ng-reflect-router-link="/user/calendario" href="http://localhost:4200/user/calendario"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-calendar"></i> Calendário Acadêmico </b></a> 
+                </li>
+                <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" href="http://localhost:4200/#"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-star"></i> Publicações Favoritas </b></a> 
+                </li>
+                 <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" ng-reflect-router-link="/user/configuracao" href="http://localhost:4200/user/configuracao"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-gears"></i> Configuração </b></a> 
+                </li>
+
+                <li _ngcontent-c1="" class="list-group-item">
+                  <a _ngcontent-c1="" ng-reflect-router-link="/login" href="http://localhost:4200/login"><b _ngcontent-c1=""><i _ngcontent-c1="" aria-hidden="true" class="fa fa-sign-out"></i> Sair </b></a> 
+                </li>
+              </ul>
+              
+            </div>
+        </div>
+      </div>
+
+      <router-outlet _ngcontent-c1=""></router-outlet><app-noticias-oficiais _nghost-c2=""><div _ngcontent-c2="" class="col col-md-9">
+	<div _ngcontent-c2="" class="row">
+			<div _ngcontent-c2="" class="col col-md-11 col-sm-12">
+				<!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><div _ngcontent-c2="" class="box box-widget">
+	                <div _ngcontent-c2="" class="box-header with-border">
+	                  <div _ngcontent-c2="" class="user-block">
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/ufrpe.jpg">
+	                    <span _ngcontent-c2="" class="username">UFRPE</span>
+	                    <span _ngcontent-c2="" class="description">Dec 31, 1969, 9:14:50 PM</span>
+	                  </div>
+	                  
+	                  <div _ngcontent-c2="" class="box-tools">
+	                    <button _ngcontent-c2="" class="btn btn-box-tool" data-widget="remove" type="button"><i _ngcontent-c2="" aria-hidden="true" class="fa fa-times"></i></button>
+	                  </div>
+	                  
+	                </div>
+	                
+	                <div _ngcontent-c2="" class="box-body">
+	                  
+	                  <p _ngcontent-c2="">ENERGIA RESTABELECIDA: A Administração Superior da UFRPE comunica que a energia no Campus Dois Irmãos já foi restabelecida pela Celpe, e que estão mantidas as atividades noturnas. O Restaurante Universitário, no entanto, não fornecerá o jantar, em decorrência da impossibilidade de produção durante esta tarde.</p>
+
+	                  
+	                  
+	                  
+
+	                  
+	                  <a _ngcontent-c2="" class="link-black link-action link-unlike text-sm margin-r-5"><i _ngcontent-c2="" aria-hidden="true" class="fa fa-thumbs-o-down"></i> Não gostei (1)</a>
+	                  <a _ngcontent-c2="" class="link-black link-action link-like text-sm"><i _ngcontent-c2="" class="fa fa-thumbs-o-up"></i> Gostei (98)</a>
+	                  <span _ngcontent-c2="" class="pull-right link-black text-sm">comentarios (3)</span>
+	                </div>
+	                
+	                <div _ngcontent-c2="" class="  box-footer box-comments">
+	                  <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object],[object Object"
+}--><div _ngcontent-c2="" class="box-comment">
+	                    
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle img-sm" src="./Acontece Na Rural_files/joao.jpg">
+
+	                    <div _ngcontent-c2="" class="comment-text">
+	                          <span _ngcontent-c2="" class="username">
+	                            Joao
+	                            <span _ngcontent-c2="" class="text-muted pull-right">Dec 31, 1969, 9:14:57 PM</span>
+	                          </span>
+	                      	meu comentario
+	                    </div>
+	                    
+	                  </div><div _ngcontent-c2="" class="box-comment">
+	                    
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle img-sm" src="./Acontece Na Rural_files/joao.jpg">
+
+	                    <div _ngcontent-c2="" class="comment-text">
+	                          <span _ngcontent-c2="" class="username">
+	                            Joao
+	                            <span _ngcontent-c2="" class="text-muted pull-right">Dec 31, 1969, 9:01:29 PM</span>
+	                          </span>
+	                      	meu comentario
+	                    </div>
+	                    
+	                  </div><div _ngcontent-c2="" class="box-comment">
+	                    
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle img-sm" src="./Acontece Na Rural_files/joao.jpg">
+
+	                    <div _ngcontent-c2="" class="comment-text">
+	                          <span _ngcontent-c2="" class="username">
+	                            Joao
+	                            <span _ngcontent-c2="" class="text-muted pull-right">Dec 31, 1969, 9:00:07 PM</span>
+	                          </span>
+	                      	meu comentario
+	                    </div>
+	                    
+	                  </div> 
+
+               	 	</div>
+	                
+	                <div _ngcontent-c2="" class="box-footer">
+	                  <form _ngcontent-c2="">
+	                    <img _ngcontent-c2="" alt="Alt Text" class="img-responsive img-circle img-sm" src="./Acontece Na Rural_files/fotouser.jpg">
+	                    
+	                    <div _ngcontent-c2="" class="img-push">
+	                    	<div _ngcontent-c2="" class="input-group">
+					      		<input _ngcontent-c2="" class="form-control" placeholder="Comente essa publicação" type="text">
+					      		<div _ngcontent-c2="" class="input-group-btn">
+			               			<button _ngcontent-c2="" class="btn btn-warning input-md" type="button">
+			                		<span _ngcontent-c2="" aria-hidden="true" class="fa fa-comment"></span>
+									</button>
+						  		</div>
+					    	</div>
+	                    </div>
+	                  </form>
+	                </div> 
+				</div><div _ngcontent-c2="" class="box box-widget">
+	                <div _ngcontent-c2="" class="box-header with-border">
+	                  <div _ngcontent-c2="" class="user-block">
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/ufrpe.jpg">
+	                    <span _ngcontent-c2="" class="username">UFRPE</span>
+	                    <span _ngcontent-c2="" class="description">Dec 31, 1969, 9:14:50 PM</span>
+	                  </div>
+	                  
+	                  <div _ngcontent-c2="" class="box-tools">
+	                    <button _ngcontent-c2="" class="btn btn-box-tool" data-widget="remove" type="button"><i _ngcontent-c2="" aria-hidden="true" class="fa fa-times"></i></button>
+	                  </div>
+	                  
+	                </div>
+	                
+	                <div _ngcontent-c2="" class="box-body">
+	                  
+	                  <p _ngcontent-c2="">Segunda Chamada da Lista de Espera do SISU divulgada! Há vagas em todos os cursos de Engenharia da Unidade Acadêmica do Cabo de Santo Agostinho (UACSA). Não perca a oportunidade!</p>
+
+	                  
+	                  
+	                  
+
+	                  
+	                  <a _ngcontent-c2="" class="link-black link-action link-unlike text-sm margin-r-5"><i _ngcontent-c2="" aria-hidden="true" class="fa fa-thumbs-o-down"></i> Não gostei (1)</a>
+	                  <a _ngcontent-c2="" class="link-black link-action link-like text-sm"><i _ngcontent-c2="" class="fa fa-thumbs-o-up"></i> Gostei (28)</a>
+	                  <span _ngcontent-c2="" class="pull-right link-black text-sm">comentarios (1)</span>
+	                </div>
+	                
+	                <div _ngcontent-c2="" class="  box-footer box-comments">
+	                  <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c2="" class="box-comment">
+	                    
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle img-sm" src="./Acontece Na Rural_files/joao.jpg">
+
+	                    <div _ngcontent-c2="" class="comment-text">
+	                          <span _ngcontent-c2="" class="username">
+	                            Joao
+	                            <span _ngcontent-c2="" class="text-muted pull-right">Dec 31, 1969, 9:01:29 PM</span>
+	                          </span>
+	                      	meu comentario
+	                    </div>
+	                    
+	                  </div> 
+
+               	 	</div>
+	                
+	                <div _ngcontent-c2="" class="box-footer">
+	                  <form _ngcontent-c2="">
+	                    <img _ngcontent-c2="" alt="Alt Text" class="img-responsive img-circle img-sm" src="./Acontece Na Rural_files/fotouser.jpg">
+	                    
+	                    <div _ngcontent-c2="" class="img-push">
+	                    	<div _ngcontent-c2="" class="input-group">
+					      		<input _ngcontent-c2="" class="form-control" placeholder="Comente essa publicação" type="text">
+					      		<div _ngcontent-c2="" class="input-group-btn">
+			               			<button _ngcontent-c2="" class="btn btn-warning input-md" type="button">
+			                		<span _ngcontent-c2="" aria-hidden="true" class="fa fa-comment"></span>
+									</button>
+						  		</div>
+					    	</div>
+	                    </div>
+	                  </form>
+	                </div> 
+				</div><div _ngcontent-c2="" class="box box-widget">
+	                <div _ngcontent-c2="" class="box-header with-border">
+	                  <div _ngcontent-c2="" class="user-block">
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle" src="./Acontece Na Rural_files/ufrpe.jpg">
+	                    <span _ngcontent-c2="" class="username">UFRPE</span>
+	                    <span _ngcontent-c2="" class="description">Dec 31, 1969, 9:14:50 PM</span>
+	                  </div>
+	                  
+	                  <div _ngcontent-c2="" class="box-tools">
+	                    <button _ngcontent-c2="" class="btn btn-box-tool" data-widget="remove" type="button"><i _ngcontent-c2="" aria-hidden="true" class="fa fa-times"></i></button>
+	                  </div>
+	                  
+	                </div>
+	                
+	                <div _ngcontent-c2="" class="box-body">
+	                  
+	                  <p _ngcontent-c2="">O Engenheiro Florestal é o profissional apto a avaliar o potencial biológico dos ecossistemas florestais, e assim, planejar e organizar o seu aproveitamento racional de forma sustentável, garantindo sua perpetuação e a manutenção das formas de vida animal e vegetal. Parabéns a todos e todas!</p>
+
+	                  
+	                  
+	                  
+
+	                  
+	                  <a _ngcontent-c2="" class="link-black link-action link-unlike text-sm margin-r-5"><i _ngcontent-c2="" aria-hidden="true" class="fa fa-thumbs-o-down"></i> Não gostei (1)</a>
+	                  <a _ngcontent-c2="" class="link-black link-action link-like text-sm"><i _ngcontent-c2="" class="fa fa-thumbs-o-up"></i> Gostei (40)</a>
+	                  <span _ngcontent-c2="" class="pull-right link-black text-sm">comentarios (1)</span>
+	                </div>
+	                
+	                <div _ngcontent-c2="" class="  box-footer box-comments">
+	                  <!--bindings={
+  "ng-reflect-ng-for-of": "[object Object]"
+}--><div _ngcontent-c2="" class="box-comment">
+	                    
+	                    <img _ngcontent-c2="" alt="User Image" class="img-circle img-sm" src="./Acontece Na Rural_files/joao.jpg">
+
+	                    <div _ngcontent-c2="" class="comment-text">
+	                          <span _ngcontent-c2="" class="username">
+	                            Joao
+	                            <span _ngcontent-c2="" class="text-muted pull-right">Dec 31, 1969, 9:14:50 PM</span>
+	                          </span>
+	                      	Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.
+	                    </div>
+	                    
+	                  </div> 
+
+               	 	</div>
+	                
+	                <div _ngcontent-c2="" class="box-footer">
+	                  <form _ngcontent-c2="">
+	                    <img _ngcontent-c2="" alt="Alt Text" class="img-responsive img-circle img-sm" src="./Acontece Na Rural_files/fotouser.jpg">
+	                    
+	                    <div _ngcontent-c2="" class="img-push">
+	                    	<div _ngcontent-c2="" class="input-group">
+					      		<input _ngcontent-c2="" class="form-control" placeholder="Comente essa publicação" type="text">
+					      		<div _ngcontent-c2="" class="input-group-btn">
+			               			<button _ngcontent-c2="" class="btn btn-warning input-md" type="button">
+			                		<span _ngcontent-c2="" aria-hidden="true" class="fa fa-comment"></span>
+									</button>
+						  		</div>
+					    	</div>
+	                    </div>
+	                  </form>
+	                </div> 
+				</div>
+				
+			</div>
+			
+		</div>
+</div></app-noticias-oficiais>
+    </div>
+  </div>
+</div></app-base-admin></app-root>
+<script type="text/javascript" src="./Acontece Na Rural_files/inline.bundle.js"></script><script type="text/javascript" src="./Acontece Na Rural_files/polyfills.bundle.js"></script><script type="text/javascript" src="./Acontece Na Rural_files/styles.bundle.js"></script><script type="text/javascript" src="./Acontece Na Rural_files/vendor.bundle.js"></script><script type="text/javascript" src="./Acontece Na Rural_files/main.bundle.js"></script>
+
+</body></html>
