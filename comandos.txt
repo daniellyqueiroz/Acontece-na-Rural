@@ -6,4 +6,7 @@ $ ng generate component NomeDoComponente
 -executar a aplicacao
 $ ng serve —-open
 
-Git
+
+comandos para o ngrok
+
+ngrok http -host-header=localhost 4200
