@@ -5,17 +5,17 @@ export class Publicacao{
     nome: string;
     nomeUsuario: string;
     imagem: any;
+    data: number;
     texto: string;
     fotos: any[]; //por enquanto deixar any
     videos: any[];
-    data: number;
     pessoasCurtiram: string[];
     pessoasDescurtiram: string[];
     comentarios: Comentario[];
     tags: string[];
 
-    constructor(id: number, nome: string, nomeUsuario: string, imagem: any, texto: string, fotos: any[],
-        videos: any[], data: number, tags: string[]){
+    constructor(id: number, nome: string, nomeUsuario: string, imagem: any, data: number, texto: string, fotos: any[],
+        videos: any[], tags: string[]){
             this.id = id;
             this.nome = nome;
             this.nomeUsuario = nomeUsuario;

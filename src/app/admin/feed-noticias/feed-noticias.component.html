@@ -14,7 +14,7 @@
 	                		<button type="button" class ="btn bg-gray">
 	                			<i class="fa fa-film" aria-hidden="true"></i>
 	                		</button>
-	                    	<button (click)="publicacao(texto.value)" type="button" class ="btn bg-primary pull-right" id="publicar"> Publicar </button>
+	                    	<button (click)="adicionarPublicacao(texto.value, [], [], ['ufrpe'])" type="button" class ="btn bg-primary pull-right" id="publicar"> Publicar </button>
 	                    </div>
 	                </div> 
                	</div>
@@ -63,8 +63,8 @@
 	                  <!-- /.attachment-block -->
 
 	                  <!-- Social sharing buttons -->
-	                  <a class="link-black link-action text-sm margin-r-5" (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
-	                  <a class="link-black link-action text-sm" [ngClass]="{'link-like': gostou(pub, 'dani') === true, 'link-likeunlike': gostou(pub, 'dani') === false }" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, 'dani') === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
+	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, 'dani') === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
 	                  <span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
 	                </div>
 	                <!-- /.box-body -->
@@ -94,7 +94,7 @@
 	                    	<div class="input-group">
 					      		<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
 					      		<div class="input-group-btn">
-			               			<button (click)="addComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
+			               			<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
 			                		<span class="fa fa-comment" aria-hidden="true"></span>
 									</button>
 						  		</div>

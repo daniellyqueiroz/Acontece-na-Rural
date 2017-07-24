@@ -1,3 +1,5 @@
+import {Publicacao} from '../classes-basicas/publicacao';
+
 export class Usuario{
     id: number;
     nome: string;
@@ -5,4 +7,5 @@ export class Usuario{
     senha: string;
     curso: string;
     imagem: any;
+    idPublicacoesSalvas: number[];
 }
