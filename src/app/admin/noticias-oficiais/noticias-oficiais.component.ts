@@ -1,20 +1,24 @@
 import { Component, OnInit } from '@angular/core';
+import { UfrpeService } from  '../../services/ufrpe.service';
+import * as xml2js from 'xml2js';
 
-declare function getRss();
+let resp: any;
 
 @Component({
   selector: 'app-noticias-oficiais',
   templateUrl: './noticias-oficiais.component.html',
-  styleUrls: ['./noticias-oficiais.component.css']
+  styleUrls: ['./noticias-oficiais.component.css'],
+  providers: [UfrpeService]
 })
 export class NoticiasOficiaisComponent implements OnInit {
 
  public oficial: any[];
   public usuarioLogado: any;
   public textValue: string = '';
-  
 
-  constructor() { 
+
+  constructor(private ufrpeService: UfrpeService) { 
+
 
   	this.usuarioLogado = {
   		id: '1',
@@ -120,7 +124,7 @@ export class NoticiasOficiaisComponent implements OnInit {
 
 
   ngOnInit() {
-    getRss();
+    this.loadNews();
   }
 
   publicacao(pubTexto: any){
@@ -160,10 +164,22 @@ export class NoticiasOficiaisComponent implements OnInit {
     if(comentarioTexto!=null && comentarioTexto.length >0){
         publicacao.comentarios.push(novoComentario);
     }
-  } 
-
-
-
+  }
+getNews(){return resp;}
+loadNews(){
+    this.ufrpeService.getNews().subscribe(
+        data => {
+            xml2js.parseString( data, function (err, result) {
+                console.log(result);
+                resp = result.rss.channel[0].item;
+            });
+        },
+        error => {
+            console.log("ops");
+        }
+    );
+}
+}
   
 
-}
+

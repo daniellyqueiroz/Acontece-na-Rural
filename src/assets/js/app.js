@@ -66,17 +66,5 @@ function setAdminBg(){
 
 //http://ufrpe.br/br/rss.xml
 
-function getRss(){
-    $.get('https://brunohpmarques.000webhostapp.com/rss.php', function (data) {
-    $(data).find("item").each(function () { // or "item" or whatever suits your feed
-        var el = $(this);
 
-        console.log("------------------------");
-        console.log("titulo      : " + el.find("title").text());
-        console.log("data     : " + el.find("pubDate").text());
-        console.log("descricao: " + el.find("description").text());
-        console.log("link: " + el.find("link").text());
-    });
-});
-}
 

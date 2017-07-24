@@ -1,12 +1,13 @@
 <div class="col col-md-9">
 	<div class="row">
 			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget" *ngFor="let pub of oficial">
+			
+				<div class="box box-widget" *ngFor="let pub of getNews()">
 	                <div class="box-header with-border">
 	                  <div class="user-block">
-	                    <img class="img-circle" src="{{pub.imagem}}" alt="User Image">
-	                    <span class="username">{{pub.nome}}</span>
-	                    <span class="description">{{pub.data| date: 'medium'}}</span>
+	                    <img class="img-circle" src="./assets/img/ufrpe.jpg" alt="User Image">
+	                    <span class="username"> UFRPE</span>
+	                    <span class="description">{{pub.pubDate}}</span>
 	                  </div>
 	                  <!-- /.user-block -->
 	                  <div class="box-tools">
@@ -15,10 +16,16 @@
 	                  <!-- /.box-tools -->
 	                </div>
 	                <!-- /.box-header -->
-	                <div class="box-body">
+	                <div class="box-body" [innerHTML]="pub.description"> 
+	                </div>
+				</div>
+				
+			</div><!--col2-->
+			
+		</div><!--row2-->
+</div>
 	                  <!-- post text -->
-	                  <p>{{pub.texto}}</p>
-
+	                  
 	                  <!-- Attachment -->
 	                  <!-- PARTE DA FOTO NA PUTLIBACAO
 	                  <div class="attachment-block clearfix">
@@ -38,32 +45,32 @@
 	                  <!-- /.attachment-block -->
 
 	                  <!-- Social sharing buttons -->
-	                  <a class="link-black link-action link-unlike text-sm margin-r-5"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei (1)</a>
+	                  <!-- <a class="link-black link-action link-unlike text-sm margin-r-5"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei (1)</a>
 	                  <a class="link-black link-action link-like text-sm"><i class="fa fa-thumbs-o-up"></i> Gostei ({{pub.qntCurtidas}})</a>
 	                  <span class="pull-right link-black text-sm">comentarios ({{pub.qntComentarios}})</span>
 	                </div>
-	                <!-- /.box-body -->
+	                <!-- /.box-body 
 	                <div class="  box-footer box-comments">
 	                  <div class="box-comment" *ngFor="let comentario of pub.comentarios">
-	                    <!-- User image -->
+	                    <!-- User image 
 	                    <img class="img-circle img-sm" src="{{comentario.imagem}}" alt="User Image">
 
 	                    <div class="comment-text">
 	                          <span class="username">
 	                            {{comentario.nome}}
 	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
-	                          </span><!-- /.username -->
+	                          </span><!-- /.username 
 	                      	{{comentario.texto}}
 	                    </div>
-	                    <!-- /.comment-text -->
+	                    
 	                  </div> 
 
-               	 	</div>
+               	 	</div> -->
 	                <!-- /.box-footer -->
-	                <div class="box-footer">
+	                <!-- <div class="box-footer">
 	                  <form >
 	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
-	                    <!-- .img-push is used to add margin to elements next to floating images -->
+	                    .img-push is used to add margin to elements next to floating images
 	                    <div class="img-push">
 	                    	<div class="input-group">
 					      		<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
@@ -75,10 +82,5 @@
 					    	</div>
 	                    </div>
 	                  </form>
-	                </div> <!-- /.box-footer -->
-				</div>
-				
-			</div><!--col2-->
+	                </div> -->
 			
-		</div><!--row2-->
-</div>

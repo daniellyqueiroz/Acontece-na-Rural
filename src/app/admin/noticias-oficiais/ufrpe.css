@@ -65,10 +65,16 @@ img {
     border: 0;
 }
 
+
 a, li a.active, #footer a:hover, #footer li a.active:hover, #footer-bottom a:hover, #footer-bottom li a.active:hover, #header a, #header-menu ul.menu li a:hover, #header-menu ul.menu li a.active, #header-menu ul.menu li ul.menu li a:hover, #navigation .block-superfish ul.sf-menu li a:focus, #navigation .block-superfish ul.sf-menu li a:hover, #navigation .block-superfish ul.sf-menu li a.active, .front .node h1.front-heading {
     
 }
 
 a, li a.active {
     text-decoration: none;
+}
+
+.box-body img {
+   max-width: 100%;
+   heigth: auto;
 }

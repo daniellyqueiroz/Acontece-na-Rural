@@ -5,6 +5,7 @@ import { Usuario } from '../../classes-basicas/usuario';
 
 import { PublicacaoService } from '../../services/publicacao.service';
 
+
 @Component({
   selector: 'app-feed-noticias',
   templateUrl: './feed-noticias.component.html',
