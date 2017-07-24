@@ -77,7 +77,8 @@
 	                          <span class="username">
 	                            {{comentario.nome}}
 	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
-	                          </span><!-- /.username -->
+															<button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+														</span><!-- /.username -->
 	                      	{{comentario.texto}}
 	                    </div>
 	                    <!-- /.comment-text -->

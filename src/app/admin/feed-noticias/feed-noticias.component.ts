@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Comentario } from '../../classes-basicas/comentario';
+import { Publicacao } from '../../classes-basicas/publicacao';
+import { Usuario } from '../../classes-basicas/usuario';
+
+import {PublicacaoService} from '../../services/publicacao.service';
 
 @Component({
   selector: 'app-feed-noticias',
@@ -9,7 +13,9 @@ import { FormsModule } from '@angular/forms';
 
 export class FeedNoticiasComponent implements OnInit {
 
-  public feed: any[];
+  //public feed: any[];
+  public feed: Publicacao[];
+
   public usuarioLogado: any;
   public textValue: string = '';
 
@@ -26,100 +32,111 @@ export class FeedNoticiasComponent implements OnInit {
 
     this.feed = [
       {
-        id: '2',
-        nome: this.usuarioLogado.nome,
-        imagem: this.usuarioLogado.imagem,
-        texto: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.',
-        fotos: [],
-        videos: [],
-        data: 890809,
-        pessoasCurtiram: [],
-        pessoasDescurtiram: [],
-        nomeUsuario: 'dani',
-        comentarios: [{
-          id: 11,
-          idPublicacao: 54,
-          idUsuario: 8,
-          nome: 'Joao',
-          curso: 'BCC',
-          imagem: "assets/img/joao.jpg",
-          texto: "meu comentario",
-          data: 897987,
-          qntCurtidas: 3
-        },
-        {
-          id: 11,
-          idPublicacao: 54,
-          idUsuario: 8,
-          nome: 'Joao',
-          curso: 'BCC',
-          imagem: "assets/img/joao.jpg",
-          texto: "meu comentario",
-          data: 89908,
-          qntCurtidas: 3
-        },
-        {
-          id: 11,
-          idPublicacao: 54,
-          idUsuario: 8,
-          nome: 'Joao',
-          curso: 'BCC',
-          imagem: "assets/img/joao.jpg",
-          texto: "meu comentario",
-          data: 7897,
-          qntCurtidas: 3
-        }]
-
+          "id": 2,
+          "nome": "Danny",
+          "nomeUsuario": "dani",
+          "imagem": "assets/img/fotouser.jpg",
+          "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
+          "fotos": [],
+          "videos": [],
+          "data": 890809,
+          "pessoasCurtiram": [],
+          "pessoasDescurtiram": [],
+          "tags": ["ufrpe", "latim"],
+          "comentarios": [
+              {
+                  "id": 10,
+                  "idPublicacao": 54,
+                  "idUsuario": 8,
+                  "nomeUsuario": "jnmarcos",
+                  "nome": "Joao",
+                  "imagem": "assets/img/joao.jpg",
+                  "texto": "meu comentario",
+                  "data": 897987,
+                  "pessoasCurtiram": [],
+                  "pessoasDescurtiram": []
+              },
+              {
+                  "id": 11,
+                  "idPublicacao": 54,
+                  "idUsuario": 8,
+                  "nomeUsuario": "jnmarcos",
+                  "nome": "Joao",
+                  "imagem": "assets/img/joao.jpg",
+                  "texto": "meu comentario",
+                  "data": 89908,
+                  "pessoasCurtiram": [],
+                  "pessoasDescurtiram": []
+              },
+              {
+                  "id": 12,
+                  "idPublicacao": 54,
+                  "idUsuario": 8,
+                  "nomeUsuario": "jnmarcos",
+                  "nome": "Joao",
+                  "imagem": "assets/img/joao.jpg",
+                  "texto": "meu comentario",
+                  "data": 7897,
+                  "pessoasCurtiram": [],
+                  "pessoasDescurtiram": []
+              }
+          ]
       },
       {
-        id: '11',
-        nome: this.usuarioLogado.nome,
-        imagem: this.usuarioLogado.imagem,
-        texto: 'Vestibulum auctor dolor vel est vestibulum, ut sodales arcu convallis. Sed faucibus dictum varius. Donec a dictum ante. Vestibulum sollicitudin dui non quam mollis, eget volutpat arcu tristique. Curabitur id accumsan lacus. Nunc vestibulum felis in felis tincidunt porta. Nam vulputate pellentesque hendrerit. Nullam laoreet lectus nunc, sed sollicitudin nisi pulvinar id. Integer pulvinar ipsum nec sapien vestibulum, at ornare quam auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus scelerisque nisl sed fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque malesuada nunc quis erat facilisis, eget aliquet augue lobortis. Fusce quis diam justo.',
-        fotos: [],
-        videos: [],
-        data: 890809,
-        pessoasCurtiram: [],
-        pessoasDescurtiram: [],
-        nomeUsuario: 'dani',
-        comentarios: [{
-          id: 32,
-          idPublicacao: 65,
-          idUsuario: 76,
-          nome: 'Joao',
-          curso: 'BCC',
-          imagem: "assets/img/joao.jpg",
-          texto: "meu comentario",
-          data: 89080,
-          qntCurtidas: 88
-        }
-        ]
+          "id": 11,
+          "nome": "Danny",
+          "nomeUsuario": "dani",
+          "imagem": "assets/img/fotouser.jpg",
+          "texto": "Vestibulum auctor dolor vel est vestibulum, ut sodales arcu convallis. Sed faucibus dictum varius. Donec a dictum ante. Vestibulum sollicitudin dui non quam mollis, eget volutpat arcu tristique. Curabitur id accumsan lacus. Nunc vestibulum felis in felis tincidunt porta. Nam vulputate pellentesque hendrerit. Nullam laoreet lectus nunc, sed sollicitudin nisi pulvinar id. Integer pulvinar ipsum nec sapien vestibulum, at ornare quam auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus scelerisque nisl sed fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque malesuada nunc quis erat facilisis, eget aliquet augue lobortis. Fusce quis diam justo.",
+          "fotos": [],
+          "videos": [],
+          "data": 890809,
+          "pessoasCurtiram": [],
+          "pessoasDescurtiram": [],
+          "tags": ["ufrpe", "latim"],
+          "comentarios": [
+              {
+                  "id": 32,
+                  "idPublicacao": 65,
+                  "idUsuario": 76,
+                  "nome": "Joao",
+                  "nomeUsuario": "jnmarcos",
+                  "imagem": "assets/img/joao.jpg",
+                  "texto": "meu comentario",
+                  "data": 89080,
+                  "pessoasCurtiram": [],
+                  "pessoasDescurtiram": []
+              }
+          ]
       },
       {
-        id: '6',
-        nome: this.usuarioLogado.nome,
-        imagem: this.usuarioLogado.imagem,
-        texto: 'Proin suscipit porta lacus quis suscipit. Morbi dapibus sed felis non congue. Aliquam mollis ac eros ut dictum. Nullam fermentum arcu lacus, eu sagittis purus egestas a. Suspendisse ut cursus velit, ut pretium lacus. Etiam dapibus dolor urna. Nunc blandit urna maximus, convallis libero in, sagittis est. Nam sem ipsum, pretium non lacus et, gravida placerat est. Proin vestibulum ex odio, et eleifend libero rutrum nec. Donec id sapien lacus.',
-        fotos: [],
-        videos: [],
-        data: 890809,
-        pessoasCurtiram: [],
-        pessoasDescurtiram: [],
-        nomeUsuario: 'dani',
-        comentarios: [{
-          id: 11,
-          idPublicacao: 54,
-          idUsuario: 8,
-          nome: 'Joao',
-          curso: 'BCC',
-          imagem: "assets/img/joao.jpg",
-          texto: "Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.",
-          data: 890809,
-          qntCurtidas: 3
-        }]
+          "id": 6,
+          "nome": "Danny",
+          "nomeUsuario": "dani",
+          "imagem": "assets/img/fotouser.jpg",
+          "texto": "Proin suscipit porta lacus quis suscipit. Morbi dapibus sed felis non congue. Aliquam mollis ac eros ut dictum. Nullam fermentum arcu lacus, eu sagittis purus egestas a. Suspendisse ut cursus velit, ut pretium lacus. Etiam dapibus dolor urna. Nunc blandit urna maximus, convallis libero in, sagittis est. Nam sem ipsum, pretium non lacus et, gravida placerat est. Proin vestibulum ex odio, et eleifend libero rutrum nec. Donec id sapien lacus.",
+          "fotos": [],
+          "videos": [],
+          "data": 890809,
+          "pessoasCurtiram": [],
+          "pessoasDescurtiram": [],
+          "tags": ["ufrpe"],
+          "comentarios": [
+              {
+                  "id": 11,
+                  "idPublicacao": 54,
+                  "idUsuario": 8,
+                  "nomeUsuario": "jnmarcos",
+                  "nome": "Joao",
+                  "imagem": "assets/img/joao.jpg",
+                  "texto": "Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.",
+                  "data": 890809,
+                  "pessoasCurtiram": [],
+                  "pessoasDescurtiram": []
+              }
+          ]
       }
     ];
-
   }
 
 
@@ -127,32 +144,17 @@ export class FeedNoticiasComponent implements OnInit {
   }
 
   publicacao(pubTexto: any) {
-    let novaPublicacao = {
-      id: 4,
-      data: Date.now(),
-      texto: pubTexto,
-      fotos: [],
-      videos: [],
-      comentarios: [],
-      pessoasCurtiram: [],
-      pessoasDescurtiram: [],
-      nome: this.usuarioLogado.nome,
-      curso: this.usuarioLogado.curso,
-      imagem: this.usuarioLogado.imagem,
-      idUsuario: this.usuarioLogado.id,
-      nomeUsuario: this.usuarioLogado.nomeUsuario
-    }
-
     if (pubTexto != null && pubTexto.length > 0) {
+      let novaPublicacao = new Publicacao(4, this.usuarioLogado.nome, this.usuarioLogado.nomeUsuario,
+        this.usuarioLogado.imagem, pubTexto, [], [], Date.now(), ["ufrpe"]);
       this.feed.unshift(novaPublicacao);
     }
 
   }
 
-  gostarPublicacao(publicacao: any, nomeUsuario: string){
+  gostarPublicacao(publicacao: any, nomeUsuario: string) {
     //se true: gostar
     let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
-    let gostou = true;
     if (indexGostar == -1) {//pessoa ainda não curtiu
       publicacao.pessoasCurtiram.unshift(nomeUsuario);
       let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
@@ -160,71 +162,60 @@ export class FeedNoticiasComponent implements OnInit {
     } else {
       publicacao.pessoasCurtiram.splice(indexGostar, 1);
     }
-}
+  }
 
-removerPublicacao(publicacao: any, nomeUsuario: string){
-  if (publicacao.nomeUsuario == nomeUsuario){
+  removerPublicacao(publicacao: any, nomeUsuario: string) {
+    if (publicacao.nomeUsuario == nomeUsuario) {
       let index = this.feed.indexOf(publicacao);
-      this.feed.splice(index,1);
+      this.feed.splice(index, 1);
+    }
   }
-}
 
-gostou(publicacao: any, nomeUsuario: string): boolean {
-  let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
-  let retorno = false;
-  if (indexGostar != -1){
-    let retorno = true;
+  removerComentario(publicacao: any, comentario: any, nomeUsuario: string) {
+    if (comentario.nomeUsuario == nomeUsuario) {
+      let index = publicacao.comentarios.indexOf(comentario);
+      publicacao.comentarios.splice(index, 1);
+    }
   }
-  return retorno;
-}
 
-naoGostou(publicacao: any, nomeUsuario: string): boolean {
-  let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
-  let retorno = false;
-  if (indexNaoGostar != -1){
-    let retorno = true;
-  }
-  return retorno;
-}
-
-registrarAtividade(atividade: any, nomeUsuario: string){
-
-}
-
-naoGostarPublicacao(publicacao: any, nomeUsuario: string){
-  let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
-  if (indexNaoGostar == -1) {//pessoa ainda não clicou em 'não gostei'
-    publicacao.pessoasDescurtiram.unshift(nomeUsuario);
+  gostou(publicacao: any, nomeUsuario: string): boolean {
     let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
-    publicacao.pessoasCurtiram.splice(indexGostar, 1);
-  } else {
-    publicacao.pessoasDescurtiram.splice(indexNaoGostar, 1);
-  }
-}
-
-addComentario(publicacao: any, comentarioTexto: any){
-  let novoComentario = {
-    id: 1,
-    idPublicacao: 10,
-    texto: comentarioTexto,
-    data: Date.now(),
-    curtidas: 0,
-    nome: publicacao.nome,
-    curso: publicacao.curso,
-    imagem: publicacao.imagem
+    let retorno = false;
+    if (indexGostar != -1) {
+      let retorno = true;
+    }
+    return retorno;
   }
 
-  if (comentarioTexto != null && comentarioTexto.length > 0) {
-    publicacao.comentarios.push(novoComentario);
+  naoGostou(publicacao: any, nomeUsuario: string): boolean {
+    let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
+    let retorno = false;
+    if (indexNaoGostar != -1) {
+      let retorno = true;
+    }
+    return retorno;
   }
-}
 
-contCurtidas(){
-  let novaCurtida = {
-    id: 50,
-    idComentario: 20,
-    idUsuario: 9,
-    data: Date.now()
+  registrarAtividade(atividade: any, nomeUsuario: string) {
+
   }
-}
+
+  naoGostarPublicacao(publicacao: any, nomeUsuario: string) {
+    let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
+    if (indexNaoGostar == -1) {//pessoa ainda não clicou em 'não gostei'
+      publicacao.pessoasDescurtiram.unshift(nomeUsuario);
+      let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
+      publicacao.pessoasCurtiram.splice(indexGostar, 1);
+    } else {
+      publicacao.pessoasDescurtiram.splice(indexNaoGostar, 1);
+    }
+  }
+
+  addComentario(publicacao: any, comentarioTexto: string) {    
+    if (comentarioTexto != null && comentarioTexto.length > 0) {
+      let novoComentario = new Comentario(1, 10, 2, this.usuarioLogado.nome, this.usuarioLogado.nomeUsuario,
+        this.usuarioLogado.imagem, comentarioTexto, Date.now());
+      publicacao.comentarios.push(novoComentario);
+    }
+  }
 }
