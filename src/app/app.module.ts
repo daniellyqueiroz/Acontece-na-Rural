@@ -12,6 +12,7 @@ import { BaseAdminComponent } from './admin/base-admin/base-admin.component';
 import { ConfiguracaoComponent } from './admin/configuracao/configuracao.component';
 import { CalendarioComponent } from './admin/calendario/calendario.component';
 import { NoticiasOficiaisComponent } from './admin/noticias-oficiais/noticias-oficiais.component';
+import { PerfilComponent } from './admin/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NoticiasOficiaisComponent } from './admin/noticias-oficiais/noticias-of
     BaseAdminComponent,
     ConfiguracaoComponent,
     CalendarioComponent,
-    NoticiasOficiaisComponent
+    NoticiasOficiaisComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +50,8 @@ import { NoticiasOficiaisComponent } from './admin/noticias-oficiais/noticias-of
         { path: 'feed', component: FeedNoticiasComponent},
         { path: 'oficial', component: NoticiasOficiaisComponent},
         { path: 'configuracao', component: ConfiguracaoComponent},
-        { path: 'calendario', component: CalendarioComponent}
+        { path: 'calendario', component: CalendarioComponent},
+        { path: 'perfil', component: PerfilComponent}
       ]
     }
   ])

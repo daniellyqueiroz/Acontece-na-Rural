@@ -1,53 +1,23 @@
 
 
-function initCalendar() {
+function initCalendar(eventsArray) {
 
     // page is now ready, initialize the calenda :r...
     $('#calendar').fullCalendar({
     	//contentHeight: 465;
-    	events:[
-    	{
-            title: 'entrega da frequencia \nmonitoria na PREG',
-            start: '2017-07-21',
-            days: '2'
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'listDay,listWeek,month'
         },
-        {
-            title: 'REALIZAÇÃO DA \n2ª VA',
-            start: '2017-07-24'
+        views: {
+            listDay: { buttonText: 'Dia' },
+            listWeek: { buttonText: 'Semana' }
         },
-        {
-            title: 'evento 1',
-            start: '2017-07-1'
-        },
-        {
-            title: 'evento 2',
-            start: '2017-07-4'
-        },
-        {
-            title: 'evento 3',
-            start: '2017-07-10'
-        },
-        {
-            title: 'evento 4',
-            start: '2017-07-30'
-        },
-        {
-            title: 'evento 5',
-            start: '2017-07-16'
-        },
-        {
-            title: 'evento 6' ,
-            start: '2017-07-19'
-            
-        },
-        {
-            title: 'teste' ,
-            start: '2017-07-18'
-            
-        }
-
-    	],
-		contentHeight: 465
+        navLinks: true, // can click day/week names to navigate views
+        events: eventsArray,
+		contentHeight: 465,
+        eventLimit: true
         // put your options and callbacks here
     });
 }
@@ -62,6 +32,26 @@ function setAdminBg(){
 	$('body').css({
 		background: '#f7f7f7' 
 	});
+}
+
+function setSettings(){
+    setTimeout (function (){
+        var imgs = $('.panopoly-image-original');
+        var a = $('.field-name-node-link a');
+        if(a.attr('href').indexOf('http') == -1){
+            a.attr('href', ('http://ufrpe.br'+a.attr('href')));
+        };
+        
+        for (var i=0; i<imgs.length;  i++){
+            $(imgs[i]).removeAttr ('width');
+        $(imgs[i]).removeAttr('heigth');
+            $(imgs[i]).css({
+            'max-width': '100%',
+            'height': 'auto'
+            });
+    }}, 250);
+
+    
 }
 
 //http://ufrpe.br/br/rss.xml

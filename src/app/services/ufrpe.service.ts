@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 export class UfrpeService {
 	
-
+   private timeout: any = 7500;
 	constructor(public http: Http) {
 		this.http =http;
 
@@ -15,7 +15,9 @@ export class UfrpeService {
    
  getNews(){
       return this.http.get("https://brunohpmarques.000webhostapp.com/rss.php")
+      .timeout(this.timeout)
       .map(res => res.text());
+      //.timeout(this.timeout)
 }
    /*getNews(){
       return this.http.get("https://brunohpmarques.000webhostapp.com/rss.php")

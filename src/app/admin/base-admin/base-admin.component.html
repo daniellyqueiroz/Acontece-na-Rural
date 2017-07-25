@@ -1,4 +1,4 @@
-<div style="background-color: #f7f7f7;">
+<div style="background-color: #ececec;">
   <!--menu-->
   <nav class="navbar navbar-static-top navbar-fixed-top">
       <!-- Sidebar toggle button-->
@@ -9,7 +9,7 @@
         
       <!-- Navbar Right Menu -->
       <div class="navbar-custom-menu">
-        <div class="container">
+        <!-- <div class="container"> -->
           <ul class="nav navbar-nav pull-left">
             <img class="img-logo" src="./assets/ANR-LOGO/anr_light.svg">
             <div class="logo-texto">Acontece na Rural</div>
@@ -130,7 +130,7 @@
                     </li>
                     <li>
                       <a [routerLink]="'/user/configuracao'">
-                        <i class="fa fa-gears"></i>Configuração
+                        <i class="fa fa-gears"></i> Configuração
                       </a>
                     </li>
                   </ul>
@@ -141,7 +141,7 @@
             <!-- Control Sidebar Toggle Button -->
             
           </ul>
-        </div>
+        <!-- </div> -->
       </div>
     </nav>
 
@@ -155,6 +155,9 @@
                 <h3 class="profile-username text-center">Danielly Queiroz</h3>
                 <p class="text-muted text-center">Bacharelado Em Ciência da Computação</p>
                 <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                    <a [routerLink]="'/user/perfil'"><b><i class="fa fa-user" aria-hidden="true"></i> Perfil</b></a> 
+                  </li>
                   <li class="list-group-item">
                     <a [routerLink]="'/user/feed'"><b><i class="fa fa-newspaper-o" aria-hidden="true"></i> Feed</b></a>
                   </li>

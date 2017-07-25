@@ -1,0 +1,84 @@
+<div class="row">
+			<div class="col col-md-11 col-sm-12">
+				<div class="box box-widget" *ngFor="let pub of feed">
+	                <div class="box-header with-border">
+	                  <div class="user-block">
+	                    <img class="img-circle" src="{{pub.imagem}}" alt="Imagem do usuário">
+	                    <span class="username">{{pub.nome}}</span>
+	                    <span class="description">{{pub.data| date: 'medium'}}</span>
+	                  </div>
+	                  <!-- /.user-block -->
+	                  <div class="box-tools">
+	                  	<button type="button" class="btn btn-box-tool" data-widget="favorita"><i class="fa fa-star-o" aria-hidden="true"></i></button>
+	                    <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+	                  </div>
+	                  <!-- /.box-tools -->
+	                </div>
+	                <!-- /.box-header -->
+	                <div class="box-body">
+	                  <!-- post text -->
+	                  <p>{{pub.texto}}</p>
+
+	                  <!-- Attachment -->
+	                  <!-- PARTE DA FOTO NA PUTLIBACAO
+	                  <div class="attachment-block clearfix">
+	                    <img class="attachment-img" src="assets/img/teste.jpg" alt="Attachment Image">
+
+	                    <div class="attachment-pushed">
+	                      <h4 class="attachment-heading"><a href="http://www.lipsum.com/">Lorem ipsum text generator</a></h4>
+
+	                      <div class="attachment-text">
+	                        Description about the attachment can be placed here.
+	                        Lorem Ipsum is simply dummy text of the printing and typesetting industry... <a href="#">more</a>
+	                      </div>
+	                      <!-- /.attachment-text 
+	                    </div>
+	                    <!-- /.attachment-pushed 
+	                  </div> -->
+	                  <!-- /.attachment-block -->
+
+	                  <!-- Social sharing buttons -->
+	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, 'dani') === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
+	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, 'dani') === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+	                  <span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
+	                </div>
+	                <!-- /.box-body -->
+	                <div class="  box-footer box-comments">
+	                  <div class="box-comment" *ngFor="let comentario of pub.comentarios">
+	                    <!-- User image -->
+	                    <img class="img-circle img-sm" src="{{comentario.imagem}}" alt="User Image">
+
+	                    <div class="comment-text">
+	                          <span class="username">
+	                            {{comentario.nome}}
+	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
+								<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+								</span><!-- /.username -->
+	                      	{{comentario.texto}}
+	                    </div>
+	                    <!-- /.comment-text -->
+	                  </div> 
+
+               	 	</div>
+	                <!-- /.box-footer -->
+	                <div class="box-footer">
+	                  <form >
+	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
+	                    <!-- .img-push is used to add margin to elements next to floating images -->
+	                    <div class="img-push">
+	                    	<div class="input-group">
+					      		<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
+					      		<div class="input-group-btn">
+			               			<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn bg-primary input-md">
+			                		<span class="fa fa-comment" aria-hidden="true"></span>
+									</button>
+						  		</div>
+					    	</div>
+	                    </div>
+	                  </form>
+	                </div> <!-- /.box-footer -->
+				</div>
+				
+			</div><!--col2-->
+			
+		</div><!--row2-->

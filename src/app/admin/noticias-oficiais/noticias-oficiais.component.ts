@@ -3,6 +3,7 @@ import { UfrpeService } from  '../../services/ufrpe.service';
 import * as xml2js from 'xml2js';
 
 let resp: any;
+declare function setSettings();
 
 @Component({
   selector: 'app-noticias-oficiais',
@@ -125,6 +126,7 @@ export class NoticiasOficiaisComponent implements OnInit {
 
   ngOnInit() {
     this.loadNews();
+    
   }
 
   publicacao(pubTexto: any){
@@ -166,12 +168,14 @@ export class NoticiasOficiaisComponent implements OnInit {
     }
   }
 getNews(){return resp;}
+
 loadNews(){
     this.ufrpeService.getNews().subscribe(
         data => {
             xml2js.parseString( data, function (err, result) {
                 console.log(result);
                 resp = result.rss.channel[0].item;
+                setSettings();
             });
         },
         error => {
