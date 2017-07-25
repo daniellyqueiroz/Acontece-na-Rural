@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Comentario } from '../../classes-basicas/comentario';
 import { Publicacao } from '../../classes-basicas/publicacao';
 import { Usuario } from '../../classes-basicas/usuario';
-
 import { PublicacaoService } from '../../services/publicacao.service';
 
 
@@ -17,10 +16,6 @@ export class FeedNoticiasComponent implements OnInit {
   public feed: Publicacao[];
   public usuarioLogado: Usuario;
 
-  //public usuarioLogado: any;
-  public textValue: string = '';
-
-
   constructor() {
 
     this.usuarioLogado = {
@@ -30,8 +25,12 @@ export class FeedNoticiasComponent implements OnInit {
       senha: '1234',
       curso: 'Ciência da Computação',
       imagem: "assets/img/fotouser.jpg",
-      idPublicacoesSalvas: []
+      descricao: 'tudo certo',
+      idPublicacoesSalvas: [],
+      listaInteresses: [],
+      tempoLembreteAVA: 24
     };
+
 
     this.feed = [
       {
@@ -171,6 +170,10 @@ export class FeedNoticiasComponent implements OnInit {
     }
   }
 
+  limparCampo(){
+
+  }
+
   removerComentario(pub: Publicacao, comentario: Comentario, nomeUsuario: string) {
     if (comentario.nomeUsuario == nomeUsuario) {
       let index = pub.comentarios.indexOf(comentario);
@@ -212,19 +215,28 @@ export class FeedNoticiasComponent implements OnInit {
 
   gostou(publicacao: Publicacao, nomeUsuario: string): boolean {
     let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
-    let retorno = false;
+    let ehGostou = false;
     if (indexGostar != -1) {
-      retorno = true;
+      ehGostou = true;
     }
-    return retorno;
+    return ehGostou;
   }
 
   naoGostou(publicacao: Publicacao, nomeUsuario: string): boolean {
     let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
-    let retorno = false;
+    let ehNaoGostou = false;
     if (indexNaoGostar != -1) {
-      retorno = true;
+      ehNaoGostou = true;
     }
-    return retorno;
+    return ehNaoGostou;
+  }
+
+  estaSalvaPublicacao(pub: Publicacao): boolean{
+    let indexPub: number = this.usuarioLogado.idPublicacoesSalvas.indexOf(pub.id);
+    let estaSalvo = false;
+    if (indexPub != -1){//a publicação está salva
+      estaSalvo = true;
+    }
+    return estaSalvo;
   }
 }

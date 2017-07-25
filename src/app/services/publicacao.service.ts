@@ -1,8 +1,6 @@
 import { Publicacao } from '../classes-basicas/publicacao';
 
 export class PublicacaoService{
-
-    
    public getBanco(): Publicacao[]{
         return [
             {

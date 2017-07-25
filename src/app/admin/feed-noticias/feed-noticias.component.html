@@ -1,51 +1,52 @@
-
-	<div class="col col-md-9">
-		<div class="row">
-			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget box-post">
-            		<div class="box-body">
-						<textarea class="form-control" placeholder="O que aconteceu?" rows="3" cols="3" title="aqui" id="area" #texto ></textarea>
-			    	</div>
-			    	<div class="box-footer box-comments">
-	                	<div class="box-comment">
-	                		<button type="button" class ="btn bg-gray">
-	                			<i class="fa fa-camera" aria-hidden="true"></i>
+<div class="col col-md-9">
+	<div class="row">
+		<div class="col col-md-11 col-sm-12">
+			<div class="box box-widget box-post">
+				<div class="box-body">
+					<textarea class="form-control" placeholder="O que aconteceu?" rows="3" cols="3" title="O que aconteceu?" id="area" #texto></textarea>
+				</div>
+				<div class="box-footer box-comments">
+					<div class="box-comment">
+						<button type="button" class="btn bg-gray">
+	                			<i class="fa fa-camera" aria-hidden="true">
+												</i>
 	                		</button>
-	                		<button type="button" class ="btn bg-gray">
+						<button type="button" class="btn bg-gray">
 	                			<i class="fa fa-film" aria-hidden="true"></i>
 	                		</button>
-	                    	<button (click)="adicionarPublicacao(texto.value, [], [], ['ufrpe'])" type="button" class ="btn bg-primary pull-right" id="publicar"> Publicar </button>
-	                    </div>
-	                </div> 
-               	</div>
+						<button (click)="adicionarPublicacao(texto.value, [], [], ['ufrpe'])" type="button" class="btn bg-primary pull-right" id="publicar"> Publicar </button>
+					</div>
+				</div>
 			</div>
 		</div>
+	</div>
 
 
 
-		<div class="row">
-			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget" *ngFor="let pub of feed">
-	                <div class="box-header with-border">
-	                  <div class="user-block">
-	                    <img class="img-circle" src="{{pub.imagem}}" alt="Imagem do usuário">
-	                    <span class="username">{{pub.nome}}</span>
-	                    <span class="description">{{pub.data| date: 'medium'}}</span>
-	                  </div>
-	                  <!-- /.user-block -->
-	                  <div class="box-tools">
-	                  	<button type="button" class="btn btn-box-tool" data-widget="favorita"><i class="fa fa-star-o" aria-hidden="true"></i></button>
-	                    <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
-	                  </div>
-	                  <!-- /.box-tools -->
-	                </div>
-	                <!-- /.box-header -->
-	                <div class="box-body">
-	                  <!-- post text -->
-	                  <p>{{pub.texto}}</p>
+	<div class="row">
+		<div class="col col-md-11 col-sm-12">
+			<div class="box box-widget" *ngFor="let pub of feed">
+				<div class="box-header with-border">
+					<div class="user-block">
+						<img class="img-circle" src="{{pub.imagem}}" alt="Imagem do usuário">
+						<span class="username">{{pub.nome}}</span>
+						<span class="description">{{pub.data| date: 'medium'}}</span>
+					</div>
+					<!-- /.user-block -->
+					<div class="box-tools">
+						<button type="button" class="btn btn-box-tool" [ngStyle]="{'color': estaSalvaPublicacao(pub) === true? '#ffcc00' : '#444'}"
+						 data-widget="favorita"><i class="fa" [ngClass]="{'fa-star': estaSalvaPublicacao(pub) === true, 'fa-star-o': estaSalvaPublicacao(pub) === false}" aria-hidden="true" (click)="salvarPublicacao(pub)"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+					</div>
+					<!-- /.box-tools -->
+				</div>
+				<!-- /.box-header -->
+				<div class="box-body">
+					<!-- post text -->
+					<p>{{pub.texto}}</p>
 
-	                  <!-- Attachment -->
-	                  <!-- PARTE DA FOTO NA PUTLIBACAO
+					<!-- Attachment -->
+					<!-- PARTE DA FOTO NA PUTLIBACAO
 	                  <div class="attachment-block clearfix">
 	                    <img class="attachment-img" src="assets/img/teste.jpg" alt="Attachment Image">
 
@@ -60,139 +61,146 @@
 	                    </div>
 	                    <!-- /.attachment-pushed 
 	                  </div> -->
-	                  <!-- /.attachment-block -->
+					<!-- /.attachment-block -->
 
-	                  <!-- Social sharing buttons -->
-	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, 'dani') === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
-	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, 'dani') === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
-	                  <span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
-	                </div>
-	                <!-- /.box-body -->
-	                <div class="  box-footer box-comments">
-	                  <div class="box-comment" *ngFor="let comentario of pub.comentarios">
-	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src="{{comentario.imagem}}" alt="User Image">
-
-	                    <div class="comment-text">
-	                          <span class="username">
+					<!-- Social sharing buttons -->
+					<a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, 'dani') === true? '#dc5847' : '#444'}"
+					 (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
+					<a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, 'dani') === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+					<span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
+				</div>
+				<!-- /.box-body -->
+				<div *ngIf="pub.comentarios.length > 0">
+					<div class="box-footer box-comments">
+						<div class="box-comment" *ngFor="let comentario of pub.comentarios">
+							<!-- User image -->
+							<img class="img-circle img-sm" src="{{comentario.imagem}}" alt="Imagem do Usuário">
+							<div class="comment-text">
+								<span class="username">
 	                            {{comentario.nome}}
-	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
-															<button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
-														</span><!-- /.username -->
-	                      	{{comentario.texto}}
-	                    </div>
-	                    <!-- /.comment-text -->
-	                  </div> 
-
-               	 	</div>
-	                <!-- /.box-footer -->
-	                <div class="box-footer">
-	                  <form >
-	                    <img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Alt Text">
-	                    <!-- .img-push is used to add margin to elements next to floating images -->
-	                    <div class="img-push">
-	                    	<div class="input-group">
-					      		<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
-					      		<div class="input-group-btn">
-			               			<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
+															<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+															<span class="text-muted push-left">{{comentario.data| date:'medium'}}</span>
+								</span>
+								<!-- /.username -->
+								{{comentario.texto}}
+							</div>
+							<!-- /.comment-text -->
+						</div>
+					</div>
+				</div>
+				<!-- /.box-footer -->
+				<div class="box-footer">
+					<form>
+						<img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Imagem do Usuário">
+						<!-- .img-push is used to add margin to elements next to floating images -->
+						<div class="img-push">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
+								<div class="input-group-btn">
+									<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
 			                		<span class="fa fa-comment" aria-hidden="true"></span>
 									</button>
-						  		</div>
-					    	</div>
-	                    </div>
-	                  </form>
-	                </div> <!-- /.box-footer -->
+								</div>
+							</div>
+						</div>
+					</form>
 				</div>
-				
-			</div><!--col2-->
-			
-		</div><!--row2-->
+				<!-- /.box-footer -->
+			</div>
 
-		<div class="row">
-			<div class="col col-md-11 col-sm-12">
-			  <div class="box box-widget">
-                <div class="box-header with-border">
-                  <div class="user-block">
-                    <img class="img-circle" src="assets/img/bruno.jpg" alt="User Image">
-                    <span class="username"><a href="#">Bruno Marques</a></span>
-                    <span class="description">Shared publicly - 7:30 PM Today</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <div class="box-tools">
-                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
+		</div>
+		<!--col2-->
+
+	</div>
+	<!--row2-->
+
+	<div class="row">
+		<div class="col col-md-11 col-sm-12">
+			<div class="box box-widget">
+				<div class="box-header with-border">
+					<div class="user-block">
+						<img class="img-circle" src="assets/img/bruno.jpg" alt="User Image">
+						<span class="username"><a href="#">Bruno Marques</a></span>
+						<span class="description">Shared publicly - 7:30 PM Today</span>
+					</div>
+					<!-- /.user-block -->
+					<div class="box-tools">
+						<button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="" data-original-title="Mark as read">
                       <i class="fa fa-circle-o"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus" aria-hidden="true"></i>
+						<button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus" aria-hidden="true"></i>
                     </button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times" aria-hidden="true"></i></button>
-                  </div>
-                  <!-- /.box-tools -->
-                </div>
-               <div class="box-body">
-                <img class="img-responsive pad" src="assets/img/teste.jpg" alt="Photo">
+						<button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times" aria-hidden="true"></i></button>
+					</div>
+					<!-- /.box-tools -->
+				</div>
+				<div class="box-body">
+					<img class="img-responsive pad" src="assets/img/teste.jpg" alt="Photo">
 
-                <p>I took this photo this morning. What do you guys think?</p>
-                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
-                <button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
-                <span class="pull-right text-muted">127 likes - 3 comments</span>
-              </div>
-                <!-- /.box-body -->
-                <div class="  box-footer box-comments">
-                  <div class="box-comment">
-                    <!-- User image -->
-                    <img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
+					<p>I took this photo this morning. What do you guys think?</p>
+					<button type="button" class="btn btn-default btn-xs"><i class="fa fa-share"></i> Share</button>
+					<button type="button" class="btn btn-default btn-xs"><i class="fa fa-thumbs-o-up"></i> Like</button>
+					<span class="pull-right text-muted">127 likes - 3 comments</span>
+				</div>
+				<!-- /.box-body -->
+				<div class="  box-footer box-comments">
+					<div class="box-comment">
+						<!-- User image -->
+						<img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
 
-                    <div class="comment-text">
-                          <span class="username">
+						<div class="comment-text">
+							<span class="username">
                             Maria Gonzales
                             <span class="text-muted pull-right">8:03 PM Today</span>
-                          </span><!-- /.username -->
-                      It is a long established fact that a reader will be distracted
-                      by the readable content of a page when looking at its layout.
-                    </div>
-                    <!-- /.comment-text -->
-                  </div>
-                  <!-- /.box-comment -->
-                  <div class="box-comment">
-                    <!-- User image -->
-                    <img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
+							</span>
+							<!-- /.username -->
+							It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+						</div>
+						<!-- /.comment-text -->
+					</div>
+					<!-- /.box-comment -->
+					<div class="box-comment">
+						<!-- User image -->
+						<img class="img-circle img-sm" src="assets/img/fotouser.jpg" alt="User Image">
 
-                    <div class="comment-text">
-                          <span class="username">
+						<div class="comment-text">
+							<span class="username">
                             Nora Havisham
                             <span class="text-muted pull-right">8:03 PM Today</span>
-                          </span><!-- /.username -->
-                      The point of using Lorem Ipsum is that it has a more-or-less
-                      normal distribution of letters, as opposed to using
-                      'Content here, content here', making it look like readable English.
-                    </div>
-                    <!-- /.comment-text -->
-                  </div>
-                  <!-- /.box-comment -->
-                </div>
-                <!-- /.box-footer -->
-                <div class="box-footer">
-                  <form action="#" method="post">
-                    <img class="img-responsive img-circle img-sm" src="assets/img/fotouser.jpg" alt="Alt Text">
-                    <!-- .img-push is used to add margin to elements next to floating images -->
-                    <div class="img-push">
-                      <div class="input-group">
-					      <input type="text" class="form-control" placeholder="Type your comment" #dComment>
-					      <div class="input-group-btn">
-			                <button (click)="sendComment(dish, dComment)" type="button" class="btn btn-warning input-md">
+							</span>
+							<!-- /.username -->
+							The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content
+							here, content here', making it look like readable English.
+						</div>
+						<!-- /.comment-text -->
+					</div>
+					<!-- /.box-comment -->
+				</div>
+				<!-- /.box-footer -->
+				<div class="box-footer">
+					<form action="#" method="post">
+						<img class="img-responsive img-circle img-sm" src="assets/img/fotouser.jpg" alt="Alt Text">
+						<!-- .img-push is used to add margin to elements next to floating images -->
+						<div class="img-push">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Type your comment" #dComment>
+								<div class="input-group-btn">
+									<button (click)="sendComment(dish, dComment)" type="button" class="btn btn-warning input-md">
 			                	<span class="fa fa-comment" aria-hidden="true"></span>
 							</button>
-						  </div>
-					    </div>
-                    </div>
-                  </form>
-                </div>
-                <!-- /.box-footer -->
-              </div>
-        
-				
-			</div><!--col3-->
-			
-		</div><!--row3-->
-		
-	</div><!--col-sm-9-->
-	
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- /.box-footer -->
+			</div>
+
+
+		</div>
+		<!--col3-->
+
+	</div>
+	<!--row3-->
+
+</div>
+<!--col-sm-9-->

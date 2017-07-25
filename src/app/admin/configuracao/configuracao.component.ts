@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfiguracaoComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+
+  }
+
+  salvar(){
+    
+  }
 
   ngOnInit() {
   }
