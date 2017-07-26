@@ -1,7 +1,108 @@
 import { Publicacao } from '../classes-basicas/publicacao';
+import { Comentario } from '../classes-basicas/comentario';
+import { Usuario } from '../classes-basicas/usuario';//remover depois essa importação
 
-export class PublicacaoService{
-   public getBanco(): Publicacao[]{
+export class PublicacaoService {
+    private banco: Publicacao[];
+    public feed: Publicacao[];
+    public usuario: Usuario;
+
+    constructor() {
+        this.feed = this.getBanco();
+        this.usuario = {
+            id: 1,
+            nome: 'Danielly Queiroz',
+            nomeUsuario: 'dani',
+            senha: '1234',
+            curso: 'Ciência da Computação',
+            imagem: "assets/img/fotouser.jpg",
+            descricao: 'tudo certo',
+            publicacoesSalvas: [],
+            listaInteresses: [],
+            tempoLembreteAVA: 24
+          };
+    }
+
+    adicionarPublicacao(pub: Publicacao) {
+        this.feed.unshift(pub);
+    }
+
+    removerPublicacao(index: number) {
+        this.feed.splice(index, 1);
+    }
+
+    adicionarComentario(pub: Publicacao, com: Comentario) {
+        pub.comentarios.push(com);
+    }
+
+    removerComentario(pub: Publicacao, comentario: Comentario, index: number) {
+        pub.comentarios.splice(index, 1);
+    }
+
+    salvarPublicacao(pub: Publicacao) {
+        let indexPub: number = this.usuario.publicacoesSalvas.indexOf(pub);
+        if (indexPub != -1) {//existe, então remover
+          this.usuario.publicacoesSalvas.splice(indexPub, 1);//mais novas primeiro
+        } else {
+          this.usuario.publicacoesSalvas.unshift(pub);//mais novas primeiro
+        }
+      }
+      
+      gostarPublicacao(pub: Publicacao, nomeUsuario: string) {
+        //se true: gostar
+        let indexGostar: number = pub.pessoasCurtiram.indexOf(nomeUsuario);
+        if (indexGostar == -1) {//pessoa ainda não curtiu
+          pub.pessoasCurtiram.unshift(nomeUsuario);
+          let indexNaoGostar = pub.pessoasDescurtiram.indexOf(nomeUsuario);
+          pub.pessoasDescurtiram.splice(indexNaoGostar, 1);
+        } else {
+          pub.pessoasCurtiram.splice(indexGostar, 1);
+        }
+      }
+
+      naoGostarPublicacao(pub: Publicacao, nomeUsuario: string) {
+        let indexNaoGostar: number = pub.pessoasDescurtiram.indexOf(nomeUsuario);
+        if (indexNaoGostar == -1) {//pessoa ainda não clicou em 'não gostei'
+          pub.pessoasDescurtiram.unshift(nomeUsuario);
+          let indexGostar = pub.pessoasCurtiram.indexOf(nomeUsuario);
+          pub.pessoasCurtiram.splice(indexGostar, 1);
+        } else {
+          pub.pessoasDescurtiram.splice(indexNaoGostar, 1);
+        }
+      }
+    
+      gostou(publicacao: Publicacao, nomeUsuario: string): boolean {
+        let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
+        let ehGostou = false;
+        if (indexGostar != -1) {
+          ehGostou = true;
+        }
+        return ehGostou;
+      }
+    
+      naoGostou(publicacao: Publicacao, nomeUsuario: string): boolean {
+        let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
+        let ehNaoGostou = false;
+        if (indexNaoGostar != -1) {
+          ehNaoGostou = true;
+        }
+        return ehNaoGostou;
+      }
+    
+      estaSalvaPublicacao(pub: Publicacao): boolean{
+        let indexPub: number = this.usuario.publicacoesSalvas.indexOf(pub);
+        let estaSalvo = false;
+        if (indexPub != -1){//a publicação está salva
+          estaSalvo = true;
+        }
+        return estaSalvo;
+      }
+
+    public salvarBanco(){
+
+    }
+
+    public getBanco(): Publicacao[] {
         return [
             {
                 "id": 2,

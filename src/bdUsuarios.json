@@ -1,24 +1,14 @@
-{
-    usuarios [
-        {
-            "nome": "Jo�o Marcos Nascimento da Silva",
-            "senha": "batatadoce",
-            "nome_usuario": "jnmarcos"
-        },
-        {
-            "nome": "Dannyele",
-            "senha": "danibananinha",
-            "nome_usuario": "dani"
-        },
-        {
-            "nome": "Bruno",
-            "senha": "angular2ehmaisfacil",
-            "nome_usuario": "brunomax"
-        },
-        {
-            "nome": "Alex Sandro N da Silva",
-            "senha": "kimika",
-            "nome_usuario": "alx"
-        }
-    ]
-}
+[
+    {
+        "id": 1,
+        "nome": "Danielly Queiroz",
+        "nomeUsuario": "dani",
+        "senha": "1234",
+        "curso": "Ciência da Computação",
+        "imagem": "assets/img/fotouser.jpg",
+        "descricao": "tudo certo",
+        "publicacoesSalvas": [],
+        "listaInteresses": [],
+        "tempoLembreteAVA": 24
+    }
+]

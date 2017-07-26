@@ -1,36 +1,17 @@
-export class Usuario{
-    nome: string;
-    senha: string;
-    nome_usuario: string;
-}
+import { Usuario } from '../classes-basicas/usuario';
+import '../../bdUsuarios.json';
+import '../../bdPostagem.json';
+
+
 export class AvaService {
-    usuarios: Array<Usuario>;
+    public usuarios: Usuario[];
+
     constructor() {
-        this.usuarios = [
-            {
-                nome: "João Marcos Nascimento da Silva",
-                senha: "batatadoce",
-                nome_usuario: "jnmarcos"
-            },
-            {
-                nome: "Dannyele",
-                senha: "danibananinha",
-                nome_usuario: "dani"
-            },
-            {
-                nome: "Bruno",
-                senha: "angular2ehmaisfacil",
-                nome_usuario: "brunomax"
-            },
-            {
-                nome: "Alex Sandro N da Silva",
-                senha: "kimika",
-                nome_usuario: "alx"
-            }
-        ]
+        
     }
 
-    get() {
+
+    getBanco(): Usuario[] {
         return this.usuarios;
     }
 

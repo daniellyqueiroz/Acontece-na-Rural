@@ -13,6 +13,7 @@ import { ConfiguracaoComponent } from './admin/configuracao/configuracao.compone
 import { CalendarioComponent } from './admin/calendario/calendario.component';
 import { NoticiasOficiaisComponent } from './admin/noticias-oficiais/noticias-oficiais.component';
 import { PerfilComponent } from './admin/perfil/perfil.component';
+import { PubliSalvasComponent } from './admin/publi-salvas/publi-salvas.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { PerfilComponent } from './admin/perfil/perfil.component';
     ConfiguracaoComponent,
     CalendarioComponent,
     NoticiasOficiaisComponent,
-    PerfilComponent
+    PerfilComponent,
+    PubliSalvasComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,8 @@ import { PerfilComponent } from './admin/perfil/perfil.component';
         { path: 'oficial', component: NoticiasOficiaisComponent},
         { path: 'configuracao', component: ConfiguracaoComponent},
         { path: 'calendario', component: CalendarioComponent},
-        { path: 'perfil', component: PerfilComponent}
+        { path: 'perfil', component: PerfilComponent},
+        { path: 'salvas', component: PubliSalvasComponent}
       ]
     }
   ])

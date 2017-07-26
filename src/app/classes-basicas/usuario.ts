@@ -8,7 +8,7 @@ export class Usuario{
     curso: string;
     imagem: any;
     descricao: string;
-    idPublicacoesSalvas: number[];
+    publicacoesSalvas: Publicacao[];
     listaInteresses: boolean[];//true ou false para cada interesse listado
     tempoLembreteAVA: number; //em horas
 }
