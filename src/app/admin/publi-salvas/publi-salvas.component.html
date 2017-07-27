@@ -7,8 +7,8 @@
           <div class="box box-widget" *ngFor="let pub of usuarioLogado.publicacoesSalvas">
             <div class="box-header with-border">
               <div class="user-block">
-                <img class="img-circle" src="{{pub.imagem}}" alt="Imagem do usuário">
-                <span class="username">{{pub.nome}}</span>
+                <img class="img-circle" src="{{usuarioLogado.imagem}}" alt="Imagem do usuário">
+                <span class="username">{{usuarioLogado.nome}}</span>
                 <span class="description">{{pub.data| date: 'medium'}}</span>
               </div>
               <!-- /.user-block -->

@@ -27,13 +27,16 @@ export class FeedNoticiasComponent implements OnInit {
   ngOnInit() {
   }
 
+  limparCampoComentario(){
+      document.getElementById('coment').nodeValue = "";
+}
+
   adicionarPublicacao(pubTexto: string, pubFotos: any, pubVideos: any, pubTags: string[]) {
     if (pubTexto != null && pubTexto.length > 0) {
       let pub: Publicacao = new Publicacao(Date.now() + this.usuarioLogado.id, this.usuarioLogado.nome, this.usuarioLogado.nomeUsuario,
         this.usuarioLogado.imagem, Date.now(), pubTexto, pubFotos, pubVideos, pubTags);
       this.pubService.adicionarPublicacao(pub);
     }
-
   }
 
   removerPublicacao(pub: Publicacao, nomeUsuario: string) {

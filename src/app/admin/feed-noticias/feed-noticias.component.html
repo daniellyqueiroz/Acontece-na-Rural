@@ -3,18 +3,28 @@
 		<div class="col col-md-11 col-sm-12">
 			<div class="box box-widget box-post">
 				<div class="box-body">
-					<textarea class="form-control" placeholder="O que aconteceu?" rows="3" cols="3" title="O que aconteceu?" id="area" #texto></textarea>
+					<textarea class="form-control" placeholder="O que aconteceu?" rows="3" cols="3" title="O que aconteceu?" #texto></textarea>
 				</div>
 				<div class="box-footer box-comments">
 					<div class="box-comment">
-						<button type="button" class="btn bg-gray">
-	                			<i class="fa fa-camera" aria-hidden="true">
-												</i>
-	                		</button>
-						<button type="button" class="btn bg-gray">
-	                			<i class="fa fa-film" aria-hidden="true"></i>
-	                		</button>
-						<button (click)="adicionarPublicacao(texto.value, [], [], ['ufrpe'])" type="button" class="btn bg-primary pull-right" id="publicar"> Publicar </button>
+						<form>
+							<div class="btn bg-gray">
+								<i class="fa fa-camera" aria-hidden="true">
+									<input type="file" accept="image/*" name="pic" id="myPhotos" #fotos>
+									<label for="myPhotos">Fotos</label>
+								</i>
+							</div>
+
+							<div class="btn bg-gray">
+								<i class="fa fa-film" aria-hidden="true">
+									<input type="file" accept="video/*" name="vid" id="myVideos" #videos>
+									<label for="myVideos">Vídeos</label>
+								</i>
+							</div>
+							<button type="reset" class="btn pull-right btn-reset">
+								<button (click)="adicionarPublicacao(texto.value, [], [], ['ufrpe'])" class="btn bg-primary" type="button" #publicar>Publicar</button>
+							</button>
+						</form>
 					</div>
 				</div>
 			</div>
@@ -78,7 +88,7 @@
 							<div class="comment-text">
 								<span class="username">
 	                            {{comentario.nome}}
-									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true" ></i></button>
 									<span class="text-muted push-left">{{comentario.data| date:'medium'}}</span>
 								</span>
 								<!-- /.username -->
@@ -95,11 +105,14 @@
 						<!-- .img-push is used to add margin to elements next to floating images -->
 						<div class="img-push">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto>
+								<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto (keyup)="0" (keyup.enter)="itemInput.emit('')">
 								<div class="input-group-btn">
-									<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
-			                		<span class="fa fa-comment" aria-hidden="true"></span>
-									</button>
+
+									<button class="btn-reset" type="reset">	
+										<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
+											<span class="fa fa-comment" aria-hidden="true"></span>
+										</button>
+									</button>>
 								</div>
 							</div>
 						</div>

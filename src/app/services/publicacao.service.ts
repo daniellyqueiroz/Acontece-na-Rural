@@ -17,7 +17,59 @@ export class PublicacaoService {
             curso: 'Ciência da Computação',
             imagem: "assets/img/fotouser.jpg",
             descricao: 'tudo certo',
-            publicacoesSalvas: [],
+            publicacoesSalvas: [
+                {
+                    "id": 2,
+                    "nome": "Danny",
+                    "nomeUsuario": "dani",
+                    "imagem": "assets/img/fotouser.jpg",
+                    "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
+                    "fotos": [],
+                    "videos": [],
+                    "data": 890809,
+                    "pessoasCurtiram": [],
+                    "pessoasDescurtiram": [],
+                    "tags": ["ufrpe", "latim"],
+                    "comentarios": [
+                        {
+                            "id": 10,
+                            "idPublicacao": 54,
+                            "idUsuario": 8,
+                            "nomeUsuario": "jnmarcos",
+                            "nome": "Joao",
+                            "imagem": "assets/img/joao.jpg",
+                            "texto": "meu comentario",
+                            "data": 897987,
+                            "pessoasCurtiram": [],
+                            "pessoasDescurtiram": []
+                        },
+                        {
+                            "id": 11,
+                            "idPublicacao": 54,
+                            "idUsuario": 8,
+                            "nomeUsuario": "jnmarcos",
+                            "nome": "Joao",
+                            "imagem": "assets/img/joao.jpg",
+                            "texto": "meu comentario",
+                            "data": 89908,
+                            "pessoasCurtiram": [],
+                            "pessoasDescurtiram": []
+                        },
+                        {
+                            "id": 12,
+                            "idPublicacao": 54,
+                            "idUsuario": 8,
+                            "nomeUsuario": "jnmarcos",
+                            "nome": "Joao",
+                            "imagem": "assets/img/joao.jpg",
+                            "texto": "meu comentario",
+                            "data": 7897,
+                            "pessoasCurtiram": [],
+                            "pessoasDescurtiram": []
+                        }
+                    ]
+                }
+            ],
             listaInteresses: [],
             tempoLembreteAVA: 24
           };
