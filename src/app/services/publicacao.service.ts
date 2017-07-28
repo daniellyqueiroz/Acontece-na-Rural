@@ -1,13 +1,24 @@
+import{ Http, Jsonp} from "@angular/http";
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { of } from 'rxjs/observable/of';
+
 import { Publicacao } from '../classes-basicas/publicacao';
 import { Comentario } from '../classes-basicas/comentario';
-import { Usuario } from '../classes-basicas/usuario';//remover depois essa importação
+import { Usuario } from '../classes-basicas/usuario';
 
+@Injectable()
 export class PublicacaoService {
-    private banco: Publicacao[];
+    private timeout: number = 7500;
+
+    //private banco: Publicacao[];
     public feed: Publicacao[];
     public usuario: Usuario;
 
-    constructor() {
+   // constructor(public http: Http, public jsonp: Jsonp) {
+    //this.http = http;
+    //this.jsonp = jsonp;
+    constructor(){ 
         this.feed = this.getBanco();
         this.usuario = {
             id: 1,
@@ -154,7 +165,20 @@ export class PublicacaoService {
 
     }
 
-    public getBanco(): Publicacao[] {
+    /*
+    public getBanco2(): any {
+        return this.http.get("http://localhost:3000/postagens")
+        .timeout(this.timeout)
+        .map(res => res.text());
+    }
+
+    public getBanco3(): any {
+        return this.jsonp.get("http://localhost:3000/postagens")
+        .toPromise().then(resp => resp.text());
+    }
+    */
+
+    public getBanco(): any {
         return [
             {
                 "id": 2,

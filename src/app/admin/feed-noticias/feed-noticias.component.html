@@ -31,8 +31,6 @@
 		</div>
 	</div>
 
-
-
 	<div class="row">
 		<div class="col col-md-11 col-sm-12">
 			<div class="box box-widget" *ngFor="let pub of feed">
@@ -46,8 +44,25 @@
 					<div class="box-tools">
 						<button type="button" class="btn btn-box-tool" [ngStyle]="{'color': estaSalvaPublicacao(pub) === true? '#ffcc00' : '#444'}"
 						 data-widget="favorita"><i class="fa" [ngClass]="{'fa-star': estaSalvaPublicacao(pub) === true, 'fa-star-o': estaSalvaPublicacao(pub) === false}" aria-hidden="true" (click)="salvarPublicacao(pub)"></i></button>
-						<button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="modal" data-target="#confRemocao" (click)="removerPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 					</div>
+					<div class="modal fade" tabindex="-1" role="dialog" id="confRemocao">
+					<div class="modal-dialog" role="document">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						  <h4 class="modal-title">Remover Publicação</h4>
+						</div>
+						<div class="modal-body">
+						  <p>Você deseja remover sua publicação? Ela e todos os comentários associados serão excluídos.</p>
+						</div>
+						<div class="modal-footer">
+						  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+						  <button type="button" class="btn btn-primary" (click)="removerPublicacao(pub, usuarioLogado.nomeUsuario)">Sim</button>
+						</div>
+					  </div><!-- /.modal-content -->
+					</div><!-- /.modal-dialog -->
+				  </div><!-- /.modal -->
 					<!-- /.box-tools -->
 				</div>
 				<!-- /.box-header -->
@@ -88,7 +103,25 @@
 							<div class="comment-text">
 								<span class="username">
 	                            {{comentario.nome}}
-									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true" ></i></button>
+									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, usuarioLogado.nomeUsuario)"><i class="fa fa-trash" aria-hidden="true" ></i></button>
+									<div class="modal fade" tabindex="-1" role="dialog" id="confRemCom">
+										<div class="modal-dialog" role="document">
+										  <div class="modal-content">
+											<div class="modal-header">
+											  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+											  <h4 class="modal-title">Remover Comentário</h4>
+											</div>
+											<div class="modal-body">
+											  <p>Você deseja remover seu comentário?</p>
+											</div>
+											<div class="modal-footer">
+											  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+											  <button type="button" class="btn btn-primary" (click)="removerComentario(pub,comentario, usuarioLogado.nomeUsuario)">Sim</button>
+											</div>
+										  </div><!-- /.modal-content -->
+										</div><!-- /.modal-dialog -->
+									  </div><!-- /.modal -->
+									
 									<span class="text-muted push-left">{{comentario.data| date:'medium'}}</span>
 								</span>
 								<!-- /.username -->
@@ -105,14 +138,14 @@
 						<!-- .img-push is used to add margin to elements next to floating images -->
 						<div class="img-push">
 							<div class="input-group">
-								<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto (keyup)="0" (keyup.enter)="itemInput.emit('')">
+								<input type="text" class="form-control" placeholder="Comente essa publicação" #comentarioTexto (keyup.enter)="adicionarComentario(pub, comentarioTexto.value)">
 								<div class="input-group-btn">
 
 									<button class="btn-reset" type="reset">	
 										<button (click)="adicionarComentario(pub, comentarioTexto.value)" type="button" class="btn btn-warning input-md">
 											<span class="fa fa-comment" aria-hidden="true"></span>
 										</button>
-									</button>>
+									</button>
 								</div>
 							</div>
 						</div>

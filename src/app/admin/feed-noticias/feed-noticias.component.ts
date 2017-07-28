@@ -20,16 +20,14 @@ export class FeedNoticiasComponent implements OnInit {
 
   constructor(private pubService: PublicacaoService) {
     this.usuarioLogado = this.pubService.usuario;
-    this.feed = this.pubService.feed;    
+    this.feed = this.pubService.feed;
+    //this.pubService.getBanco3().then(postagens => this.feed = postagens);    
   }
 
 
   ngOnInit() {
   }
 
-  limparCampoComentario(){
-      document.getElementById('coment').nodeValue = "";
-}
 
   adicionarPublicacao(pubTexto: string, pubFotos: any, pubVideos: any, pubTags: string[]) {
     if (pubTexto != null && pubTexto.length > 0) {

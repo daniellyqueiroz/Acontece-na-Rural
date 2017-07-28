@@ -5,14 +5,15 @@ export class Publicacao{
     nome: string;
     nomeUsuario: string;
     imagem: any;
-    data: number;
     texto: string;
     fotos: any[]; //por enquanto deixar any
     videos: any[];
+    data: number;
     pessoasCurtiram: string[];
     pessoasDescurtiram: string[];
-    comentarios: Comentario[];
     tags: string[];
+    comentarios: Comentario[];
+    
 
     constructor(id: number, nome: string, nomeUsuario: string, imagem: any, data: number, texto: string, fotos: any[],
         videos: any[], tags: string[]){
