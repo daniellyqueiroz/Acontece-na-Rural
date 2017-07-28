@@ -46,7 +46,7 @@
 						 data-widget="favorita"><i class="fa" [ngClass]="{'fa-star': estaSalvaPublicacao(pub) === true, 'fa-star-o': estaSalvaPublicacao(pub) === false}" aria-hidden="true" (click)="salvarPublicacao(pub)"></i></button>
 						<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="modal" data-target="#confRemocao" (click)="removerPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 					</div>
-					<div class="modal fade" tabindex="-1" role="dialog" id="confRemocao">
+					<!--<div class="modal fade" tabindex="-1" role="dialog" id="confRemocao">
 					<div class="modal-dialog" role="document">
 					  <div class="modal-content">
 						<div class="modal-header">
@@ -60,9 +60,10 @@
 						  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
 						  <button type="button" class="btn btn-primary" (click)="removerPublicacao(pub, usuarioLogado.nomeUsuario)">Sim</button>
 						</div>
-					  </div><!-- /.modal-content -->
-					</div><!-- /.modal-dialog -->
-				  </div><!-- /.modal -->
+					  </div>
+					</div>
+					</div>
+				-->
 					<!-- /.box-tools -->
 				</div>
 				<!-- /.box-header -->
@@ -89,9 +90,9 @@
 					<!-- /.attachment-block -->
 
 					<!-- Social sharing buttons -->
-					<a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, 'dani') === true? '#dc5847' : '#444'}"
-					 (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
-					<a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, 'dani') === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+					<a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.nomeUsuario) === true? '#dc5847' : '#444'}"
+					 (click)="naoGostarPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
+					<a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.nomeUsuario) === true? '#3c8dbc' : '#444'}" [ngStyle]="{'strong': gostou(pub, usuarioLogado.nomeUsuario) === true? 'true' : 'false'}" (click)="gostarPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
 					<span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
 				</div>
 				<!-- /.box-body -->
@@ -104,6 +105,8 @@
 								<span class="username">
 	                            {{comentario.nome}}
 									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, usuarioLogado.nomeUsuario)"><i class="fa fa-trash" aria-hidden="true" ></i></button>
+
+									<!--
 									<div class="modal fade" tabindex="-1" role="dialog" id="confRemCom">
 										<div class="modal-dialog" role="document">
 										  <div class="modal-content">
@@ -116,11 +119,11 @@
 											</div>
 											<div class="modal-footer">
 											  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-											  <button type="button" class="btn btn-primary" (click)="removerComentario(pub,comentario, usuarioLogado.nomeUsuario)">Sim</button>
+											  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="removerComentario(pub,comentario, usuarioLogado.nomeUsuario)">Sim</button>
 											</div>
-										  </div><!-- /.modal-content -->
-										</div><!-- /.modal-dialog -->
-									  </div><!-- /.modal -->
+										  </div>
+										</div>
+									  </div> -->
 									
 									<span class="text-muted push-left">{{comentario.data| date:'medium'}}</span>
 								</span>
