@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Table
 public class Comentario {
 	@Id
-	private long id;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn
@@ -30,7 +30,7 @@ public class Comentario {
 	private Date dataModificacao;
 	
 	
-	public Comentario(long id, Publicacao publicacao, Usuario usuario, String texto, Date dataCriacao, Date dataModificacao){
+	public Comentario(Long id, Publicacao publicacao, Usuario usuario, String texto, Date dataCriacao, Date dataModificacao){
 		this.id = id;
 		this.publicacao = publicacao;
 		this.usuario = usuario;
@@ -41,7 +41,7 @@ public class Comentario {
 	}
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -63,6 +63,72 @@ public class Comentario {
 
 	public Date getDataModificacao() {
 		return dataModificacao;
+	}
+	
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
+		result = prime * result + ((dataModificacao == null) ? 0 : dataModificacao.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((publicacao == null) ? 0 : publicacao.hashCode());
+		result = prime * result + ((texto == null) ? 0 : texto.hashCode());
+		result = prime * result + ((usuario == null) ? 0 : usuario.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Comentario other = (Comentario) obj;
+		if (dataCriacao == null) {
+			if (other.dataCriacao != null)
+				return false;
+		} else if (!dataCriacao.equals(other.dataCriacao))
+			return false;
+		if (dataModificacao == null) {
+			if (other.dataModificacao != null)
+				return false;
+		} else if (!dataModificacao.equals(other.dataModificacao))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (publicacao == null) {
+			if (other.publicacao != null)
+				return false;
+		} else if (!publicacao.equals(other.publicacao))
+			return false;
+		if (texto == null) {
+			if (other.texto != null)
+				return false;
+		} else if (!texto.equals(other.texto))
+			return false;
+		if (usuario == null) {
+			if (other.usuario != null)
+				return false;
+		} else if (!usuario.equals(other.usuario))
+			return false;
+		return true;
+	}
+	
+	@Override
+	public String toString() {
+		return "Comentario [id=" + id + ", publicacao=" + publicacao + ", usuario=" + usuario + ", texto=" + texto
+				+ ", dataCriacao=" + dataCriacao + ", dataModificacao=" + dataModificacao + "]";
 	}
 	
 	
