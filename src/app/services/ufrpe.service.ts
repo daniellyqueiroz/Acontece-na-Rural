@@ -18,10 +18,6 @@ export class UfrpeService {
       .timeout(this.timeout)
       .map(res => res.text());
       //.timeout(this.timeout)
-}
-   /*getNews(){
-      return this.http.get("https://brunohpmarques.000webhostapp.com/rss.php")
-      .timeout(7500)
-      .map(res => res.text());
-   }*/
+   }
+   
 }
