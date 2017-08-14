@@ -1,0 +1,7 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/air/Documents/workspace/servidor/acontenarural/conf/application.conf,/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/air/Documents/workspace/servidor/acontenarural/conf/evolutions,/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/Users/air/Documents/workspace/servidor/acontenarural/conf/logback.xml,/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/Users/air/Documents/workspace/servidor/acontenarural/conf/routes,/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/Users/air/Documents/workspace/servidor/acontenarural/conf/evolutions/default,/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/Users/air/Documents/workspace/servidor/acontenarural/conf/evolutions/default/1.sql,/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/evolutions/default/1.sql)[0m
