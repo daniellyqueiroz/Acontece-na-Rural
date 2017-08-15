@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Mon Aug 14 21:28:33 BRT 2017
+// @DATE:Tue Aug 15 00:23:11 BRT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -105,7 +105,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:15
+  // @LINE:13
   class ReverseUsuarioController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -133,6 +133,16 @@ package controllers.javascript {
       """
     )
   
+    // @LINE:14
+    def conecteAva: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UsuarioController.conecteAva",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "ava"})
+        }
+      """
+    )
+  
     // @LINE:21
     def remover: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.remover",
@@ -149,6 +159,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/cadastrar"})
+        }
+      """
+    )
+  
+    // @LINE:13
+    def requisicaoAva: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UsuarioController.requisicaoAva",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "requisicao"})
         }
       """
     )

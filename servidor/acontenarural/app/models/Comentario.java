@@ -41,13 +41,10 @@ public class Comentario extends Model{
 	private Date dataModificacao;
 	
 	
-	public Comentario(Long id, Publicacao publicacao, Usuario usuario, String texto, Date dataCriacao, Date dataModificacao){
-		this.id = id;
+	public Comentario(Publicacao publicacao, Usuario usuario, String texto){
 		this.publicacao = publicacao;
 		this.usuario = usuario;
 		this.texto = texto;
-		this.dataCriacao = dataCriacao;
-		this.dataModificacao = dataModificacao;
 		
 	}
 

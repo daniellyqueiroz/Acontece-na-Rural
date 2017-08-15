@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Mon Aug 14 21:28:33 BRT 2017
+// @DATE:Tue Aug 15 00:23:11 BRT 2017
 
 package router
 
@@ -20,7 +20,7 @@ class Routes(
   HomeController_2: controllers.HomeController,
   // @LINE:10
   Assets_4: controllers.Assets,
-  // @LINE:15
+  // @LINE:13
   UsuarioController_3: javax.inject.Provider[controllers.UsuarioController],
   // @LINE:17
   PublicacaoController_1: javax.inject.Provider[controllers.PublicacaoController],
@@ -35,7 +35,7 @@ class Routes(
     HomeController_2: controllers.HomeController,
     // @LINE:10
     Assets_4: controllers.Assets,
-    // @LINE:15
+    // @LINE:13
     UsuarioController_3: javax.inject.Provider[controllers.UsuarioController],
     // @LINE:17
     PublicacaoController_1: javax.inject.Provider[controllers.PublicacaoController],
@@ -57,6 +57,8 @@ class Routes(
   def documentation = List(
     ("""GET""", this.prefix, """controllers.HomeController.index"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """assets/""" + "$" + """file<.+>""", """controllers.Assets.versioned(path:String = "/public", file:Asset)"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """requisicao""", """@controllers.UsuarioController@.requisicaoAva"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """ava""", """@controllers.UsuarioController@.conecteAva"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/cadastrar""", """@controllers.UsuarioController@.cadastrarUsuarioFixo()"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/listar""", """@controllers.UsuarioController@.listarTodos()"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """user/pub""", """@controllers.PublicacaoController@.cadastrar()"""),
@@ -106,11 +108,45 @@ class Routes(
     )
   )
 
+  // @LINE:13
+  private[this] lazy val controllers_UsuarioController_requisicaoAva2_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("requisicao")))
+  )
+  private[this] lazy val controllers_UsuarioController_requisicaoAva2_invoker = createInvoker(
+    UsuarioController_3.get.requisicaoAva,
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UsuarioController",
+      "requisicaoAva",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """requisicao"""
+    )
+  )
+
+  // @LINE:14
+  private[this] lazy val controllers_UsuarioController_conecteAva3_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("ava")))
+  )
+  private[this] lazy val controllers_UsuarioController_conecteAva3_invoker = createInvoker(
+    UsuarioController_3.get.conecteAva,
+    HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.UsuarioController",
+      "conecteAva",
+      Nil,
+      "POST",
+      """""",
+      this.prefix + """ava"""
+    )
+  )
+
   // @LINE:15
-  private[this] lazy val controllers_UsuarioController_cadastrarUsuarioFixo2_route = Route("GET",
+  private[this] lazy val controllers_UsuarioController_cadastrarUsuarioFixo4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/cadastrar")))
   )
-  private[this] lazy val controllers_UsuarioController_cadastrarUsuarioFixo2_invoker = createInvoker(
+  private[this] lazy val controllers_UsuarioController_cadastrarUsuarioFixo4_invoker = createInvoker(
     UsuarioController_3.get.cadastrarUsuarioFixo(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -124,10 +160,10 @@ class Routes(
   )
 
   // @LINE:16
-  private[this] lazy val controllers_UsuarioController_listarTodos3_route = Route("GET",
+  private[this] lazy val controllers_UsuarioController_listarTodos5_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/listar")))
   )
-  private[this] lazy val controllers_UsuarioController_listarTodos3_invoker = createInvoker(
+  private[this] lazy val controllers_UsuarioController_listarTodos5_invoker = createInvoker(
     UsuarioController_3.get.listarTodos(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -141,10 +177,10 @@ class Routes(
   )
 
   // @LINE:17
-  private[this] lazy val controllers_PublicacaoController_cadastrar4_route = Route("POST",
+  private[this] lazy val controllers_PublicacaoController_cadastrar6_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/pub")))
   )
-  private[this] lazy val controllers_PublicacaoController_cadastrar4_invoker = createInvoker(
+  private[this] lazy val controllers_PublicacaoController_cadastrar6_invoker = createInvoker(
     PublicacaoController_1.get.cadastrar(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -158,10 +194,10 @@ class Routes(
   )
 
   // @LINE:18
-  private[this] lazy val controllers_PublicacaoController_listarTodas5_route = Route("GET",
+  private[this] lazy val controllers_PublicacaoController_listarTodas7_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/pub")))
   )
-  private[this] lazy val controllers_PublicacaoController_listarTodas5_invoker = createInvoker(
+  private[this] lazy val controllers_PublicacaoController_listarTodas7_invoker = createInvoker(
     PublicacaoController_1.get.listarTodas(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -175,10 +211,10 @@ class Routes(
   )
 
   // @LINE:19
-  private[this] lazy val controllers_UsuarioController_login6_route = Route("GET",
+  private[this] lazy val controllers_UsuarioController_login8_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/login")))
   )
-  private[this] lazy val controllers_UsuarioController_login6_invoker = createInvoker(
+  private[this] lazy val controllers_UsuarioController_login8_invoker = createInvoker(
     UsuarioController_3.get.login(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -192,10 +228,10 @@ class Routes(
   )
 
   // @LINE:20
-  private[this] lazy val controllers_UsuarioController_sair7_route = Route("GET",
+  private[this] lazy val controllers_UsuarioController_sair9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/sair")))
   )
-  private[this] lazy val controllers_UsuarioController_sair7_invoker = createInvoker(
+  private[this] lazy val controllers_UsuarioController_sair9_invoker = createInvoker(
     UsuarioController_3.get.sair(),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -209,10 +245,10 @@ class Routes(
   )
 
   // @LINE:21
-  private[this] lazy val controllers_UsuarioController_remover8_route = Route("GET",
+  private[this] lazy val controllers_UsuarioController_remover10_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/remover/"), DynamicPart("id", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UsuarioController_remover8_invoker = createInvoker(
+  private[this] lazy val controllers_UsuarioController_remover10_invoker = createInvoker(
     UsuarioController_3.get.remover(fakeValue[Long]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -226,10 +262,10 @@ class Routes(
   )
 
   // @LINE:22
-  private[this] lazy val controllers_UserController_getUser9_route = Route("GET",
+  private[this] lazy val controllers_UserController_getUser11_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("user/"), DynamicPart("id", """[^/]+""",true), StaticPart("/"), DynamicPart("email", """[^/]+""",true)))
   )
-  private[this] lazy val controllers_UserController_getUser9_invoker = createInvoker(
+  private[this] lazy val controllers_UserController_getUser11_invoker = createInvoker(
     UserController_0.get.getUser(fakeValue[Long], fakeValue[String]),
     HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -257,52 +293,64 @@ class Routes(
         controllers_Assets_versioned1_invoker.call(Assets_4.versioned(path, file))
       }
   
-    // @LINE:15
-    case controllers_UsuarioController_cadastrarUsuarioFixo2_route(params) =>
+    // @LINE:13
+    case controllers_UsuarioController_requisicaoAva2_route(params) =>
       call { 
-        controllers_UsuarioController_cadastrarUsuarioFixo2_invoker.call(UsuarioController_3.get.cadastrarUsuarioFixo())
+        controllers_UsuarioController_requisicaoAva2_invoker.call(UsuarioController_3.get.requisicaoAva)
+      }
+  
+    // @LINE:14
+    case controllers_UsuarioController_conecteAva3_route(params) =>
+      call { 
+        controllers_UsuarioController_conecteAva3_invoker.call(UsuarioController_3.get.conecteAva)
+      }
+  
+    // @LINE:15
+    case controllers_UsuarioController_cadastrarUsuarioFixo4_route(params) =>
+      call { 
+        controllers_UsuarioController_cadastrarUsuarioFixo4_invoker.call(UsuarioController_3.get.cadastrarUsuarioFixo())
       }
   
     // @LINE:16
-    case controllers_UsuarioController_listarTodos3_route(params) =>
+    case controllers_UsuarioController_listarTodos5_route(params) =>
       call { 
-        controllers_UsuarioController_listarTodos3_invoker.call(UsuarioController_3.get.listarTodos())
+        controllers_UsuarioController_listarTodos5_invoker.call(UsuarioController_3.get.listarTodos())
       }
   
     // @LINE:17
-    case controllers_PublicacaoController_cadastrar4_route(params) =>
+    case controllers_PublicacaoController_cadastrar6_route(params) =>
       call { 
-        controllers_PublicacaoController_cadastrar4_invoker.call(PublicacaoController_1.get.cadastrar())
+        controllers_PublicacaoController_cadastrar6_invoker.call(PublicacaoController_1.get.cadastrar())
       }
   
     // @LINE:18
-    case controllers_PublicacaoController_listarTodas5_route(params) =>
+    case controllers_PublicacaoController_listarTodas7_route(params) =>
       call { 
-        controllers_PublicacaoController_listarTodas5_invoker.call(PublicacaoController_1.get.listarTodas())
+        controllers_PublicacaoController_listarTodas7_invoker.call(PublicacaoController_1.get.listarTodas())
       }
   
     // @LINE:19
-    case controllers_UsuarioController_login6_route(params) =>
+    case controllers_UsuarioController_login8_route(params) =>
       call { 
-        controllers_UsuarioController_login6_invoker.call(UsuarioController_3.get.login())
+        controllers_UsuarioController_login8_invoker.call(UsuarioController_3.get.login())
       }
   
     // @LINE:20
-    case controllers_UsuarioController_sair7_route(params) =>
+    case controllers_UsuarioController_sair9_route(params) =>
       call { 
-        controllers_UsuarioController_sair7_invoker.call(UsuarioController_3.get.sair())
+        controllers_UsuarioController_sair9_invoker.call(UsuarioController_3.get.sair())
       }
   
     // @LINE:21
-    case controllers_UsuarioController_remover8_route(params) =>
+    case controllers_UsuarioController_remover10_route(params) =>
       call(params.fromPath[Long]("id", None)) { (id) =>
-        controllers_UsuarioController_remover8_invoker.call(UsuarioController_3.get.remover(id))
+        controllers_UsuarioController_remover10_invoker.call(UsuarioController_3.get.remover(id))
       }
   
     // @LINE:22
-    case controllers_UserController_getUser9_route(params) =>
+    case controllers_UserController_getUser11_route(params) =>
       call(params.fromPath[Long]("id", None), params.fromPath[String]("email", None)) { (id, email) =>
-        controllers_UserController_getUser9_invoker.call(UserController_0.get.getUser(id, email))
+        controllers_UserController_getUser11_invoker.call(UserController_0.get.getUser(id, email))
       }
   }
 }

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Mon Aug 14 21:28:33 BRT 2017
+// @DATE:Tue Aug 15 00:23:11 BRT 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -79,7 +79,7 @@ package controllers {
   
   }
 
-  // @LINE:15
+  // @LINE:13
   class ReverseUsuarioController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
@@ -98,6 +98,12 @@ package controllers {
       Call("GET", _prefix + { _defaultPrefix } + "user/listar")
     }
   
+    // @LINE:14
+    def conecteAva(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "ava")
+    }
+  
     // @LINE:21
     def remover(id:Long): Call = {
       import ReverseRouteContext.empty
@@ -108,6 +114,12 @@ package controllers {
     def cadastrarUsuarioFixo(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "user/cadastrar")
+    }
+  
+    // @LINE:13
+    def requisicaoAva(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "requisicao")
     }
   
     // @LINE:19
