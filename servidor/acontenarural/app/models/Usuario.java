@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.avaje.ebean.*;
+import com.avaje.ebean.annotation.JsonIgnore;
 import com.avaje.ebean.annotation.WhenCreated;
 import com.avaje.ebean.annotation.WhenModified;
 
@@ -23,6 +24,7 @@ public class Usuario extends Model{
 	@Column (nullable= false)
 	private String nome;
 	
+	@JsonIgnore
 	@Column 
 	private String token;
 	
@@ -74,11 +76,13 @@ public class Usuario extends Model{
 	}
 
 	
-
+	
 	public String getToken() {
 		return token;
 	}
-
+	public void setToken(String token) {
+		this.token = token;
+	}
 	
 	public String getCurso() {
 		return curso;
@@ -113,13 +117,7 @@ public class Usuario extends Model{
 	public void setTempoLembreteAva(int tempoLembreteAva) {
 		this.tempoLembreteAva = tempoLembreteAva;
 	}
-	public static  List<Usuario> listar(){
-		return Ebean.createQuery(Usuario.class).where().findList();
-	}
 	
-	public static Usuario buscar(Long id){
-		return Ebean.createQuery(Usuario.class).where().eq("id", id).findUnique();
-	}
 
 	
 	public int hashCode() {
@@ -186,6 +184,19 @@ public class Usuario extends Model{
 		return "Usuario [id=" + id + ", nome=" + nome + ", token=" + token + ", curso=" + curso + ", imagem=" + imagem
 				+ ", descricao=" + descricao + ", publicacoesSalvas=" //+ Arrays.toString(publicacoesSalvas)
 				+ ", tempoLembreteAva=" + tempoLembreteAva + "]";
+	}
+	
+	public static  List<Usuario> listar(){
+		return Ebean.createQuery(Usuario.class).where().findList();
+	}
+	
+	public static Usuario buscar(Long id){
+		return Ebean.createQuery(Usuario.class).where().eq("id", id).findUnique();
+	}
+	
+	public static Usuario getUserToken(String token) {
+		
+		 return Ebean.createQuery(Usuario.class).where().eq("token", token).findUnique();
 	}
     
     

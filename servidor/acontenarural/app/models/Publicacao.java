@@ -1,8 +1,10 @@
 package models;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
@@ -32,7 +34,7 @@ public class Publicacao extends Model{
 	@Column (nullable =false)
 	private String texto;
 	
-	private String[] imagens;//criar um objeto anexo com id e link 
+	//private String[] imagens;//criar um objeto anexo com id e link 
 	
 	@WhenCreated
 	@Column (nullable=false, updatable = false) 
@@ -44,52 +46,48 @@ public class Publicacao extends Model{
 	
 	@OneToMany(mappedBy = "publicacao", cascade = CascadeType.ALL)
 	@JoinColumn
-	private Reacao [] reacoes;
+	private  List<Reacao> reacao;
 	
-	private String[] tags;// ser Cursos [OBJETO]
+	//private String[] tags;// ser Cursos [OBJETO]
 	
 	@OneToMany(mappedBy = "publicacao", cascade = CascadeType.ALL)
 	@OrderBy("id DESC")
 	@JoinColumn
-	private Comentario[] comentarios;//verificar se eh array ou arrayList
+	private List<Comentario> comentarios;//verificar se eh array ou arrayList
 	
 	
 	
-	public Publicacao(Long id, Usuario usuario, String texto, String[] imagens, Date dataCriacao, Date dataModificacao, Reacao [] reacoes,
-			String[] tags, Comentario[] comentarios){
+	public Publicacao(Usuario usuario, String texto){
 		
-		this.id = id;
 		this.usuario = usuario;
 		this.texto = texto;
-		this.imagens = imagens;
-		this.dataCriacao = dataCriacao;
-		this.dataModificacao = dataModificacao;
-		this.reacoes= reacoes;
-		this.tags = tags;
-		this.comentarios = comentarios;
+		//this.imagens = imagens;
+		this.reacao= new ArrayList<Reacao>();
+		//this.tags = tags;
+		this.comentarios = new ArrayList<Comentario>();
 	}
 
-	public Reacao[] getReacoes() {
-		return reacoes;
+	public List<Reacao> getReacoes() {
+		return reacao;
 	}
 
-	public void setReacoes(Reacao[] reacoes) {
-		this.reacoes = reacoes;
+	public void setReacoes(List<Reacao> reacao) {
+		this.reacao = reacao;
 	}
 
-	public String[] getTags() {
+	/*public String[] getTags() {
 		return tags;
-	}
+	}*/
 
-	public void setTags(String[] tags) {
-		this.tags = tags;
-	}
+//	public void setTags(String[] tags) {
+//		this.tags = tags;
+//	}
 
-	public Comentario[] getComentarios() {
+	public List<Comentario> getComentarios() {
 		return comentarios;
 	}
 
-	public void setComentarios(Comentario[] comentarios) {
+	public void setComentarios(List<Comentario> comentarios) {
 		this.comentarios = comentarios;
 	}
 
@@ -106,9 +104,9 @@ public class Publicacao extends Model{
 		return texto;
 	}
 
-	public String[] getImagens() {
-		return imagens;
-	}
+//	public String[] getImagens() {
+//		return imagens;
+//	}
 
 	public Date getDataCriacao() {
 		return dataCriacao;
@@ -117,11 +115,11 @@ public class Publicacao extends Model{
 		return dataModificacao;
 	}
 
-	@Override
-	public int hashCode() {
+	
+	/*public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + Arrays.hashCode(comentarios);
+		result = prime * result + Arrays.deepHashCode(comentarios);
 		result = prime * result + ((dataCriacao == null) ? 0 : dataCriacao.hashCode());
 		result = prime * result + ((dataModificacao == null) ? 0 : dataModificacao.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
@@ -142,7 +140,7 @@ public class Publicacao extends Model{
 		if (getClass() != obj.getClass())
 			return false;
 		Publicacao other = (Publicacao) obj;
-		if (!Arrays.equals(comentarios, other.comentarios))
+		if (!Arrays.equals(comentarios)))
 			return false;
 		if (dataCriacao == null) {
 			if (other.dataCriacao != null)
@@ -161,7 +159,7 @@ public class Publicacao extends Model{
 			return false;
 		if (!Arrays.equals(imagens, other.imagens))
 			return false;
-		if (!Arrays.equals(reacoes, other.reacoes))
+	//	if (!Arrays.equals(reacoes, other.reacoes))
 			return false;
 		if (!Arrays.equals(tags, other.tags))
 			return false;
@@ -176,19 +174,27 @@ public class Publicacao extends Model{
 		} else if (!usuario.equals(other.usuario))
 			return false;
 		return true;
-	}
+	}*/
 
 	@Override
 	public String toString() {
 		return "Publicacao [id=" + id + ", usuario=" + usuario + ", texto=" + texto + ", imagens="
-				+ Arrays.toString(imagens) + ", dataCriacao=" + dataCriacao + ", dataModificacao=" + dataModificacao
-				+ ", reacoes=" + Arrays.toString(reacoes) + ", tags=" + Arrays.toString(tags) + ", comentarios="
-				+ Arrays.toString(comentarios) + "]";
+				//+ Arrays.toString(imagens) 
+				+ ", dataCriacao=" + dataCriacao + ", dataModificacao=" + dataModificacao
+				//+ ", reacoes=" + Arrays.toString(reacoes) 
+				//+ ", tags=" + Arrays.toString(tags) + ", comentarios="
+				//+ Arrays.toString(comentarios)
+				+ "]";
 	}
 	
 	
 	public static Publicacao buscar(Long id){
 		return Ebean.createQuery(Publicacao.class).where().eq("id", id).findUnique();
 	}
+
+	public static  List<Publicacao> listar(){
+		return Ebean.createQuery(Publicacao.class).where().findList();
+	}
+
 }
 

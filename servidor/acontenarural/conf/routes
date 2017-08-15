@@ -11,10 +11,12 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 
-POST  /user/new         @controllers.UserController.postTeste()
-POST /user        @controllers.UsuarioController.cadastrar()
-GET  /user			@controllers.UsuarioController.listarTodos()
-GET  /user/login			@controllers.UsuarioController.login()
-GET  /user/sair			@controllers.UsuarioController.sair()
-GET  /user/remover/:id			@controllers.UsuarioController.remover(id:Long)
-GET    /user/:id/:email    @controllers.UserController.getUser(id:Long, email:String)
+
+GET		/user/cadastrar			@controllers.UsuarioController.cadastrarUsuarioFixo()
+GET		/user/listar			@controllers.UsuarioController.listarTodos()
+POST	/user/pub        		@controllers.PublicacaoController.cadastrar()
+GET  	/user/pub				@controllers.PublicacaoController.listarTodas()
+GET  	/user/login				@controllers.UsuarioController.login()
+GET  	/user/sair				@controllers.UsuarioController.sair()
+GET  	/user/remover/:id		@controllers.UsuarioController.remover(id:Long)
+GET   	/user/:id/:email		@controllers.UserController.getUser(id:Long, email:String)

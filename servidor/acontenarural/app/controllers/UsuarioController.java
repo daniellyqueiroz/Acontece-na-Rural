@@ -79,18 +79,30 @@ public class UsuarioController extends Controller{
 		
 		
 		
-//		Usuario usuario = new Usuario( resultado.get("nome").asText(), resultado.get("token").asText(),
-//				resultado.get("curso").asText(),resultado.get("imagem").asText(),resultado.get("descricao").asText(),
-//				resultado.get("tempoLembreteAva").intValue());
-//		usuario.save();
-		
-		
+		return ok();
+	}
+	//Para Testes
+	public Result cadastrarUsuarioFixo(){
+
+		Usuario usuario = new Usuario( "Danielly", "token","bcc","url","minha descricao",10);
 		
 		String t = UUID.create().toString();
+		usuario.setToken(t);
+		
+		usuario.save();
+		
 		session().put("token", t);
 		
-		return ok(t);
+		return ok("cadastrou");
 	}
+	
+	public Result listarTodos(){
+		String t = session().get("token");
+		if(t != null)
+		return ok(Json.toJson(Usuario.listar()));
+		else return ok("OPS");
+	}
+	
 	public Result remover(Long id){
 		Usuario u = Usuario.buscar(id);
 		u.delete();
@@ -104,15 +116,6 @@ public class UsuarioController extends Controller{
 		
 	}
 	
-	//exemplo pois o usuario nao pode atualizar ja que vem do AVA
-	public Result atualizar(){
-		JsonNode resultado = request().body().asJson();
-		Usuario usuario = Usuario.buscar(resultado.get("id").asLong());
-		//usuario.setNome(novonome);
-		usuario.update();
-		return ok("atualizado");
-		
-	}
 	
 	public Result login(){
 		String t = UUID.create().toString();
@@ -125,10 +128,5 @@ public class UsuarioController extends Controller{
 		 return ok("saiu");
 	}
 	
-	public Result listarTodos(){
-		String t = session().get("token");
-		if(t != null)
-		return ok(Json.toJson(Usuario.listar()));
-		else return ok("OPS");
-	}
+	
 }
