@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Tue Aug 15 23:54:37 BRT 2017
+// @DATE:Wed Aug 16 11:57:31 BRT 2017
 
 
 package router {

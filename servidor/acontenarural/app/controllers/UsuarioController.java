@@ -97,6 +97,18 @@ public class UsuarioController extends Controller{
 		        		        				.whenComplete((avaJson3, error3) -> {
 		        		        					Logger.info(avaJson3.toString());
 		        		        		            try {
+		        		        		            	avaJson3 = avaJson3.get(0);
+		        		        		            	//cadastrar Usuario do AVA no Banco
+		        		        		            	
+		        		        		            	Usuario usuario = new Usuario(avaJson3.get("id").asInt(),avaJson3.get("idnumber").asText(), 
+		        		        		        				avaJson3.get("username").asText(), avaJson3.get("fullname").asText(), avaJson3.get("email").asText(), 
+		        		        		        				 avaJson3.get("institution").asText(),  avaJson3.get("department").asText(),  avaJson3.get("city").asText(),
+		        		        		        				 avaJson3.get("country").asText(),avaJson3.get("profileimageurl").asText(),
+		        		        		        				 avaJson3.get("profileimageurlsmall").asText());
+		        		        		        		
+		        		        		        		String t = UUID.create().toString();
+		        		        		        		usuario.setToken(t);
+		        		        		        		usuario.save();
 		        		        		            	
 		        		        		            }catch(Exception e) {
 		        		        		            	Logger.info("avaErro3",e.getMessage());
@@ -123,25 +135,13 @@ public class UsuarioController extends Controller{
 	}
 	
 
-	public Result cadastrarUsuarioFixo(){
-
-		Usuario usuario = new Usuario( "Danielly", "token","bcc","url","minha descricao",10);
-		
-		String t = UUID.create().toString();
-		usuario.setToken(t);
-		
-		usuario.save();
-		
-		session().put("token", t);
-		
-		return ok("cadastrou");
-	}
+	
 	
 	public Result listarTodos(){
-		String t = session().get("token");
-		if(t != null)
+//		String t = session().get("token");
+//		if(t != null)
 		return ok(Json.toJson(Usuario.listar()));
-		else return ok("OPS");
+//		else return ok("OPS");
 	}
 	
 	public Result remover(Long id){

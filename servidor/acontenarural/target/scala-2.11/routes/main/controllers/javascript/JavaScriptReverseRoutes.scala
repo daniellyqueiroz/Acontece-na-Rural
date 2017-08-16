@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Tue Aug 15 23:54:37 BRT 2017
+// @DATE:Wed Aug 16 11:57:31 BRT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -35,7 +35,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:16
+  // @LINE:15
   class ReversePublicacaoController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -43,7 +43,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:16
+    // @LINE:15
     def cadastrar: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PublicacaoController.cadastrar",
       """
@@ -53,7 +53,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:16
     def listarTodas: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PublicacaoController.listarTodas",
       """
@@ -65,7 +65,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:21
+  // @LINE:20
   class ReverseUserController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -73,7 +73,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:21
+    // @LINE:20
     def getUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.getUser",
       """
@@ -113,7 +113,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:18
     def sair: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.sair",
       """
@@ -123,7 +123,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:14
     def listarTodos: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.listarTodos",
       """
@@ -133,22 +133,12 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:20
+    // @LINE:19
     def remover: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.remover",
       """
         function(id0) {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/remover/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
-        }
-      """
-    )
-  
-    // @LINE:14
-    def cadastrarUsuarioFixo: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.UsuarioController.cadastrarUsuarioFixo",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/cadastrar"})
         }
       """
     )
@@ -163,7 +153,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:18
+    // @LINE:17
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.login",
       """

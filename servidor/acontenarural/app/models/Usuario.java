@@ -9,6 +9,7 @@ import com.avaje.ebean.*;
 import com.avaje.ebean.annotation.JsonIgnore;
 import com.avaje.ebean.annotation.WhenCreated;
 import com.avaje.ebean.annotation.WhenModified;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,25 +18,47 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@JsonAutoDetect
 public class Usuario extends Model{
 	@Id
 	private Long id;
 	
 	@Column (nullable= false)
-	private String nome;
+	private int avaId;
+	
+	@Column (nullable= false)
+	private String username;
 	
 	@JsonIgnore
 	@Column 
 	private String token;
 	
 	@Column (nullable= false)
-	private String curso;
+	private String nome;
+	
+	@Column 
+	private String matricula;
 	
 	@Column 
 	private String imagem;
 	
 	@Column 
-    private String descricao;
+	private String imagemSmall;
+	
+	@Column 
+	private String cidade;
+	
+	@Column 
+	private String pais;
+	
+	@Column 
+	private String instituicao;
+	
+	@Column 
+	private String email;
+	
+	@Column 
+    private String departamento;
 	
 	@WhenCreated
 	@Column (nullable=false, updatable = false) 
@@ -50,14 +73,21 @@ public class Usuario extends Model{
     
     private int tempoLembreteAva; // perguntar a Joao
     
-    public Usuario(String nome, String token, String curso, String imagem, String descricao, 
-    				 int tempoLembreteAva){
+    public Usuario(int avaId, String matricula, String username, String nome,String email, String instituicao, 
+    		 String departamento, String cidade, String pais, String imagem, String imagemSmall){
     	
+    	this.avaId = avaId;
+    	this.matricula = matricula;
+    	this.username = username;
     	this.nome = nome;
-    	this.token = token;
-    	this.curso = curso;
+    	this.email = email;
+    	this.instituicao = instituicao;
     	this.imagem = imagem;
-    	this.descricao = descricao;
+    	this.departamento = departamento;
+    	this.cidade = cidade;
+    	this.pais = pais;
+    	this.imagemSmall = imagemSmall;
+    	this.token = token;
     	this.publicacoesSalvas = new ArrayList<Publicacao>();
     	this.tempoLembreteAva = tempoLembreteAva;
     }
@@ -84,43 +114,48 @@ public class Usuario extends Model{
 		this.token = token;
 	}
 	
-	public String getCurso() {
-		return curso;
-	}
-
 	
 
+	public int getAvaId() {
+		return avaId;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public String getMatricula() {
+		return matricula;
+	}
 	public String getImagem() {
 		return imagem;
 	}
-
-	
-
-	public String getDescricao() {
-		return descricao;
+	public String getImagemSmall() {
+		return imagemSmall;
 	}
-
-	
-
-	/*public Publicacao[] getPublicacoesSalvas() {
-		return publicacoesSalvas;
-	}*/
-
-	/*public void setPublicacoesSalvas(Publicacao[] publicacoesSalvas) {
-		this.publicacoesSalvas = publicacoesSalvas;
-	}*/
-
-	public int getTempoLembreteAva() {
-		return tempoLembreteAva;
+	public String getCidade() {
+		return cidade;
 	}
-
+	public String getPais() {
+		return pais;
+	}
+	public String getInstituicao() {
+		return instituicao;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public String getDepartamento() {
+		return departamento;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	public void setTempoLembreteAva(int tempoLembreteAva) {
 		this.tempoLembreteAva = tempoLembreteAva;
 	}
 	
 
 	
-	public int hashCode() {
+	/*public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((curso == null) ? 0 : curso.hashCode());
@@ -185,7 +220,7 @@ public class Usuario extends Model{
 				+ ", descricao=" + descricao + ", publicacoesSalvas=" //+ Arrays.toString(publicacoesSalvas)
 				+ ", tempoLembreteAva=" + tempoLembreteAva + "]";
 	}
-	
+	*/
 	public static  List<Usuario> listar(){
 		return Ebean.createQuery(Usuario.class).where().findList();
 	}
