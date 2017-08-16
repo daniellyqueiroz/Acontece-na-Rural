@@ -11,7 +11,6 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 
 POST	/requisicao				@controllers.UsuarioController.requisicaoAva
-POST 	/ava					@controllers.UsuarioController.conecteAva
 GET		/user/cadastrar			@controllers.UsuarioController.cadastrarUsuarioFixo()
 GET		/user/listar			@controllers.UsuarioController.listarTodos()
 POST	/user/pub        		@controllers.PublicacaoController.cadastrar()
