@@ -40,8 +40,6 @@ export class FeedNoticiasComponent implements OnInit {
     }
   }
 
- // removerPublicacao(pub: Publicacao, nomeUsuario: string) {
-   // if (pub.nomeUsuario == nomeUsuario) {
   removerPublicacao(pub: Publicacao, idUsuario: number) {
       if (pub.idUsuario == idUsuario) {
       let index = this.feed.indexOf(pub);
@@ -59,8 +57,6 @@ export class FeedNoticiasComponent implements OnInit {
     }
   }
 
-  //removerComentario(pub: Publicacao, com: Comentario, nomeUsuario: string) {
-    //if (com.nomeUsuario == nomeUsuario) {
   removerComentario(pub: Publicacao, com: Comentario, idUsuario: number) {
     if (com.idUsuario == idUsuario) {
       let index = pub.comentarios.indexOf(com);
@@ -72,8 +68,6 @@ export class FeedNoticiasComponent implements OnInit {
     this.pubService.salvarPublicacao(pub);
   }
   
-  //gostarPublicacao(pub: Publicacao, nomeUsuario: string) {
-    //se true: gostar
   gostarPublicacao(pub: Publicacao, idUsuario: number) {
     //pegar a data atual e somar ao id do usuário (garante)
     let reacao: Reacao = new Reacao(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, pub.id, 
