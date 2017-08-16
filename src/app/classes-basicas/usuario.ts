@@ -1,4 +1,5 @@
 import {Publicacao} from '../classes-basicas/publicacao';
+import { TempoAva } from '../classes-basicas/tempo-ava';
 
 export class Usuario{
     id: number;
@@ -10,5 +11,5 @@ export class Usuario{
     descricao: string;
     publicacoesSalvas: Publicacao[];
     listaInteresses: boolean[];//true ou false para cada interesse listado
-    tempoLembreteAVA: number; //em horas
+    tempoLembreteAVA: TempoAva;
 }
