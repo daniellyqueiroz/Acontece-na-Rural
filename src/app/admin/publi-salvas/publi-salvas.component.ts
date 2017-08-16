@@ -73,6 +73,7 @@ export class PubliSalvasComponent implements OnInit {
     this.pubService.naoGostarPublicacao(pub, reacao);
   }
 
+<<<<<<< HEAD
   quantidadeGostar(pub: Publicacao){
     return this.pubService.quantidadeGostar(pub);
   }
@@ -85,6 +86,12 @@ export class PubliSalvasComponent implements OnInit {
     return this.pubService.gostou(pub, idUsuario);
   }
 
+=======
+  gostou(pub: Publicacao, idUsuario: number): boolean {
+    return this.pubService.gostou(pub, idUsuario);
+  }
+
+>>>>>>> fd3b0d96b5398f0fc8115c1d8030a16a430c32c4
   naoGostou(pub: Publicacao, idUsuario: number): boolean {
     return this.pubService.naoGostou(pub, idUsuario);
   }
