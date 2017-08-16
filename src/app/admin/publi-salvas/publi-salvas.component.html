@@ -15,7 +15,7 @@
               <div class="box-tools">
                 <button type="button" class="btn btn-box-tool" [ngStyle]="{'color': estaSalvaPublicacao(pub) === true? '#ffcc00' : '#444'}"
                   data-widget="favorita"><i class="fa" [ngClass]="{'fa-star': estaSalvaPublicacao(pub) === true, 'fa-star-o': estaSalvaPublicacao(pub) === false}" aria-hidden="true" (click)="salvarPublicacao(pub)"></i></button>
-                <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, usuarioLogado.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
                 
 
                   <!-- /.box-tools -->
@@ -44,9 +44,9 @@
                   <!-- /.attachment-block -->
 
                   <!-- Social sharing buttons -->
-                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.nomeUsuario) === true? '#dc5847' : '#444'}"
-                  (click)="naoGostarPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
-                 <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.nomeUsuario) === true? '#3c8dbc' : '#444'}" [ngStyle]="{'strong': gostou(pub, usuarioLogado.nomeUsuario) === true? 'true' : 'false'}" (click)="gostarPublicacao(pub, usuarioLogado.nomeUsuario)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.id) === true? '#dc5847' : '#444'}"
+                  (click)="naoGostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{quantidadeNaoGostar(pub).length}})</a>
+                 <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.id) === true? '#3c8dbc' : '#444'}" [ngStyle]="{'strong': gostou(pub, usuarioLogado.id) === true? 'true' : 'false'}" (click)="gostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{quantidadeGostar(pub).length}})</a>
                  <span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
                 </div>
                 <!-- /.box-body -->

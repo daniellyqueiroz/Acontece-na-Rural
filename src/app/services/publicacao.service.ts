@@ -6,6 +6,9 @@ import { of } from 'rxjs/observable/of';
 import { Publicacao } from '../classes-basicas/publicacao';
 import { Comentario } from '../classes-basicas/comentario';
 import { Usuario } from '../classes-basicas/usuario';
+import { Reacao } from '../classes-basicas/reacao';
+import { TiposReacao } from '../classes-basicas/tipo-reacao';
+import { TempoAva } from '../classes-basicas/tempo-ava';
 
 @Injectable()
 export class PublicacaoService {
@@ -31,6 +34,7 @@ export class PublicacaoService {
             publicacoesSalvas: [
                 {
                     "id": 2,
+                    "idUsuario": 3,
                     "nome": "Danny",
                     "nomeUsuario": "dani",
                     "imagem": "assets/img/fotouser.jpg",
@@ -38,8 +42,7 @@ export class PublicacaoService {
                     "fotos": [],
                     "videos": [],
                     "data": 890809,
-                    "pessoasCurtiram": [],
-                    "pessoasDescurtiram": [],
+                    "pessoasReagiram": [],
                     "tags": ["ufrpe", "latim"],
                     "comentarios": [
                         {
@@ -51,8 +54,7 @@ export class PublicacaoService {
                             "imagem": "assets/img/joao.jpg",
                             "texto": "Proin facilisis in eros quis euismod. Etiam pharetra vestibulum turpis sit amet congue. Mauris molestie lorem non mauris consectetur, quis volutpat urna rhoncus. Pellentesque condimentum justo enim, a bibendum lacus lobortis a. Nunc non venenatis magna, et interdum sem. Sed blandit velit a ipsum consectetur, non auctor nisi condimentum. Morbi in iaculis justo, in tempus turpis.",
                             "data": 897987,
-                            "pessoasCurtiram": [],
-                            "pessoasDescurtiram": []
+                            "pessoasReagiram": []
                         },
                         {
                             "id": 11,
@@ -63,8 +65,7 @@ export class PublicacaoService {
                             "imagem": "assets/img/usuario1.jpg",
                             "texto": "Curabitur interdum urna nec ex egestas, et mattis tortor gravida. Aenean id diam nec arcu pulvinar luctus. Phasellus sollicitudin dictum leo, vitae luctus ante facilisis id. Mauris non consequat erat. In congue tortor in volutpat lobortis. In rutrum a neque vel eleifend. Nullam tincidunt ante quis egestas hendrerit.",
                             "data": 89908,
-                            "pessoasCurtiram": [],
-                            "pessoasDescurtiram": []
+                            "pessoasReagiram": []
                         },
                         {
                             "id": 12,
@@ -75,14 +76,13 @@ export class PublicacaoService {
                             "imagem": "assets/img/joao.jpg",
                             "texto": "meu comentario",
                             "data": 7897,
-                            "pessoasCurtiram": [],
-                            "pessoasDescurtiram": []
+                            "pessoasReagiram": []
                         }
                     ]
                 }
             ],
             listaInteresses: [],
-            tempoLembreteAVA: 24
+            tempoLembreteAVA: TempoAva.DOZE_HORAS
           };
     }
 
@@ -109,33 +109,81 @@ export class PublicacaoService {
         } else {
           this.usuario.publicacoesSalvas.unshift(pub);//mais novas primeiro
         }
+      }      
+      ehReacaoGostar(reacao: Reacao): boolean{
+          return reacao.tipoReacao == TiposReacao.Gostar;
       }
-      
-      gostarPublicacao(pub: Publicacao, nomeUsuario: string) {
-        //se true: gostar
-        let indexGostar: number = pub.pessoasCurtiram.indexOf(nomeUsuario);
-        if (indexGostar == -1) {//pessoa ainda não curtiu
-          pub.pessoasCurtiram.unshift(nomeUsuario);
-          let indexNaoGostar = pub.pessoasDescurtiram.indexOf(nomeUsuario);
-          pub.pessoasDescurtiram.splice(indexNaoGostar, 1);
+
+      ehReacaoNaoGostar(reacao: Reacao): boolean{
+        return reacao.tipoReacao == TiposReacao.NaoGostar;
+    }
+
+      gostarPublicacao (pub: Publicacao, reacao: Reacao){
+          let reacoes = pub.pessoasReagiram;
+          let indexGostar: number = -1;
+          let reacaoBD: Reacao;
+          for (var index = 0; index < reacoes.length; index++) {
+              if (reacoes[index].idUsuario === reacao.idUsuario){
+                  indexGostar =  index;
+                  reacaoBD = reacoes[index];
+                  break;
+              } 
+          }
+
+        if (indexGostar == -1) {//pessoa ainda não reagiu
+            pub.pessoasReagiram.unshift(reacao); //add no topo
         } else {
-          pub.pessoasCurtiram.splice(indexGostar, 1);
+            if (reacaoBD.tipoReacao == TiposReacao.NaoGostar){
+                //aproveita-se a reação original
+                //só muda o tipo
+                reacaoBD.tipoReacao = TiposReacao.Gostar;
+            } else {
+                pub.pessoasReagiram.splice(indexGostar, 1); //remove a reação
+            }
         }
       }
 
-      naoGostarPublicacao(pub: Publicacao, nomeUsuario: string) {
-        let indexNaoGostar: number = pub.pessoasDescurtiram.indexOf(nomeUsuario);
-        if (indexNaoGostar == -1) {//pessoa ainda não clicou em 'não gostei'
-          pub.pessoasDescurtiram.unshift(nomeUsuario);
-          let indexGostar = pub.pessoasCurtiram.indexOf(nomeUsuario);
-          pub.pessoasCurtiram.splice(indexGostar, 1);
+      quantidadeGostar(pub: Publicacao){
+        return pub.pessoasReagiram.filter(this.ehReacaoGostar);
+      }
+
+      quantidadeNaoGostar(pub: Publicacao){
+        return pub.pessoasReagiram.filter(this.ehReacaoNaoGostar);
+      }
+
+      naoGostarPublicacao (pub: Publicacao, reacao: Reacao){
+        let reacoes = pub.pessoasReagiram;
+        let indexGostar: number = -1;
+        let reacaoBD: Reacao;
+        for (var index = 0; index < reacoes.length; index++) {
+            if (reacoes[index].idUsuario === reacao.idUsuario){
+                indexGostar =  index;
+                reacaoBD = reacoes[index];
+                break;
+            } 
+        }
+
+        if (indexGostar == -1) {//pessoa ainda não reagiu
+            pub.pessoasReagiram.unshift(reacao); //add no topo
         } else {
-          pub.pessoasDescurtiram.splice(indexNaoGostar, 1);
+            if (reacaoBD.tipoReacao == TiposReacao.Gostar){
+                reacaoBD.tipoReacao = TiposReacao.NaoGostar;
+            } else {
+                pub.pessoasReagiram.splice(indexGostar, 1); //remove a reação
+            }
         }
       }
     
-      gostou(publicacao: Publicacao, nomeUsuario: string): boolean {
-        let indexGostar = publicacao.pessoasCurtiram.indexOf(nomeUsuario);
+      gostou(pub: Publicacao, idUsuario: number): boolean {
+        let reacoes = pub.pessoasReagiram;
+        let indexGostar: number = -1;
+        for (var index = 0; index < reacoes.length; index++) {
+            if (reacoes[index].idUsuario ===idUsuario
+                && reacoes[index].tipoReacao == TiposReacao.Gostar){
+                indexGostar =  index;
+                break;
+            } 
+        }
         let ehGostou = false;
         if (indexGostar != -1) {
           ehGostou = true;
@@ -143,8 +191,16 @@ export class PublicacaoService {
         return ehGostou;
       }
     
-      naoGostou(publicacao: Publicacao, nomeUsuario: string): boolean {
-        let indexNaoGostar = publicacao.pessoasDescurtiram.indexOf(nomeUsuario);
+      naoGostou(pub: Publicacao, idUsuario: number): boolean {
+        let reacoes = pub.pessoasReagiram;
+        let indexNaoGostar: number = -1;
+        for (var index = 0; index < reacoes.length; index++) {
+            if (reacoes[index].idUsuario ===idUsuario
+                && reacoes[index].tipoReacao == TiposReacao.NaoGostar){
+                indexNaoGostar =  index;
+                break;
+            } 
+        }
         let ehNaoGostou = false;
         if (indexNaoGostar != -1) {
           ehNaoGostou = true;
@@ -181,7 +237,7 @@ export class PublicacaoService {
     public getBanco(): any {
         return [
             {
-                "id": 2,
+                "id": 1,
                 "nome": "Danny",
                 "nomeUsuario": "dani",
                 "imagem": "assets/img/fotouser.jpg",
@@ -189,8 +245,7 @@ export class PublicacaoService {
                 "fotos": [],
                 "videos": [],
                 "data": 890809,
-                "pessoasCurtiram": [],
-                "pessoasDescurtiram": [],
+                "pessoasReagiram": [],
                 "tags": ["ufrpe", "latim"],
                 "comentarios": [
                     {
@@ -202,8 +257,7 @@ export class PublicacaoService {
                         "imagem": "assets/img/usuario1.jpg",
                         "texto": "Proin facilisis in eros quis euismod. Etiam pharetra vestibulum turpis sit amet congue. Mauris molestie lorem non mauris consectetur, quis volutpat urna rhoncus. Pellentesque condimentum justo enim, a bibendum lacus lobortis a. Nunc non venenatis magna, et interdum sem. Sed blandit velit a ipsum consectetur, non auctor nisi condimentum. Morbi in iaculis justo, in tempus turpis.",
                         "data": 897987,
-                        "pessoasCurtiram": [],
-                        "pessoasDescurtiram": []
+                        "pessoasReagiram": []
                     },
                     {
                         "id": 11,
@@ -214,8 +268,7 @@ export class PublicacaoService {
                         "imagem": "assets/img/joao.jpg",
                         "texto": "Aliquam orci lectus, venenatis et tempor sed, varius eu ipsum. Duis congue ultricies felis et gravida. Vestibulum a nunc porttitor, sodales tortor sit amet, consequat est. Proin eleifend diam iaculis quam vestibulum finibus. Donec quis accumsan lorem. Sed porttitor venenatis ultricies. Sed blandit, nisi nec pulvinar dapibus, dui justo aliquam diam",
                         "data": 89908,
-                        "pessoasCurtiram": [],
-                        "pessoasDescurtiram": []
+                        "pessoasReagiram": []
                     },
                     {
                         "id": 12,
@@ -226,8 +279,7 @@ export class PublicacaoService {
                         "imagem": "assets/img/usuario2.jpg",
                         "texto": " a tempor urna augue at sapien. Etiam id aliquet odio, non fermentum dui. Nunc lobortis nulla ut turpis scelerisque, at convallis leo hendrerit. Pellentesque et ante scelerisque, sagittis nunc at, rutrum est. Praesent non quam nec elit pulvinar tincidunt. :)",
                         "data": 7897,
-                        "pessoasCurtiram": [],
-                        "pessoasDescurtiram": []
+                        "pessoasReagiram": []
                     }
                 ]
             },
@@ -240,8 +292,7 @@ export class PublicacaoService {
                 "fotos": [],
                 "videos": [],
                 "data": 890809,
-                "pessoasCurtiram": [],
-                "pessoasDescurtiram": [],
+                "pessoasReagiram": [],
                 "tags": ["ufrpe", "latim"],
                 "comentarios": [
                     {
@@ -253,8 +304,7 @@ export class PublicacaoService {
                         "imagem": "assets/img/usuario3.jpg",
                         "texto": "Donec at ipsum lectus. Ut id rutrum eros, vel condimentum urna. Vestibulum id erat ac erat porta hendrerit. Vestibulum placerat pellentesque luctus. ",
                         "data": 89080,
-                        "pessoasCurtiram": [],
-                        "pessoasDescurtiram": []
+                        "pessoasReagiram": []
                     }
                 ]
             },
@@ -267,8 +317,7 @@ export class PublicacaoService {
                 "fotos": [],
                 "videos": [],
                 "data": 890809,
-                "pessoasCurtiram": [],
-                "pessoasDescurtiram": [],
+                "pessoasReagiram": [],
                 "tags": ["ufrpe"],
                 "comentarios": [
                     {
@@ -280,8 +329,7 @@ export class PublicacaoService {
                         "imagem": "assets/img/joao.jpg",
                         "texto": "Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.",
                         "data": 890809,
-                        "pessoasCurtiram": [],
-                        "pessoasDescurtiram": []
+                        "pessoasReagiram": []
                     }
                 ]
             }

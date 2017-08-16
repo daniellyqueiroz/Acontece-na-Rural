@@ -1,3 +1,5 @@
+import { Reacao } from '../classes-basicas/reacao';
+
 export class Comentario{
     id: number;
     idPublicacao: number; //publicação ao qual o comentário está associado
@@ -7,8 +9,7 @@ export class Comentario{
     imagem: any;
     texto: string;
     data: number;
-    pessoasCurtiram: string[];
-    pessoasDescurtiram: string[];
+    pessoasReagiram: Reacao[];
 
     constructor(id: number, idPublicacao: number, idUsuario: number, nome: string, nomeUsuario: string,
          imagem: any, texto: string, data: number){
@@ -20,7 +21,6 @@ export class Comentario{
              this.imagem = imagem;
              this.texto = texto;
              this.data = data;
-             this.pessoasCurtiram = [];
-             this.pessoasDescurtiram = [];
+             this.pessoasReagiram = [];
     }
 }
