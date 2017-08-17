@@ -19,7 +19,7 @@ export class PerfilComponent implements OnInit {
 
   constructor(private pubService: PublicacaoService) {
     this.usuarioLogado = this.pubService.usuario;
-    this.feed = this.pubService.getBanco();
+    this.feed = this.pubService.feed;
     //this.pubService.getBanco3().then(postagens => this.feed = postagens);    
   }
 

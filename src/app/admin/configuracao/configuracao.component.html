@@ -4,22 +4,41 @@
             <div class="box box-widget box-post">
                 <div class="box-body">
                     <label>Assuntos de</label>
-                    <div class="margin-br">
-                        <input id="bcc" type="checkbox">
-                        <label for="bcc">BCC</label>
-                        <input id="bsi" type="checkbox" class="margin-br">
-                        <label for="bsi">BSI</label>
-                        <input id="lc" type="checkbox" class="margin-br">
-                        <label for="lc">LC</label>
-                        <input id="ufrpe" type="checkbox" class="margin-br">
-                        <label for="ufrpe">UFRPE</label>
+                    <div class="margin-br" #checkNoticias>
+                        <div class="margin-br">
+                            <input id="bcc" type="checkbox">
+                            <label for="bcc">BCC</label>
+                        </div>
+                        <div class="margin-br">
+                            <input id="bsi" type="checkbox">
+                            <label for="bsi">BSI</label>
+                        </div>
+                        <div class="margin-br">
+                            <input id="lc" type="checkbox">
+                            <label for="lc">LC</label>
+                        </div>
+                        <div class="margin-br">
+                            <input id="ufrpe" type="checkbox">
+                            <label for="ufrpe">UFRPE</label>
+                        </div>
                     </div>
                     <label>Tempo Lembrete AVA</label>
-                    <input type="range" min="12" max="120" step="12" #tempoLembreteAVA class="margin-br">
-                    <label>Alterar sua descrição</label>
-                    <input type="text" col="12" #descricao class="margin-br">
+                    <div  class="margin-br">
+                        <select name="tempo-lembrete-ava" required #tempo>
+                            <option value="duas-horas">2 horas</option> 
+                            <option value="quatro-horas">4 horas</option>
+                            <option value="oito-horas" selected>8 horas</option>
+                            <option value="doze-horas">12 horas</option> 
+                            <option value="vquatro-horas">24 horas</option>
+                            <option value="qoito-horas">48 horas</option>
+                        </select>
+                    </div>
+                    <label #descricao>Alterar sua descrição</label>
+                    <div  class="margin-br">
+                        <input type="text" col="24" #descricao>
+                    </div>
                     <div>
-                        <button type="button" class="btn bg-gray">Fazer alterações
+                        <button type="button" class="btn bg-gray" (click)="fazerAlteracoes(descricao.value, tempo.value, checkNoticias)">Fazer alterações
                                 <i class="fa fa-paper-plane" aria-hidden="true"></i>
                         </button>
                     </div>

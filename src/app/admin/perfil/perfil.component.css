@@ -1,3 +1,19 @@
 .box, .box-primary{ 
 	display:  none;
 }
+
+.principal {
+	font-size: 22px;
+	font-weight: 900;
+	vertical-align: auto;
+}
+.infos {
+	font-size: 15px;
+	text-align: start;
+	font-weight: 600;
+}
+
+.margin-br{
+	float: initial;
+	margin-bottom: 20px;
+}

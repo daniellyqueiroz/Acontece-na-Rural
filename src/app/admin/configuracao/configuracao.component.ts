@@ -11,8 +11,15 @@ export class ConfiguracaoComponent implements OnInit {
 
   }
 
-  salvar(){
-    
+  fazerAlteracoes(descricao: string, tempoAva: string, checkNoticias: any){
+    if (descricao != null && descricao.length > 0){
+      //poderia alterar descrição
+    }
+    console.log(descricao);
+    console.log(tempoAva);
+    if (checkNoticias.checked){
+      console.log("eh");
+    }
   }
 
   ngOnInit() {
