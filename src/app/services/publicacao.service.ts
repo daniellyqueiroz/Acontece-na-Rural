@@ -26,7 +26,7 @@ export class PublicacaoService {
         this.feed = this.getBanco();
         this.usuario2 = 
         {
-            id: 1,
+            id: 4,
             idAva: 3,
             matricula: "kdhjkdah",
             nome: 'Danielly Queiroz',
@@ -104,26 +104,27 @@ export class PublicacaoService {
         } else {
           this.usuario.publicacoesSalvas.unshift(pub);//mais novas primeiro
         }
-      }      
-      ehReacaoGostar(reacao: Reacao): boolean{
+    }      
+    
+    ehReacaoGostar(reacao: Reacao): boolean{
           return reacao.tipoReacao == TiposReacao.Gostar;
-      }
+    }
 
-      ehReacaoNaoGostar(reacao: Reacao): boolean{
+    ehReacaoNaoGostar(reacao: Reacao): boolean{
         return reacao.tipoReacao == TiposReacao.NaoGostar;
     }
 
-      gostarPublicacao (pub: Publicacao, reacao: Reacao){
+    gostarPublicacao (pub: Publicacao, reacao: Reacao){
           let reacoes = pub.reacoes;
           let indexGostar: number = -1;
           let reacaoBD: Reacao;
-          for (var index = 0; index < reacoes.length; index++) {
-              if (reacoes[index].usuario.id === reacao.usuario.id){
+        for (var index = 0; index < reacoes.length; index++) {
+            if (reacoes[index].usuario.id === reacao.usuario.id){
                   indexGostar =  index;
                   reacaoBD = reacoes[index];
                   break;
-              } 
-          }
+            } 
+        }
 
         if (indexGostar == -1) {//pessoa ainda não reagiu
             pub.reacoes.unshift(reacao); //add no topo
@@ -136,17 +137,17 @@ export class PublicacaoService {
                 pub.reacoes.splice(indexGostar, 1); //remove a reação
             }
         }
-      }
+    }
 
-      quantidadeGostar(pub: Publicacao){
+    quantidadeGostar(pub: Publicacao){
         return pub.reacoes.filter(this.ehReacaoGostar);
-      }
+    }
 
-      quantidadeNaoGostar(pub: Publicacao){
+    quantidadeNaoGostar(pub: Publicacao){
         return pub.reacoes.filter(this.ehReacaoNaoGostar);
-      }
+    }
 
-      naoGostarPublicacao (pub: Publicacao, reacao: Reacao){
+    naoGostarPublicacao (pub: Publicacao, reacao: Reacao){
         let reacoes = pub.reacoes;
         let indexGostar: number = -1;
         let reacaoBD: Reacao;
@@ -167,9 +168,9 @@ export class PublicacaoService {
                 pub.reacoes.splice(indexGostar, 1); //remove a reação
             }
         }
-      }
+    }
     
-      gostou(pub: Publicacao, idUsuario: number): boolean {
+    gostou(pub: Publicacao, idUsuario: number): boolean {
         let reacoes = pub.reacoes;
         let indexGostar: number = -1;
         for (var index = 0; index < reacoes.length; index++) {
@@ -184,9 +185,9 @@ export class PublicacaoService {
           ehGostou = true;
         }
         return ehGostou;
-      }
+    }
     
-      naoGostou(pub: Publicacao, idUsuario: number): boolean {
+    naoGostou(pub: Publicacao, idUsuario: number): boolean {
         let reacoes = pub.reacoes;
         let indexNaoGostar: number = -1;
         for (var index = 0; index < reacoes.length; index++) {
@@ -196,21 +197,33 @@ export class PublicacaoService {
                 break;
             } 
         }
+
         let ehNaoGostou = false;
         if (indexNaoGostar != -1) {
           ehNaoGostou = true;
         }
         return ehNaoGostou;
-      }
+    }
     
-      estaSalvaPublicacao(pub: Publicacao): boolean{
+    estaSalvaPublicacao(pub: Publicacao): boolean{
         let indexPub: number = this.usuario.publicacoesSalvas.indexOf(pub);
         let estaSalvo = false;
         if (indexPub != -1){//a publicação está salva
           estaSalvo = true;
         }
         return estaSalvo;
-      }
+    }
+
+    filtrarPublicacoesPorUsuario(pubs: Publicacao[], idUsuario: number): Publicacao[]{
+        let pubsUsuario: Publicacao[] = [];
+        for (var index = 0; index < pubs.length; index++) {
+            if (pubs[index].usuario.id == idUsuario){
+                console.log(pubs[index].id)
+                pubsUsuario.push(pubs[index]);
+            } 
+        }
+        return pubsUsuario;
+    }
 
     public salvarBanco(){
 
@@ -245,8 +258,8 @@ export class PublicacaoService {
                     "instituicao": "UFRPE",
                     "email": "otaku.hj@out",
                     "departamento": 'Ciência da Computação',
-                    "imagem": "assets/img/joao.jpg",
-                    "imagemPequena": "assets/img/joao.jpg",
+                    "imagem": "assets/img/fotouser.jpg",
+                    "imagemPequena": "assets/img/fotouser.jpg",
                     "descricao": "tudo certo",
                     "publicacoesSalvas": [],
                     "tempoLembreteAVA": TempoAva.DOZE_HORAS,
@@ -264,7 +277,7 @@ export class PublicacaoService {
                 "comentarios": []
             },
             {
-                "id": 3,
+                "id": 7,
                 "usuario":
                 {
                     "id": 3,
@@ -279,6 +292,38 @@ export class PublicacaoService {
                     "departamento": 'Florestal',
                     "imagem": "assets/img/joao.jpg",
                     "imagemPequena": "assets/img/joao.jpg",
+                    "descricao": "tudo certo",
+                    "publicacoesSalvas": [],
+                    "tempoLembreteAVA": TempoAva.DOZE_HORAS,
+                    "token": "kdjhjsga",
+                    "dataCriacao": 9494,
+                    "dataModificacao": 9487
+                },
+                "texto": "Virir, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
+                "fotos": [],
+                "videos": [],
+                "dataCriacao": 98987,
+                "dataModificacao": 8474,
+                "reacoes": [],
+                "tags": ["ufrpe"],
+                "comentarios": []
+            },
+            {
+                "id": 10,
+                "usuario":
+                {
+                    "id": 1,
+                    "idAva": 3,
+                    "matricula": "kdhjkdah",
+                    "nome": 'Danny',
+                    "nomeUsuario": 'takanio',
+                    "cidade":"Recife",
+                    "pais": "Brasil",
+                    "instituicao": "UFRPE",
+                    "email": "danny@out",
+                    "departamento": 'Ciência Comp',
+                    "imagem": "assets/img/fotouser.jpg",
+                    "imagemPequena": "assets/img/fotouser.jpg",
                     "descricao": "tudo certo",
                     "publicacoesSalvas": [],
                     "tempoLembreteAVA": TempoAva.DOZE_HORAS,

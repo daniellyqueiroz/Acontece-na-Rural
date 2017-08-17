@@ -68,10 +68,9 @@ public class Usuario extends Model{
 	@Column  
 	private Date dataModificacao;
 	
-	
 	private List<Publicacao> publicacoesSalvas;//tabela id de usuario, id de publicacao
     
-    private int tempoLembreteAva; // perguntar a Joao
+    private TempoAva tempoLembreteAva;
     
     public Usuario(int avaId, String matricula, String username, String nome,String email, String instituicao, 
     		 String departamento, String cidade, String pais, String imagem, String imagemSmall){
@@ -89,7 +88,7 @@ public class Usuario extends Model{
     	this.imagemSmall = imagemSmall;
     	this.token = token;
     	this.publicacoesSalvas = new ArrayList<Publicacao>();
-    	this.tempoLembreteAva = tempoLembreteAva;
+    	this.tempoLembreteAva = TempoAva.OITOHORAS;
     }
     public Usuario(){
     	
@@ -153,7 +152,20 @@ public class Usuario extends Model{
 		this.tempoLembreteAva = tempoLembreteAva;
 	}
 	
-
+	public enum TempoAva{
+		DOISHORAS(2),
+		QUATROHORAS(4),
+		OITOHORAS(8),
+		DOZEHORAS(12),
+		VQUATRO(24),
+		QOITO(48);
+		
+		public int tempo;
+		
+		TempoAva(int tempo){
+			this.tempo = tempo;
+		}
+	}
 	
 	/*public int hashCode() {
 		final int prime = 31;
@@ -234,7 +246,6 @@ public class Usuario extends Model{
 	}
 	
 	public static Usuario getUserToken(String token) {
-		
 		 return Ebean.createQuery(Usuario.class).where().eq("token", token).findUnique();
 	}
     

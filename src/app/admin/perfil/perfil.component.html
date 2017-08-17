@@ -1,6 +1,10 @@
+<div class="col col-md-9">	
 <div class="row">
 			<div class="col col-md-11 col-sm-12">
-				<div class="box box-widget" *ngFor="let pub of feed">
+				
+				
+				<span>Publicacões de {{usuarioLogado.nome}}</span>
+				<div class="box box-widget" *ngFor="let pub of somentePubsUsuario(feed)">
 	                <div class="box-header with-border">
 	                  <div class="user-block">
 	                    <img class="img-circle" src="{{pub.usuario.imagem}}" alt="Imagem do usuário">
@@ -38,8 +42,8 @@
 	                  <!-- /.attachment-block -->
 
 	                  <!-- Social sharing buttons -->
-	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.id) === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
-	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.id) === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.id) === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{quantidadeNaoGostar(pub).length}})</a>
+	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.id) === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{quantidadeGostar(pub).length}})</a>
 	                  <span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
 	                </div>
 	                <!-- /.box-body -->
@@ -82,3 +86,4 @@
 			</div><!--col2-->
 			
 		</div><!--row2-->
+	</div>

@@ -18,11 +18,10 @@ export class FeedNoticiasComponent implements OnInit {
 
   public feed: Publicacao[];
   public usuarioLogado: Usuario;
- // public pubService: PublicacaoService;
 
   constructor(private pubService: PublicacaoService) {
     this.usuarioLogado = this.pubService.usuario;
-    this.feed = this.pubService.feed;
+    this.feed = this.pubService.getBanco();
     //this.pubService.getBanco3().then(postagens => this.feed = postagens);    
   }
 
@@ -98,4 +97,5 @@ export class FeedNoticiasComponent implements OnInit {
   estaSalvaPublicacao(pub: Publicacao): boolean{
     return this.pubService.estaSalvaPublicacao(pub);
   }
+
 }

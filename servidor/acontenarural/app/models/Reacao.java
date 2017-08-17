@@ -23,10 +23,10 @@ public class Reacao extends Model{
 	
 	@Enumerated //enum
 	@Column (nullable = false)
-	private Tipo tipo;
+	private TiposReacao tipo;
 	
 	@ManyToOne
-	@JoinColumn
+	@JoinColumn (nullable= false, updatable = false)
 	private Publicacao publicacao;
 	
 	@ManyToOne
@@ -41,7 +41,7 @@ public class Reacao extends Model{
 	@Column  
 	private Date dataModificacao;
 	
-	public Reacao(Long id, Tipo tipo, Publicacao publicacao, Usuario usuario){
+	public Reacao(Long id, TiposReacao tipo, Publicacao publicacao, Usuario usuario){
 		this.id = id;
 		this.tipo = tipo;
 		this.publicacao = publicacao;
@@ -56,11 +56,11 @@ public class Reacao extends Model{
 		return dataCriacao;
 	}
 
-	public Tipo getTipo() {
+	public TiposReacao getTiposReacao() {
 		return tipo;
 	}
 
-	public void setTipo(Tipo tipo) {
+	public void setTiposReacao(TiposReacao tipo) {
 		this.tipo = tipo;
 	}
 
@@ -80,11 +80,11 @@ public class Reacao extends Model{
 		return usuario;
 	}
 
-	public enum Tipo{
+	public enum TiposReacao{
 		CURTIR("Curtir"),
 		DESCURTIR("Descurtir");
 		public String label;
-		Tipo(String label){
+		TiposReacao(String label){
 			this.label = label;
 		}
 	}

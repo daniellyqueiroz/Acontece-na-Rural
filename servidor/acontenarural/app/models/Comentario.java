@@ -48,7 +48,6 @@ public class Comentario extends Model{
 		
 	}
 
-
 	public Long getId() {
 		return id;
 	}
@@ -144,6 +143,8 @@ public class Comentario extends Model{
 		return Ebean.createQuery(Comentario.class).where().eq("id", id).findUnique();
 	}
 	
-	
+	public static  List<Comentario> listar(){
+		return Ebean.createQuery(Comentario.class).where().findList();
+	}
 
 }

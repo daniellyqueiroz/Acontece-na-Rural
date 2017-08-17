@@ -191,6 +191,11 @@ public class Publicacao extends Model{
 	public static Publicacao buscar(Long id){
 		return Ebean.createQuery(Publicacao.class).where().eq("id", id).findUnique();
 	}
+	
+	//retornar todas as publicações no qual o id do usuario
+	//public static  List<Publicacao> buscar(Long idUsuario){
+		//return Ebean.createQuery(Publicacao.class).usuario.where().eq("id", idUsuario).findList();
+	//}
 
 	public static  List<Publicacao> listar(){
 		return Ebean.createQuery(Publicacao.class).where().findList();
