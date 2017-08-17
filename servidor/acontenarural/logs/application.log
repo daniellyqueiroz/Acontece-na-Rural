@@ -1,9 +1,9 @@
-2017-08-16 20:46:44,733 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 20:46:44,766 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2017-08-16 20:46:46,036 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 20:46:57,585 [ERROR] from application in netty-event-loop-3 - 
+2017-08-16 22:30:21,363 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-16 22:30:21,384 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2017-08-16 22:30:22,004 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:h2:mem:play
+2017-08-16 22:30:25,666 [ERROR] from application in netty-event-loop-3 - 
 
-! @75349ih72 - Internal server error, for (GET) [/] ->
+! @7534n7o02 - Internal server error, for (GET) [/] ->
  
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.ApplicationEvolutions$$anonfun$play$api$db$evolutions$ApplicationEvolutions$$runEvolutions$1.apply$mcV$sp(ApplicationEvolutions.scala:77)
@@ -55,106 +55,125 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
-2017-08-16 20:53:02,847 [INFO] from application in ForkJoinPool-1-worker-0 - Shutting down connection pool.
-2017-08-16 20:53:09,382 [WARN] from application in ForkJoinPool-1-worker-0 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 20:53:09,383 [INFO] from application in ForkJoinPool-1-worker-0 - Creating Pool for datasource 'default'
-2017-08-16 20:53:09,441 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-0 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 20:53:13,169 [INFO] from application in ForkJoinPool-1-worker-0 - Shutting down connection pool.
-2017-08-16 20:53:18,619 [WARN] from application in ForkJoinPool-1-worker-0 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 20:53:18,623 [INFO] from application in ForkJoinPool-1-worker-0 - Creating Pool for datasource 'default'
-2017-08-16 20:53:18,630 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-0 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 20:53:19,650 [INFO] from play.api.Play in ForkJoinPool-1-worker-0 - Application started (Dev)
-2017-08-16 20:53:22,934 [INFO] from application in application-akka.actor.default-dispatcher-3 - Shutting down connection pool.
-2017-08-16 20:53:28,388 [WARN] from application in application-akka.actor.default-dispatcher-3 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 20:53:28,389 [INFO] from application in application-akka.actor.default-dispatcher-3 - Creating Pool for datasource 'default'
-2017-08-16 20:53:28,394 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-3 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 20:53:28,975 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-3 - Application started (Dev)
-2017-08-16 21:04:41,311 [ERROR] from application in netty-event-loop-3 - 
+2017-08-16 22:31:05,246 [INFO] from application in ForkJoinPool-1-worker-0 - Shutting down connection pool.
+2017-08-16 22:31:10,670 [WARN] from application in ForkJoinPool-1-worker-0 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-16 22:31:10,672 [INFO] from application in ForkJoinPool-1-worker-0 - Creating Pool for datasource 'default'
+2017-08-16 22:31:10,677 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-0 - Database [default] connected at jdbc:h2:mem:play
+2017-08-16 22:31:11,415 [INFO] from play.api.Play in ForkJoinPool-1-worker-0 - Application started (Dev)
+2017-08-16 22:33:00,665 [ERROR] from application in application-akka.actor.default-dispatcher-7 - 
 
-! @7534c1673 - Internal server error, for (POST) [/user/calendar] ->
+! @7534ngjfn - Internal server error, for (POST) [/user/pub] ->
  
-play.sbt.PlayExceptions$CompilationException: Compilation error[value listarTodos is not a member of controllers.CalendarioAcademicoController]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
-	at scala.Option.map(Option.scala:145)
-	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
-	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
-	at scala.Option.map(Option.scala:145)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
-	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
-	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
-	at scala.util.Either$LeftProjection.map(Either.scala:377)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
-	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
-	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
-	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:339)
-	at play.runsupport.Reloader$$anon$3.run(Reloader.scala:44)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:40)
-	at play.runsupport.Reloader.reload(Reloader.scala:337)
-	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:123)
-	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:121)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
-	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: Query threw SQLException:Column "SESSION_TOKEN" not found; SQL statement:
+select t0.id c0, t0.ava_id c1, t0.username c2, t0.token c3, t0.nome c4, t0.matricula c5, t0.imagem c6, t0.imagem_small c7, t0.cidade c8, t0.pais c9, t0.instituicao c10, t0.email c11, t0.departamento c12, t0.tempo_lembrete_ava c13, t0.data_criacao c14, t0.data_modificacao c15 from usuario t0 where SESSION_TOKEN is null  [42122-192] 
+Bind values:[null] 
+Query was:
+select t0.id c0, t0.ava_id c1, t0.username c2, t0.token c3, t0.nome c4, t0.matricula c5, t0.imagem c6, t0.imagem_small c7, t0.cidade c8, t0.pais c9, t0.instituicao c10, t0.email c11, t0.departamento c12, t0.tempo_lembrete_ava c13, t0.data_criacao c14, t0.data_modificacao c15 from usuario t0 where SESSION_TOKEN is null  
+
+]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:280)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:206)
+	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:160)
+	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:188)
+	at play.api.http.GlobalSettingsHttpErrorHandler.onServerError(HttpErrorHandler.scala:98)
+	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:100)
+	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:99)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304)
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
 	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
 	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:409)
 	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
 	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
 	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
 	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-2017-08-16 21:05:46,399 [ERROR] from application in netty-event-loop-4 - 
+Caused by: javax.persistence.PersistenceException: Query threw SQLException:Column "SESSION_TOKEN" not found; SQL statement:
+select t0.id c0, t0.ava_id c1, t0.username c2, t0.token c3, t0.nome c4, t0.matricula c5, t0.imagem c6, t0.imagem_small c7, t0.cidade c8, t0.pais c9, t0.instituicao c10, t0.email c11, t0.departamento c12, t0.tempo_lembrete_ava c13, t0.data_criacao c14, t0.data_modificacao c15 from usuario t0 where SESSION_TOKEN is null  [42122-192] 
+Bind values:[null] 
+Query was:
+select t0.id c0, t0.ava_id c1, t0.username c2, t0.token c3, t0.nome c4, t0.matricula c5, t0.imagem c6, t0.imagem_small c7, t0.cidade c8, t0.pais c9, t0.instituicao c10, t0.email c11, t0.departamento c12, t0.tempo_lembrete_ava c13, t0.data_criacao c14, t0.data_modificacao c15 from usuario t0 where SESSION_TOKEN is null  
 
-! @7534c4ofo - Internal server error, for (POST) [/user/calendar] ->
- 
-play.sbt.PlayExceptions$CompilationException: Compilation error[value listar is not a member of controllers.CalendarioAcademicoController]
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
-	at play.sbt.PlayExceptions$CompilationException$.apply(PlayExceptions.scala:27)
-	at scala.Option.map(Option.scala:145)
-	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:49)
-	at play.sbt.run.PlayReload$$anonfun$taskFailureHandler$1.apply(PlayReload.scala:44)
-	at scala.Option.map(Option.scala:145)
-	at play.sbt.run.PlayReload$.taskFailureHandler(PlayReload.scala:44)
-	at play.sbt.run.PlayReload$.compileFailure(PlayReload.scala:40)
-	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
-	at play.sbt.run.PlayReload$$anonfun$compile$1.apply(PlayReload.scala:17)
-	at scala.util.Either$LeftProjection.map(Either.scala:377)
-	at play.sbt.run.PlayReload$.compile(PlayReload.scala:17)
-	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
-	at play.sbt.run.PlayRun$$anonfun$playRunTask$1$$anonfun$apply$2$$anonfun$apply$3$$anonfun$2.apply(PlayRun.scala:61)
-	at play.runsupport.Reloader$$anonfun$reload$1.apply(Reloader.scala:339)
-	at play.runsupport.Reloader$$anon$3.run(Reloader.scala:44)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at play.runsupport.Reloader$.play$runsupport$Reloader$$withReloaderContextClassLoader(Reloader.scala:40)
-	at play.runsupport.Reloader.reload(Reloader.scala:337)
-	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:123)
-	at play.core.server.DevServerStart$$anonfun$mainDev$1$$anon$1$$anonfun$get$1.apply(DevServerStart.scala:121)
+
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:673)
+	at com.avaje.ebeaninternal.server.query.CQuery.createPersistenceException(CQuery.java:653)
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:324)
+	at com.avaje.ebeaninternal.server.query.DefaultOrmQueryEngine.findMany(DefaultOrmQueryEngine.java:94)
+	at com.avaje.ebeaninternal.server.core.OrmQueryRequest.findList(OrmQueryRequest.java:347)
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findList(DefaultServer.java:1388)
+	at com.avaje.ebeaninternal.server.core.DefaultServer.findUnique(DefaultServer.java:1138)
+	at com.avaje.ebeaninternal.server.querydefn.DefaultOrmQuery.findUnique(DefaultOrmQuery.java:1104)
+	at com.avaje.ebeaninternal.server.expression.DefaultExpressionList.findUnique(DefaultExpressionList.java:352)
+	at models.Usuario.getUserToken(Usuario.java:238)
+	at controllers.PublicacaoController.cadastrar(PublicacaoController.java:19)
+	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.apply(Routes.scala:323)
+	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.apply(Routes.scala:323)
+	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:157)
+	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:156)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$14$$anon$3$$anon$1.invocation(HandlerInvoker.scala:136)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:73)
+	at play.http.HttpRequestHandler$1.call(HttpRequestHandler.java:54)
+	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
+	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
 	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
-	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
-	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:409)
-	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
-	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
-	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
-	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
-2017-08-16 21:08:05,803 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
-2017-08-16 21:08:11,325 [WARN] from application in application-akka.actor.default-dispatcher-4 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 21:08:11,325 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
-2017-08-16 21:08:11,343 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 21:08:11,794 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
-2017-08-16 21:10:59,712 [INFO] from application in application-akka.actor.default-dispatcher-6 - Shutting down connection pool.
-2017-08-16 21:11:06,080 [WARN] from application in application-akka.actor.default-dispatcher-6 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 21:11:06,081 [INFO] from application in application-akka.actor.default-dispatcher-6 - Creating Pool for datasource 'default'
-2017-08-16 21:11:06,101 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-6 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 21:11:06,901 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-6 - Application started (Dev)
-2017-08-16 21:13:10,824 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
-2017-08-16 21:13:17,167 [WARN] from application in application-akka.actor.default-dispatcher-2 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-16 21:13:17,170 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
-2017-08-16 21:13:17,206 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:h2:mem:play
-2017-08-16 21:13:18,999 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
-2017-08-16 21:13:38,714 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.Future$.apply(Future.scala:31)
+	at scala.concurrent.Future$.apply(Future.scala:492)
+	at play.core.j.JavaAction.apply(JavaAction.scala:108)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:111)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:110)
+	at scala.Option.map(Option.scala:146)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:110)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	... 14 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: Column "SESSION_TOKEN" not found; SQL statement:
+select t0.id c0, t0.ava_id c1, t0.username c2, t0.token c3, t0.nome c4, t0.matricula c5, t0.imagem c6, t0.imagem_small c7, t0.cidade c8, t0.pais c9, t0.instituicao c10, t0.email c11, t0.departamento c12, t0.tempo_lembrete_ava c13, t0.data_criacao c14, t0.data_modificacao c15 from usuario t0 where SESSION_TOKEN is null  [42122-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:147)
+	at org.h2.expression.Comparison.optimize(Comparison.java:178)
+	at org.h2.command.dml.Select.prepare(Select.java:855)
+	at org.h2.command.Parser.prepareCommand(Parser.java:259)
+	at org.h2.engine.Session.prepareLocal(Session.java:560)
+	at org.h2.engine.Session.prepareCommand(Session.java:501)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1202)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:73)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:290)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:310)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at com.avaje.ebeaninternal.server.query.CQuery.prepareBindExecuteQueryWithOption(CQuery.java:328)
+	at com.avaje.ebeaninternal.server.query.CQuery.prepareBindExecuteQuery(CQuery.java:295)
+	at com.avaje.ebeaninternal.server.query.CQueryEngine.findMany(CQueryEngine.java:292)
+	... 48 common frames omitted
+2017-08-16 22:34:38,311 [INFO] from application in application-akka.actor.default-dispatcher-8 - Shutting down connection pool.
+2017-08-16 22:34:43,948 [WARN] from application in application-akka.actor.default-dispatcher-8 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-16 22:34:43,949 [INFO] from application in application-akka.actor.default-dispatcher-8 - Creating Pool for datasource 'default'
+2017-08-16 22:34:43,955 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-8 - Database [default] connected at jdbc:h2:mem:play
+2017-08-16 22:34:45,240 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-8 - Application started (Dev)
+2017-08-16 22:34:45,341 [ERROR] from application in application-akka.actor.default-dispatcher-3 - 
 
-! @7534d5l7n - Internal server error, for (POST) [/user/pub] ->
+! @7534nmibn - Internal server error, for (POST) [/user/pub] ->
  
 play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[NULL not allowed for column "USUARIO_ID"; SQL statement:\n insert into publicacao (id, texto, data_criacao, data_modificacao, usuario_id) values (?,?,?,?,?) [23502-192]]]]
 	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:280)
@@ -246,3 +265,113 @@ insert into publicacao (id, texto, data_criacao, data_modificacao, usuario_id) v
 	at com.avaje.ebeaninternal.server.persist.dml.InsertHandler.execute(InsertHandler.java:129)
 	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:75)
 	... 51 common frames omitted
+2017-08-16 22:36:09,617 [INFO] from application in application-akka.actor.default-dispatcher-5 - Shutting down connection pool.
+2017-08-16 22:36:15,097 [WARN] from application in application-akka.actor.default-dispatcher-5 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-16 22:36:15,098 [INFO] from application in application-akka.actor.default-dispatcher-5 - Creating Pool for datasource 'default'
+2017-08-16 22:36:15,103 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-5 - Database [default] connected at jdbc:h2:mem:play
+2017-08-16 22:36:15,532 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-5 - Application started (Dev)
+2017-08-16 22:36:15,578 [ERROR] from application in application-akka.actor.default-dispatcher-5 - 
+
+! @7534o1loe - Internal server error, for (POST) [/user/pub] ->
+ 
+play.api.http.HttpErrorHandlerExceptions$$anon$1: Execution exception[[PersistenceException: ERROR executing DML bindLog[] error[NULL not allowed for column "USUARIO_ID"; SQL statement:\n insert into publicacao (id, texto, data_criacao, data_modificacao, usuario_id) values (?,?,?,?,?) [23502-192]]]]
+	at play.api.http.HttpErrorHandlerExceptions$.throwableToUsefulException(HttpErrorHandler.scala:280)
+	at play.api.http.DefaultHttpErrorHandler.onServerError(HttpErrorHandler.scala:206)
+	at play.api.GlobalSettings$class.onError(GlobalSettings.scala:160)
+	at play.api.DefaultGlobal$.onError(GlobalSettings.scala:188)
+	at play.api.http.GlobalSettingsHttpErrorHandler.onServerError(HttpErrorHandler.scala:98)
+	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:100)
+	at play.core.server.netty.PlayRequestHandler$$anonfun$2$$anonfun$apply$1.applyOrElse(PlayRequestHandler.scala:99)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:344)
+	at scala.concurrent.Future$$anonfun$recoverWith$1.apply(Future.scala:343)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
+	at scala.concurrent.impl.CallbackRunnable.executeWithValue(Promise.scala:40)
+	at scala.concurrent.impl.Promise$DefaultPromise.tryComplete(Promise.scala:248)
+	at scala.concurrent.impl.Promise$DefaultPromise.link(Promise.scala:304)
+	at scala.concurrent.impl.Promise$DefaultPromise.linkRootOf(Promise.scala:289)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:253)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:249)
+	at scala.concurrent.impl.CallbackRunnable.run(Promise.scala:32)
+	at akka.dispatch.BatchingExecutor$AbstractBatch.processBatch(BatchingExecutor.scala:55)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply$mcV$sp(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at akka.dispatch.BatchingExecutor$BlockableBatch$$anonfun$run$1.apply(BatchingExecutor.scala:91)
+	at scala.concurrent.BlockContext$.withBlockContext(BlockContext.scala:72)
+	at akka.dispatch.BatchingExecutor$BlockableBatch.run(BatchingExecutor.scala:90)
+	at akka.dispatch.TaskInvocation.run(AbstractDispatcher.scala:39)
+	at akka.dispatch.ForkJoinExecutorConfigurator$AkkaForkJoinTask.exec(AbstractDispatcher.scala:409)
+	at scala.concurrent.forkjoin.ForkJoinTask.doExec(ForkJoinTask.java:260)
+	at scala.concurrent.forkjoin.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1339)
+	at scala.concurrent.forkjoin.ForkJoinPool.runWorker(ForkJoinPool.java:1979)
+	at scala.concurrent.forkjoin.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:107)
+Caused by: javax.persistence.PersistenceException: ERROR executing DML bindLog[] error[NULL not allowed for column "USUARIO_ID"; SQL statement:\n insert into publicacao (id, texto, data_criacao, data_modificacao, usuario_id) values (?,?,?,?,?) [23502-192]]
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:85)
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.insert(DmlBeanPersister.java:50)
+	at com.avaje.ebeaninternal.server.persist.DefaultPersistExecute.executeInsertBean(DefaultPersistExecute.java:54)
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeNow(PersistRequestBean.java:615)
+	at com.avaje.ebeaninternal.server.core.PersistRequestBean.executeOrQueue(PersistRequestBean.java:661)
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.insert(DefaultPersister.java:449)
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.insert(DefaultPersister.java:399)
+	at com.avaje.ebeaninternal.server.persist.DefaultPersister.save(DefaultPersister.java:387)
+	at com.avaje.ebeaninternal.server.core.DefaultServer.save(DefaultServer.java:1467)
+	at com.avaje.ebeaninternal.server.core.DefaultServer.save(DefaultServer.java:1460)
+	at com.avaje.ebean.Model.save(Model.java:231)
+	at controllers.PublicacaoController.cadastrar(PublicacaoController.java:22)
+	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.apply(Routes.scala:323)
+	at router.Routes$$anonfun$routes$1$$anonfun$applyOrElse$7$$anonfun$apply$7.apply(Routes.scala:323)
+	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:157)
+	at play.core.routing.HandlerInvokerFactory$$anon$4.resultCall(HandlerInvoker.scala:156)
+	at play.core.routing.HandlerInvokerFactory$JavaActionInvokerFactory$$anon$14$$anon$3$$anon$1.invocation(HandlerInvoker.scala:136)
+	at play.core.j.JavaAction$$anon$1.call(JavaAction.scala:73)
+	at play.http.HttpRequestHandler$1.call(HttpRequestHandler.java:54)
+	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
+	at play.core.j.JavaAction$$anonfun$7.apply(JavaAction.scala:108)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.liftedTree1$1(Future.scala:24)
+	at scala.concurrent.impl.Future$PromiseCompletingRunnable.run(Future.scala:24)
+	at play.core.j.HttpExecutionContext$$anon$2.run(HttpExecutionContext.scala:56)
+	at play.api.libs.iteratee.Execution$trampoline$.execute(Execution.scala:70)
+	at play.core.j.HttpExecutionContext.execute(HttpExecutionContext.scala:48)
+	at scala.concurrent.impl.Future$.apply(Future.scala:31)
+	at scala.concurrent.Future$.apply(Future.scala:492)
+	at play.core.j.JavaAction.apply(JavaAction.scala:108)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5$$anonfun$apply$6.apply(Action.scala:112)
+	at play.utils.Threads$.withContextClassLoader(Threads.scala:21)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:111)
+	at play.api.mvc.Action$$anonfun$apply$2$$anonfun$apply$5.apply(Action.scala:110)
+	at scala.Option.map(Option.scala:146)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:110)
+	at play.api.mvc.Action$$anonfun$apply$2.apply(Action.scala:103)
+	at scala.concurrent.Future$$anonfun$flatMap$1.apply(Future.scala:251)
+	... 14 common frames omitted
+Caused by: org.h2.jdbc.JdbcSQLException: NULL not allowed for column "USUARIO_ID"; SQL statement:
+insert into publicacao (id, texto, data_criacao, data_modificacao, usuario_id) values (?,?,?,?,?) [23502-192]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:345)
+	at org.h2.message.DbException.get(DbException.java:179)
+	at org.h2.message.DbException.get(DbException.java:155)
+	at org.h2.table.Column.validateConvertUpdateSequence(Column.java:311)
+	at org.h2.table.Table.validateConvertUpdateSequence(Table.java:784)
+	at org.h2.command.dml.Insert.insertRows(Insert.java:151)
+	at org.h2.command.dml.Insert.update(Insert.java:114)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:98)
+	at org.h2.command.Command.executeUpdate(Command.java:258)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdateInternal(JdbcPreparedStatement.java:160)
+	at org.h2.jdbc.JdbcPreparedStatement.executeUpdate(JdbcPreparedStatement.java:146)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at com.avaje.ebeaninternal.server.type.DataBind.executeUpdate(DataBind.java:71)
+	at com.avaje.ebeaninternal.server.persist.dml.InsertHandler.execute(InsertHandler.java:129)
+	at com.avaje.ebeaninternal.server.persist.dml.DmlBeanPersister.execute(DmlBeanPersister.java:75)
+	... 51 common frames omitted
+2017-08-16 22:47:26,038 [INFO] from application in application-akka.actor.default-dispatcher-4 - Shutting down connection pool.
+2017-08-16 22:47:32,482 [WARN] from application in application-akka.actor.default-dispatcher-4 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-16 22:47:32,484 [INFO] from application in application-akka.actor.default-dispatcher-4 - Creating Pool for datasource 'default'
+2017-08-16 22:47:32,518 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-4 - Database [default] connected at jdbc:h2:mem:play
+2017-08-16 22:47:33,589 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-4 - Application started (Dev)
+2017-08-16 23:02:40,730 [INFO] from application in application-akka.actor.default-dispatcher-2 - Shutting down connection pool.
+2017-08-16 23:02:46,007 [WARN] from application in application-akka.actor.default-dispatcher-2 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-16 23:02:46,009 [INFO] from application in application-akka.actor.default-dispatcher-2 - Creating Pool for datasource 'default'
+2017-08-16 23:02:46,020 [INFO] from play.api.db.DefaultDBApi in application-akka.actor.default-dispatcher-2 - Database [default] connected at jdbc:h2:mem:play
+2017-08-16 23:02:46,332 [INFO] from play.api.Play in application-akka.actor.default-dispatcher-2 - Application started (Dev)
+2017-08-16 23:03:07,642 [INFO] from application in pool-6-thread-4 - Shutting down connection pool.

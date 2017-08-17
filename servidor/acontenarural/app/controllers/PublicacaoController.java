@@ -1,10 +1,13 @@
 package controllers;
 
 
+import java.util.HashMap;
+
 import com.fasterxml.jackson.databind.JsonNode;
 
 import models.Publicacao;
 import models.Usuario;
+import play.Logger;
 import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -15,13 +18,22 @@ public class PublicacaoController extends Controller {
 	//Teste
 	public Result cadastrar(){
 		JsonNode resultado = request().body().asJson();
-		String t = session().get("token");
-		usuario = Usuario.getUserToken(t);
+		try {
+			String t = session().get(UsuarioController.SESSION_TOKEN);
+			usuario = Usuario.getUserToken(t);
+			
+			Publicacao pub = new Publicacao(usuario, resultado.get("texto").asText());
+			pub.save();
+			
+			return ok(Json.toJson(pub));
+		} catch (Exception e) {
+			Logger.info("Erro Cadastro De Publicacao ",e.getMessage());
+			e.printStackTrace();
+		}
 		
-		Publicacao pub = new Publicacao(usuario,resultado.get("texto").asText());
-		pub.save();
-		
-		return ok("Cadastrou");
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
 	}
 	
 	public Result listarTodas(){
@@ -36,11 +48,6 @@ public class PublicacaoController extends Controller {
 	
 	}
 
-	public Result atualizar(){
-	
-	return ok("");
-	
-	}
 	
 	public Result buscar(){
 	

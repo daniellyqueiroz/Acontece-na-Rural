@@ -15,7 +15,7 @@ public class ComentarioController extends Controller{
 	
 	public Result cadastrar(){
 		JsonNode resultado = request().body().asJson();
-		String t = session().get("token");
+		String t = session().get(UsuarioController.SESSION_TOKEN);
 		usuario = Usuario.getUserToken(t); 
 		pub = Publicacao.buscar(resultado.get("publicacaoId").asLong());
 		
