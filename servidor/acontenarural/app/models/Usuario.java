@@ -68,7 +68,7 @@ public class Usuario extends Model{
 	@Column  
 	private Date dataModificacao;
 	
-	private List<Publicacao> publicacoesSalvas;//tabela id de usuario, id de publicacao
+	//private List<Publicacao> publicacoesSalvas;//tabela id de usuario, id de publicacao
     
     private TempoAva tempoLembreteAva;
     
@@ -87,7 +87,7 @@ public class Usuario extends Model{
     	this.pais = pais;
     	this.imagemSmall = imagemSmall;
     	this.token = token;
-    	this.publicacoesSalvas = new ArrayList<Publicacao>();
+    	//this.publicacoesSalvas = new ArrayList<Publicacao>();
     	this.tempoLembreteAva = TempoAva.OITOHORAS;
     }
     public Usuario(){
@@ -98,22 +98,16 @@ public class Usuario extends Model{
 		return id;
 	}
 
-	
-
 	public String getNome() {
 		return nome;
 	}
 
-	
-	
 	public String getToken() {
 		return token;
 	}
 	public void setToken(String token) {
 		this.token = token;
 	}
-	
-	
 
 	public int getAvaId() {
 		return avaId;
@@ -148,7 +142,7 @@ public class Usuario extends Model{
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setTempoLembreteAva(int tempoLembreteAva) {
+	public void setTempoLembreteAva(TempoAva tempoLembreteAva) {
 		this.tempoLembreteAva = tempoLembreteAva;
 	}
 	
@@ -227,12 +221,7 @@ public class Usuario extends Model{
 	}
 
 
-	public String toString() {
-		return "Usuario [id=" + id + ", nome=" + nome + ", token=" + token + ", curso=" + curso + ", imagem=" + imagem
-				+ ", descricao=" + descricao + ", publicacoesSalvas=" //+ Arrays.toString(publicacoesSalvas)
-				+ ", tempoLembreteAva=" + tempoLembreteAva + "]";
-	}
-	*/
+METODOS REPOSITORIO */
 	public static  List<Usuario> listar(){
 		return Ebean.createQuery(Usuario.class).where().findList();
 	}

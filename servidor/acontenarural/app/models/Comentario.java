@@ -1,11 +1,14 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
+import com.avaje.ebean.annotation.JsonIgnore;
 import com.avaje.ebean.annotation.WhenCreated;
 import com.avaje.ebean.annotation.WhenModified;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -17,12 +20,14 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@JsonAutoDetect
 public class Comentario extends Model{
 	@Id
 	private Long id;
 	
 	@ManyToOne
 	@JoinColumn
+	@JsonIgnore
 	private Publicacao publicacao;
 	
 	@ManyToOne
@@ -51,10 +56,11 @@ public class Comentario extends Model{
 	public Long getId() {
 		return id;
 	}
-
-	public Publicacao getPublicacao() {
-		return publicacao;
-	}
+	
+//	@JsonIgnore
+//	public Publicacao getPublicacao() {
+//		return publicacao;
+//	}
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -132,12 +138,6 @@ public class Comentario extends Model{
 		return true;
 	}
 	
-	@Override
-	public String toString() {
-		return "Comentario [id=" + id + ", publicacao=" + publicacao + ", usuario=" + usuario + ", texto=" + texto
-				+ ", dataCriacao=" + dataCriacao + ", dataModificacao=" + dataModificacao + "]";
-	}
-
 
 	public static Comentario buscar(Long id) {
 		return Ebean.createQuery(Comentario.class).where().eq("id", id).findUnique();

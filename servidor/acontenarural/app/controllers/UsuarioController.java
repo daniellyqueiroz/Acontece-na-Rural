@@ -137,6 +137,8 @@ public class UsuarioController extends Controller{
 	//
 	
 	public Result requisicaoAva2(){
+		
+		// O Play é compatível com a sua biblioteca WS, que fornece uma maneira de fazer chamadas HTTP assíncronas.
 		try {
 			JsonNode resultado = request().body().asJson();
 			HashMap<String, Object> body = new HashMap<>();
@@ -144,7 +146,7 @@ public class UsuarioController extends Controller{
 			body.put("username", resultado.get("username").asText());	
 			body.put("password", resultado.get("password").asText());
 			body.put("service", "moodle_mobile_app");
-			
+			//etapa1
 			WSRequest request = ws.url("http://ava.ufrpe.br/login/token.php");
 			WSRequest complexRequest = request
 					.setQueryParameter("username", body.get("username").toString())
@@ -154,25 +156,27 @@ public class UsuarioController extends Controller{
 			CompletionStage<JsonNode> responsePromise = complexRequest
 					.post(Json.toJson(body))
 					.thenApply(WSResponse::asJson);
-			
+			//verifica se eh cadastrado no banco pelo username
 			JsonNode avaJson1 = responsePromise.toCompletableFuture().get();
 			if(avaJson1 != null && avaJson1.has("token")){
 				String avaToken = avaJson1.get("token").asText();
 				String username = resultado.get("username").asText();
         		Usuario user = Usuario.buscar(username);
         		if(user != null){
-        			// Logar
+        			// Logar 
         			user.setToken(avaToken);
         			user.save();
         			session().put(SESSION_TOKEN, avaToken);
         			return ok(Json.toJson(user));
         			
         		}else{
+        			
         			// Cadastrar
         			HashMap<String, Object> body2 = new HashMap<>();
 	        		body2.put("wstoken", avaJson1.get("token").asText());	
 	        		body2.put("wsfunction", "core_webservice_get_site_info");
 	        		
+	        		//ETAPA2
 	        		// Pegar id do usuario
 	        		WSRequest request2 = ws.url("http://ava.ufrpe.br/webservice/rest/server.php?moodlewsrestformat=json");
 	        		WSRequest complexRequest2 = request2
@@ -185,6 +189,7 @@ public class UsuarioController extends Controller{
 	        		JsonNode avaJson2 = responsePromise2.toCompletableFuture().get();
 	    			if(avaJson2 != null && avaJson2.has("userid")){
 	    				
+	    				//ETAPA3
 	    				// Pegar dados do usuario
 	    				int[] ids = new int[1];
 		            	ids[0] = avaJson2.get("userid").asInt();
@@ -246,28 +251,62 @@ public class UsuarioController extends Controller{
 	
 	//
 	
-	
-	
 	public Result listarTodos(){
-//		String t = session().get("token");
-//		if(t != null)
-		return ok(Json.toJson(Usuario.listar()));
-//		else return ok("OPS");
-	}
+		try{
+	
+			return ok(Json.toJson(Usuario.listar()));
+		} catch (Exception e) {
+			Logger.info("Erro em listar Usuario ",e.getMessage());
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
+
+}
+
+
 	
 	public Result remover(Long id){
-		Usuario u = Usuario.buscar(id);
-		u.delete();
-		return ok("removido");
+		try{
+			Usuario u = Usuario.buscar(id);
+			u.delete();
+			return ok("deletado"); // verificar
+		} catch (Exception e) {
+			Logger.info("Erro em remover Usuario ",e.getMessage());
+			e.printStackTrace();
+		}
 		
-	}
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
+
+}
+		
+	
 	
 	public Result buscar(Long id){
-		Usuario u = Usuario.buscar(id);
-		return ok(u.getNome());
+		try{
+			Usuario u = Usuario.buscar(id);
+			return ok(Json.toJson(u)); 
+		} catch (Exception e) {
+			Logger.info("Erro em buscar Usuario ",e.getMessage());
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
+		
 		
 	}
 	
+	public Result sair(){
+		
+		session().clear();
+		 return ok("saiu");
+	}
 	
 	
 	public Result login(){
@@ -275,11 +314,8 @@ public class UsuarioController extends Controller{
 		session().put("token", t);
 		 return ok("ok");
 	}
-	public Result sair(){
-		
-		session().clear();
-		 return ok("saiu");
-	}
+	
+	
 	
 	
 }

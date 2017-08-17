@@ -37,21 +37,48 @@ public class PublicacaoController extends Controller {
 	}
 	
 	public Result listarTodas(){
+		try{
+			return ok(Json.toJson(Publicacao.listar()));
 		
-		return ok(Json.toJson(Publicacao.listar()));
+		} catch (Exception e) {
+			Logger.info("Erro em listar Publicacao ",e.getMessage());
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
 	}
 	
 	public Result remover(Long id){
-		Publicacao pub = Publicacao.buscar(id);
-		pub.delete();
-		return ok("publicacao removida");
+		try {
+			Publicacao pub = Publicacao.buscar(id);
+			pub.delete();
+			return ok(Json.toJson(pub));
+		} catch (Exception e) {
+			Logger.info("Erro em excluir Publicacao ",e.getMessage());
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
 	
 	}
 
 	
-	public Result buscar(){
-	
-	return ok("");
+	public Result buscar(Long id){
+		try {
+			Publicacao pub = Publicacao.buscar(id);
+			return ok(Json.toJson(pub));
+		} catch (Exception e) {
+			Logger.info("Erro em buscar Publicacao ",e.getMessage());
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
 	
 	}
 	

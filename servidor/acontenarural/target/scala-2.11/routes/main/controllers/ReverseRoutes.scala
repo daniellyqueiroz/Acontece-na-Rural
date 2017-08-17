@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Wed Aug 16 21:07:42 BRT 2017
+// @DATE:Thu Aug 17 09:56:10 BRT 2017
 
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
 import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamicString }
@@ -28,8 +28,29 @@ package controllers {
   
   }
 
-  // @LINE:17
+  // @LINE:13
   class ReversePublicacaoController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:13
+    def cadastrar(): Call = {
+      import ReverseRouteContext.empty
+      Call("POST", _prefix + { _defaultPrefix } + "user/pub")
+    }
+  
+    // @LINE:14
+    def listarTodas(): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "user/pub")
+    }
+  
+  }
+
+  // @LINE:17
+  class ReverseCalendarioAcademicoController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
@@ -38,19 +59,34 @@ package controllers {
     // @LINE:17
     def cadastrar(): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "user/pub")
+      Call("POST", _prefix + { _defaultPrefix } + "user/calendar")
     }
   
     // @LINE:18
-    def listarTodas(): Call = {
+    def listar(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "user/pub")
+      Call("GET", _prefix + { _defaultPrefix } + "user/listarCalendar")
+    }
+  
+  }
+
+  // @LINE:23
+  class ReverseUserController(_prefix: => String) {
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:23
+    def getUser(id:Long, email:String): Call = {
+      import ReverseRouteContext.empty
+      Call("GET", _prefix + { _defaultPrefix } + "user/" + implicitly[PathBindable[Long]].unbind("id", id) + "/" + implicitly[PathBindable[String]].unbind("email", dynamicString(email)))
     }
   
   }
 
   // @LINE:15
-  class ReverseCalendarioAcademicoController(_prefix: => String) {
+  class ReverseComentarioController(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
@@ -59,28 +95,13 @@ package controllers {
     // @LINE:15
     def cadastrar(): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "user/calendar")
+      Call("POST", _prefix + { _defaultPrefix } + "user/comentario")
     }
   
     // @LINE:16
     def listar(): Call = {
       import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "user/listarCalendar")
-    }
-  
-  }
-
-  // @LINE:22
-  class ReverseUserController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:22
-    def getUser(id:Long, email:String): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "user/" + implicitly[PathBindable[Long]].unbind("id", id) + "/" + implicitly[PathBindable[String]].unbind("email", dynamicString(email)))
+      Call("GET", _prefix + { _defaultPrefix } + "user/comentario")
     }
   
   }
@@ -92,13 +113,21 @@ package controllers {
     }
 
   
-    // @LINE:20
+    // @LINE:11
     def sair(): Call = {
-      import ReverseRouteContext.empty
-      Call("GET", _prefix + { _defaultPrefix } + "user/sair")
+    
+      () match {
+      
+        // @LINE:11
+        case ()  =>
+          import ReverseRouteContext.empty
+          Call("POST", _prefix + { _defaultPrefix } + "sair")
+      
+      }
+    
     }
   
-    // @LINE:14
+    // @LINE:12
     def listarTodos(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "user/listar")
@@ -107,22 +136,16 @@ package controllers {
     // @LINE:10
     def requisicaoAva2(): Call = {
       import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "bruno")
+      Call("POST", _prefix + { _defaultPrefix } + "login")
     }
   
-    // @LINE:21
+    // @LINE:22
     def remover(id:Long): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "user/remover/" + implicitly[PathBindable[Long]].unbind("id", id))
     }
   
-    // @LINE:13
-    def requisicaoAva(): Call = {
-      import ReverseRouteContext.empty
-      Call("POST", _prefix + { _defaultPrefix } + "requisicao")
-    }
-  
-    // @LINE:19
+    // @LINE:20
     def login(): Call = {
       import ReverseRouteContext.empty
       Call("GET", _prefix + { _defaultPrefix } + "user/login")

@@ -10,6 +10,7 @@ import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
 import com.avaje.ebean.annotation.WhenCreated;
 import com.avaje.ebean.annotation.WhenModified;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,6 +24,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table
+@JsonAutoDetect
 public class Publicacao extends Model{
 	@Id
 	private Long id;
@@ -53,7 +55,7 @@ public class Publicacao extends Model{
 	@OneToMany(mappedBy = "publicacao", cascade = CascadeType.ALL)
 	@OrderBy("id DESC")
 	@JoinColumn
-	private List<Comentario> comentarios;//verificar se eh array ou arrayList
+	private List<Comentario> comentarios;
 	
 	
 	
@@ -61,9 +63,7 @@ public class Publicacao extends Model{
 		
 		this.usuario = usuario;
 		this.texto = texto;
-		//this.imagens = imagens;
 		this.reacao= new ArrayList<Reacao>();
-		//this.tags = tags;
 		this.comentarios = new ArrayList<Comentario>();
 	}
 
@@ -75,13 +75,6 @@ public class Publicacao extends Model{
 		this.reacao = reacao;
 	}
 
-	/*public String[] getTags() {
-		return tags;
-	}*/
-
-//	public void setTags(String[] tags) {
-//		this.tags = tags;
-//	}
 
 	public List<Comentario> getComentarios() {
 		return comentarios;
@@ -104,9 +97,6 @@ public class Publicacao extends Model{
 		return texto;
 	}
 
-//	public String[] getImagens() {
-//		return imagens;
-//	}
 
 	public Date getDataCriacao() {
 		return dataCriacao;
@@ -176,23 +166,13 @@ public class Publicacao extends Model{
 		return true;
 	}*/
 
-	@Override
-	public String toString() {
-		return "Publicacao [id=" + id + ", usuario=" + usuario + ", texto=" + texto + ", imagens="
-				//+ Arrays.toString(imagens) 
-				+ ", dataCriacao=" + dataCriacao + ", dataModificacao=" + dataModificacao
-				//+ ", reacoes=" + Arrays.toString(reacoes) 
-				//+ ", tags=" + Arrays.toString(tags) + ", comentarios="
-				//+ Arrays.toString(comentarios)
-				+ "]";
-	}
 	
 	
 	public static Publicacao buscar(Long id){
 		return Ebean.createQuery(Publicacao.class).where().eq("id", id).findUnique();
 	}
 	
-	//retornar todas as publicações no qual o id do usuario
+	//retornar todas as publicaï¿½ï¿½es no qual o id do usuario
 	//public static  List<Publicacao> buscar(Long idUsuario){
 		//return Ebean.createQuery(Publicacao.class).usuario.where().eq("id", idUsuario).findList();
 	//}

@@ -37,7 +37,7 @@ create sequence publicacao_seq;
 create table reacao (
   id                            bigint not null,
   tipo                          integer not null,
-  publicacao_id                 bigint,
+  publicacao_id                 bigint not null,
   usuario_id                    bigint not null,
   data_criacao                  timestamp not null,
   data_modificacao              timestamp not null,
@@ -63,6 +63,7 @@ create table usuario (
   tempo_lembrete_ava            integer,
   data_criacao                  timestamp not null,
   data_modificacao              timestamp not null,
+  constraint ck_usuario_tempo_lembrete_ava check (tempo_lembrete_ava in (0,1,2,3,4,5)),
   constraint pk_usuario primary key (id)
 );
 create sequence usuario_seq;

@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Wed Aug 16 21:07:42 BRT 2017
+// @DATE:Thu Aug 17 09:56:10 BRT 2017
 
 package controllers;
 
@@ -13,6 +13,7 @@ public class routes {
   public static final controllers.ReversePublicacaoController PublicacaoController = new controllers.ReversePublicacaoController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseCalendarioAcademicoController CalendarioAcademicoController = new controllers.ReverseCalendarioAcademicoController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseUserController UserController = new controllers.ReverseUserController(RoutesPrefix.byNamePrefix());
+  public static final controllers.ReverseComentarioController ComentarioController = new controllers.ReverseComentarioController(RoutesPrefix.byNamePrefix());
   public static final controllers.ReverseUsuarioController UsuarioController = new controllers.ReverseUsuarioController(RoutesPrefix.byNamePrefix());
 
   public static class javascript {
@@ -21,6 +22,7 @@ public class routes {
     public static final controllers.javascript.ReversePublicacaoController PublicacaoController = new controllers.javascript.ReversePublicacaoController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseCalendarioAcademicoController CalendarioAcademicoController = new controllers.javascript.ReverseCalendarioAcademicoController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseUserController UserController = new controllers.javascript.ReverseUserController(RoutesPrefix.byNamePrefix());
+    public static final controllers.javascript.ReverseComentarioController ComentarioController = new controllers.javascript.ReverseComentarioController(RoutesPrefix.byNamePrefix());
     public static final controllers.javascript.ReverseUsuarioController UsuarioController = new controllers.javascript.ReverseUsuarioController(RoutesPrefix.byNamePrefix());
   }
 
