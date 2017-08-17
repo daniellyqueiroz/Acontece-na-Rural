@@ -17,72 +17,67 @@ export class PublicacaoService {
     //private banco: Publicacao[];
     public feed: Publicacao[];
     public usuario: Usuario;
+    public usuario2: Usuario;
 
    // constructor(public http: Http, public jsonp: Jsonp) {
     //this.http = http;
     //this.jsonp = jsonp;
     constructor(){ 
         this.feed = this.getBanco();
-        this.usuario = {
+        this.usuario2 = 
+        {
             id: 1,
+            idAva: 3,
+            matricula: "kdhjkdah",
             nome: 'Danielly Queiroz',
             nomeUsuario: 'dani',
-            senha: '1234',
-            curso: 'Ciência da Computação',
+            cidade:"Recife",
+            pais: "Brasil",
+            instituicao: "UFRPE",
+            email: "danny.hj@out",
+            departamento: 'Ciência da Computação',
+            imagem: "assets/img/joao.jpg",
+            imagemPequena: "assets/img/joao.jpg",
+            descricao: "tudo certo",
+            publicacoesSalvas: [],
+            tempoLembreteAVA: TempoAva.DOZE_HORAS,
+            token: "kdjhjsga",
+            dataCriacao: 9494,
+            dataModificacao: 9487
+        };
+
+        this.usuario = {
+            id: 1,
+            idAva: 3,
+            matricula: "kdhjkdah",
+            nome: 'Danielly Queiroz',
+            nomeUsuario: 'dani',
+            cidade:"Recife",
+            pais: "Brasil",
+            instituicao: "UFRPE",
+            email: "danny.hj@out",
+            departamento: 'Ciência da Computação',
             imagem: "assets/img/fotouser.jpg",
-            descricao: 'tudo certo',
+            imagemPequena: "assets/img/fotouser.jpg",
+            descricao: "tudo certo",
             publicacoesSalvas: [
                 {
                     "id": 2,
-                    "idUsuario": 3,
-                    "nome": "Danny",
-                    "nomeUsuario": "dani",
-                    "imagem": "assets/img/fotouser.jpg",
+                    "usuario": this.usuario2,
                     "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
                     "fotos": [],
                     "videos": [],
-                    "data": 890809,
-                    "pessoasReagiram": [],
+                    "dataCriacao": 890809,
+                    "dataModificacao": 8474,
+                    "reacoes": [],
                     "tags": ["ufrpe", "latim"],
-                    "comentarios": [
-                        {
-                            "id": 10,
-                            "idPublicacao": 54,
-                            "idUsuario": 8,
-                            "nomeUsuario": "jnmarcos",
-                            "nome": "Joao",
-                            "imagem": "assets/img/joao.jpg",
-                            "texto": "Proin facilisis in eros quis euismod. Etiam pharetra vestibulum turpis sit amet congue. Mauris molestie lorem non mauris consectetur, quis volutpat urna rhoncus. Pellentesque condimentum justo enim, a bibendum lacus lobortis a. Nunc non venenatis magna, et interdum sem. Sed blandit velit a ipsum consectetur, non auctor nisi condimentum. Morbi in iaculis justo, in tempus turpis.",
-                            "data": 897987,
-                            "pessoasReagiram": []
-                        },
-                        {
-                            "id": 11,
-                            "idPublicacao": 54,
-                            "idUsuario": 8,
-                            "nomeUsuario": "Usuario 1",
-                            "nome": "Joao",
-                            "imagem": "assets/img/usuario1.jpg",
-                            "texto": "Curabitur interdum urna nec ex egestas, et mattis tortor gravida. Aenean id diam nec arcu pulvinar luctus. Phasellus sollicitudin dictum leo, vitae luctus ante facilisis id. Mauris non consequat erat. In congue tortor in volutpat lobortis. In rutrum a neque vel eleifend. Nullam tincidunt ante quis egestas hendrerit.",
-                            "data": 89908,
-                            "pessoasReagiram": []
-                        },
-                        {
-                            "id": 12,
-                            "idPublicacao": 54,
-                            "idUsuario": 8,
-                            "nomeUsuario": "jnmarcos",
-                            "nome": "Joao",
-                            "imagem": "assets/img/joao.jpg",
-                            "texto": "meu comentario",
-                            "data": 7897,
-                            "pessoasReagiram": []
-                        }
-                    ]
+                    "comentarios": []
                 }
             ],
-            listaInteresses: [],
-            tempoLembreteAVA: TempoAva.DOZE_HORAS
+            tempoLembreteAVA: TempoAva.DOZE_HORAS,
+            token: "kdjhjsga",
+            dataCriacao: 9494,
+            dataModificacao: 9487
           };
     }
 
@@ -119,11 +114,11 @@ export class PublicacaoService {
     }
 
       gostarPublicacao (pub: Publicacao, reacao: Reacao){
-          let reacoes = pub.pessoasReagiram;
+          let reacoes = pub.reacoes;
           let indexGostar: number = -1;
           let reacaoBD: Reacao;
           for (var index = 0; index < reacoes.length; index++) {
-              if (reacoes[index].idUsuario === reacao.idUsuario){
+              if (reacoes[index].usuario.id === reacao.usuario.id){
                   indexGostar =  index;
                   reacaoBD = reacoes[index];
                   break;
@@ -131,32 +126,32 @@ export class PublicacaoService {
           }
 
         if (indexGostar == -1) {//pessoa ainda não reagiu
-            pub.pessoasReagiram.unshift(reacao); //add no topo
+            pub.reacoes.unshift(reacao); //add no topo
         } else {
             if (reacaoBD.tipoReacao == TiposReacao.NaoGostar){
                 //aproveita-se a reação original
                 //só muda o tipo
                 reacaoBD.tipoReacao = TiposReacao.Gostar;
             } else {
-                pub.pessoasReagiram.splice(indexGostar, 1); //remove a reação
+                pub.reacoes.splice(indexGostar, 1); //remove a reação
             }
         }
       }
 
       quantidadeGostar(pub: Publicacao){
-        return pub.pessoasReagiram.filter(this.ehReacaoGostar);
+        return pub.reacoes.filter(this.ehReacaoGostar);
       }
 
       quantidadeNaoGostar(pub: Publicacao){
-        return pub.pessoasReagiram.filter(this.ehReacaoNaoGostar);
+        return pub.reacoes.filter(this.ehReacaoNaoGostar);
       }
 
       naoGostarPublicacao (pub: Publicacao, reacao: Reacao){
-        let reacoes = pub.pessoasReagiram;
+        let reacoes = pub.reacoes;
         let indexGostar: number = -1;
         let reacaoBD: Reacao;
         for (var index = 0; index < reacoes.length; index++) {
-            if (reacoes[index].idUsuario === reacao.idUsuario){
+            if (reacoes[index].usuario.id === reacao.usuario.id){
                 indexGostar =  index;
                 reacaoBD = reacoes[index];
                 break;
@@ -164,21 +159,21 @@ export class PublicacaoService {
         }
 
         if (indexGostar == -1) {//pessoa ainda não reagiu
-            pub.pessoasReagiram.unshift(reacao); //add no topo
+            pub.reacoes.unshift(reacao); //add no topo
         } else {
             if (reacaoBD.tipoReacao == TiposReacao.Gostar){
                 reacaoBD.tipoReacao = TiposReacao.NaoGostar;
             } else {
-                pub.pessoasReagiram.splice(indexGostar, 1); //remove a reação
+                pub.reacoes.splice(indexGostar, 1); //remove a reação
             }
         }
       }
     
       gostou(pub: Publicacao, idUsuario: number): boolean {
-        let reacoes = pub.pessoasReagiram;
+        let reacoes = pub.reacoes;
         let indexGostar: number = -1;
         for (var index = 0; index < reacoes.length; index++) {
-            if (reacoes[index].idUsuario ===idUsuario
+            if (reacoes[index].usuario.id === idUsuario
                 && reacoes[index].tipoReacao == TiposReacao.Gostar){
                 indexGostar =  index;
                 break;
@@ -192,10 +187,10 @@ export class PublicacaoService {
       }
     
       naoGostou(pub: Publicacao, idUsuario: number): boolean {
-        let reacoes = pub.pessoasReagiram;
+        let reacoes = pub.reacoes;
         let indexNaoGostar: number = -1;
         for (var index = 0; index < reacoes.length; index++) {
-            if (reacoes[index].idUsuario ===idUsuario
+            if (reacoes[index].usuario.id === idUsuario
                 && reacoes[index].tipoReacao == TiposReacao.NaoGostar){
                 indexNaoGostar =  index;
                 break;
@@ -237,101 +232,68 @@ export class PublicacaoService {
     public getBanco(): any {
         return [
             {
-                "id": 1,
-                "nome": "Danny",
-                "nomeUsuario": "dani",
-                "imagem": "assets/img/fotouser.jpg",
+                "id": 2,
+                "usuario": 
+                {
+                    "id": 2,
+                    "idAva": 3,
+                    "matricula": "kdhjkdah",
+                    "nome": 'Otaku',
+                    "nomeUsuario": 'takanio',
+                    "cidade":"Recife",
+                    "pais": "Brasil",
+                    "instituicao": "UFRPE",
+                    "email": "otaku.hj@out",
+                    "departamento": 'Ciência da Computação',
+                    "imagem": "assets/img/joao.jpg",
+                    "imagemPequena": "assets/img/joao.jpg",
+                    "descricao": "tudo certo",
+                    "publicacoesSalvas": [],
+                    "tempoLembreteAVA": TempoAva.DOZE_HORAS,
+                    "token": "kdjhjsga",
+                    "dataCriacao": 9494,
+                    "dataModificacao": 9487
+                },
                 "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
                 "fotos": [],
                 "videos": [],
-                "data": 890809,
-                "pessoasReagiram": [],
+                "dataCriacao": 890809,
+                "dataModificacao": 8474,
+                "reacoes": [],
                 "tags": ["ufrpe", "latim"],
-                "comentarios": [
-                    {
-                        "id": 10,
-                        "idPublicacao": 54,
-                        "idUsuario": 8,
-                        "nomeUsuario": "Usuario 1",
-                        "nome": "Usuario 1",
-                        "imagem": "assets/img/usuario1.jpg",
-                        "texto": "Proin facilisis in eros quis euismod. Etiam pharetra vestibulum turpis sit amet congue. Mauris molestie lorem non mauris consectetur, quis volutpat urna rhoncus. Pellentesque condimentum justo enim, a bibendum lacus lobortis a. Nunc non venenatis magna, et interdum sem. Sed blandit velit a ipsum consectetur, non auctor nisi condimentum. Morbi in iaculis justo, in tempus turpis.",
-                        "data": 897987,
-                        "pessoasReagiram": []
-                    },
-                    {
-                        "id": 11,
-                        "idPublicacao": 54,
-                        "idUsuario": 8,
-                        "nomeUsuario": "jnmarcos",
-                        "nome": "Joao",
-                        "imagem": "assets/img/joao.jpg",
-                        "texto": "Aliquam orci lectus, venenatis et tempor sed, varius eu ipsum. Duis congue ultricies felis et gravida. Vestibulum a nunc porttitor, sodales tortor sit amet, consequat est. Proin eleifend diam iaculis quam vestibulum finibus. Donec quis accumsan lorem. Sed porttitor venenatis ultricies. Sed blandit, nisi nec pulvinar dapibus, dui justo aliquam diam",
-                        "data": 89908,
-                        "pessoasReagiram": []
-                    },
-                    {
-                        "id": 12,
-                        "idPublicacao": 54,
-                        "idUsuario": 8,
-                        "nomeUsuario": "Usuario2",
-                        "nome": "Usuario2",
-                        "imagem": "assets/img/usuario2.jpg",
-                        "texto": " a tempor urna augue at sapien. Etiam id aliquet odio, non fermentum dui. Nunc lobortis nulla ut turpis scelerisque, at convallis leo hendrerit. Pellentesque et ante scelerisque, sagittis nunc at, rutrum est. Praesent non quam nec elit pulvinar tincidunt. :)",
-                        "data": 7897,
-                        "pessoasReagiram": []
-                    }
-                ]
+                "comentarios": []
             },
             {
-                "id": 11,
-                "nome": "Danny",
-                "nomeUsuario": "dani",
-                "imagem": "assets/img/fotouser.jpg",
-                "texto": "Vestibulum auctor dolor vel est vestibulum, ut sodales arcu convallis. Sed faucibus dictum varius. Donec a dictum ante. Vestibulum sollicitudin dui non quam mollis, eget volutpat arcu tristique. Curabitur id accumsan lacus. Nunc vestibulum felis in felis tincidunt porta. Nam vulputate pellentesque hendrerit. Nullam laoreet lectus nunc, sed sollicitudin nisi pulvinar id. Integer pulvinar ipsum nec sapien vestibulum, at ornare quam auctor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean luctus scelerisque nisl sed fermentum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Pellentesque malesuada nunc quis erat facilisis, eget aliquet augue lobortis. Fusce quis diam justo.",
+                "id": 3,
+                "usuario":
+                {
+                    "id": 3,
+                    "idAva": 3,
+                    "matricula": "kdhjkdah",
+                    "nome": 'Mister poool',
+                    "nomeUsuario": 'takanio',
+                    "cidade":"Recife",
+                    "pais": "Brasil",
+                    "instituicao": "UFRPE",
+                    "email": "otaku.hj@out",
+                    "departamento": 'Florestal',
+                    "imagem": "assets/img/joao.jpg",
+                    "imagemPequena": "assets/img/joao.jpg",
+                    "descricao": "tudo certo",
+                    "publicacoesSalvas": [],
+                    "tempoLembreteAVA": TempoAva.DOZE_HORAS,
+                    "token": "kdjhjsga",
+                    "dataCriacao": 9494,
+                    "dataModificacao": 9487
+                },
+                "texto": "Virir, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
                 "fotos": [],
                 "videos": [],
-                "data": 890809,
-                "pessoasReagiram": [],
-                "tags": ["ufrpe", "latim"],
-                "comentarios": [
-                    {
-                        "id": 32,
-                        "idPublicacao": 65,
-                        "idUsuario": 76,
-                        "nome": "Usuario 3",
-                        "nomeUsuario": "Usuario 3",
-                        "imagem": "assets/img/usuario3.jpg",
-                        "texto": "Donec at ipsum lectus. Ut id rutrum eros, vel condimentum urna. Vestibulum id erat ac erat porta hendrerit. Vestibulum placerat pellentesque luctus. ",
-                        "data": 89080,
-                        "pessoasReagiram": []
-                    }
-                ]
-            },
-            {
-                "id": 6,
-                "nome": "Danny",
-                "nomeUsuario": "dani",
-                "imagem": "assets/img/fotouser.jpg",
-                "texto": "Proin suscipit porta lacus quis suscipit. Morbi dapibus sed felis non congue. Aliquam mollis ac eros ut dictum. Nullam fermentum arcu lacus, eu sagittis purus egestas a. Suspendisse ut cursus velit, ut pretium lacus. Etiam dapibus dolor urna. Nunc blandit urna maximus, convallis libero in, sagittis est. Nam sem ipsum, pretium non lacus et, gravida placerat est. Proin vestibulum ex odio, et eleifend libero rutrum nec. Donec id sapien lacus.",
-                "fotos": [],
-                "videos": [],
-                "data": 890809,
-                "pessoasReagiram": [],
+                "dataCriacao": 98987,
+                "dataModificacao": 8474,
+                "reacoes": [],
                 "tags": ["ufrpe"],
-                "comentarios": [
-                    {
-                        "id": 11,
-                        "idPublicacao": 54,
-                        "idUsuario": 8,
-                        "nomeUsuario": "jnmarcos",
-                        "nome": "Joao",
-                        "imagem": "assets/img/joao.jpg",
-                        "texto": "Donec vel lobortis eros, vitae elementum metus. Nullam at libero eu sapien feugiat posuere. Ut tincidunt ligula leo, ac ornare nulla varius facilisis. Mauris sed accumsan neque, sit amet sollicitudin dolor. Suspendisse imperdiet porttitor vehicula. Fusce tristique erat a lobortis varius. In egestas purus et pretium laoreet. Phasellus vehicula vitae ante in vulputate. Praesent et turpis mattis dolor imperdiet sagittis molestie quis lorem.",
-                        "data": 890809,
-                        "pessoasReagiram": []
-                    }
-                ]
+                "comentarios": []
             }
         ]
     }

@@ -1,4 +1,4 @@
 export enum TiposReacao{
-    Gostar = 1,
-    NaoGostar
+    NaoGostar = 0,
+    Gostar = 1
 }

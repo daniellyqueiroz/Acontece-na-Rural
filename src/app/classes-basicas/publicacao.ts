@@ -1,34 +1,32 @@
 import { Comentario } from '../classes-basicas/comentario';
+import { Usuario } from '../classes-basicas/usuario';
 import { Reacao } from '../classes-basicas/reacao';
 
 export class Publicacao{
     id: number; 
-    idUsuario: number;
-    nome: string;
-    nomeUsuario: string;
-    imagem: any;
+    usuario: Usuario;
     texto: string;
     fotos: any[]; //por enquanto deixar any
     videos: any[];
-    data: number;
-    pessoasReagiram: Reacao[];
+    reacoes: Reacao[];
     tags: string[];
     comentarios: Comentario[];
-    
 
-    constructor(id: number, idUsuario: number, nome: string, nomeUsuario: string, imagem: any, data: number, texto: string, fotos: any[],
-        videos: any[], tags: string[]){
+    dataCriacao: number;
+    dataModificacao: number;
+
+    constructor(id: number, usuario: Usuario, texto: string, fotos: any[], videos: any[], 
+        tags: string[]){
             this.id = id;
-            this.idUsuario = idUsuario;
-            this.nome = nome;
-            this.nomeUsuario = nomeUsuario;
-            this.imagem = imagem;
+            this.usuario = usuario;
             this.texto = texto;
             this.fotos = fotos;
             this.videos = videos;
-            this.data = data;
-            this.pessoasReagiram = [];
+            this.reacoes = [];
             this.comentarios = [];
             this.tags = tags;
+
+            this.dataCriacao = Date.now();
+            this.dataModificacao = 0;
     }
 }

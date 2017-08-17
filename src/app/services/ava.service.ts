@@ -15,14 +15,7 @@ export class AvaService {
         return this.usuarios;
     }
 
-    logar(usuario: string, senha: string): boolean {
-        for (var index = 0; index < this.usuarios.length; index++) {
-          if (this.usuarios[index].nome == usuario && 
-            this.usuarios[index].senha == senha){
-                console.log("entrou");
-          }
-
-        }
+    logar(login: string, senha: string): boolean{
         return true;
     }
 }

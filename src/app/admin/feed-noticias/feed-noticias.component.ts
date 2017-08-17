@@ -34,14 +34,13 @@ export class FeedNoticiasComponent implements OnInit {
   adicionarPublicacao(pubTexto: string, pubFotos: any, pubVideos: any, pubTags: string[]) {
     if (pubTexto != null && pubTexto.length > 0) {
       let pub: Publicacao = new Publicacao(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, 
-      this.usuarioLogado.id, this.usuarioLogado.nome, this.usuarioLogado.nomeUsuario, 
-      this.usuarioLogado.imagem, Date.now(), pubTexto, pubFotos, pubVideos, pubTags);
+      this.usuarioLogado, pubTexto, pubFotos, pubVideos, pubTags);
       this.pubService.adicionarPublicacao(pub);
     }
   }
 
   removerPublicacao(pub: Publicacao, idUsuario: number) {
-      if (pub.idUsuario == idUsuario) {
+      if (pub.usuario.id == idUsuario) {
       let index = this.feed.indexOf(pub);
       this.pubService.removerPublicacao(index);
     }
@@ -51,14 +50,13 @@ export class FeedNoticiasComponent implements OnInit {
   adicionarComentario(pub: Publicacao, comentarioTexto: string) {
     if (comentarioTexto != null && comentarioTexto.length > 0) {
       let com: Comentario = new Comentario(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, 
-      pub.id, this.usuarioLogado.id, this.usuarioLogado.nome, this.usuarioLogado.nomeUsuario,
-        this.usuarioLogado.imagem, comentarioTexto, Date.now());
+      pub, this.usuarioLogado, comentarioTexto);
         this.pubService.adicionarComentario(pub, com);
     }
   }
 
   removerComentario(pub: Publicacao, com: Comentario, idUsuario: number) {
-    if (com.idUsuario == idUsuario) {
+    if (com.usuario.id == idUsuario) {
       let index = pub.comentarios.indexOf(com);
       this.pubService.removerComentario(pub, com, index);
     }
@@ -70,14 +68,14 @@ export class FeedNoticiasComponent implements OnInit {
   
   gostarPublicacao(pub: Publicacao, idUsuario: number) {
     //pegar a data atual e somar ao id do usuário (garante)
-    let reacao: Reacao = new Reacao(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, pub.id, 
-      idUsuario, TiposReacao.Gostar);   
+    let reacao: Reacao = new Reacao(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, pub, 
+      this.usuarioLogado, TiposReacao.Gostar);   
     this.pubService.gostarPublicacao(pub, reacao);
   }
 
   naoGostarPublicacao(pub: Publicacao, idUsuario: number) {
-    let reacao: Reacao = new Reacao(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, pub.id, 
-    idUsuario, TiposReacao.NaoGostar);  
+    let reacao: Reacao = new Reacao(Date.now() + this.usuarioLogado.id*this.usuarioLogado.id, pub, 
+    this.usuarioLogado, TiposReacao.NaoGostar);  
     this.pubService.naoGostarPublicacao(pub, reacao);
   }
 

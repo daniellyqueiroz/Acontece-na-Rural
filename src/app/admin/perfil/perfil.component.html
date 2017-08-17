@@ -3,14 +3,14 @@
 				<div class="box box-widget" *ngFor="let pub of feed">
 	                <div class="box-header with-border">
 	                  <div class="user-block">
-	                    <img class="img-circle" src="{{pub.imagem}}" alt="Imagem do usuário">
-	                    <span class="username">{{pub.nome}}</span>
-	                    <span class="description">{{pub.data| date: 'medium'}}</span>
+	                    <img class="img-circle" src="{{pub.usuario.imagem}}" alt="Imagem do usuário">
+	                    <span class="username">{{pub.usuario.nome}}</span>
+	                    <span class="description">{{pub.dataCriacao| date: 'medium'}}</span>
 	                  </div>
 	                  <!-- /.user-block -->
 	                  <div class="box-tools">
 	                  	<button type="button" class="btn btn-box-tool" data-widget="favorita"><i class="fa fa-star-o" aria-hidden="true"></i></button>
-	                    <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+	                    <button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, usuarioLogado.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 	                  </div>
 	                  <!-- /.box-tools -->
 	                </div>
@@ -38,21 +38,21 @@
 	                  <!-- /.attachment-block -->
 
 	                  <!-- Social sharing buttons -->
-	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, 'dani') === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
-	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, 'dani') === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, 'dani')"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
+	                  <a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.id) === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{pub.pessoasDescurtiram.length}})</a>
+	                  <a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.id) === true? '#3c8dbc' : '#444'}" (click)="gostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{pub.pessoasCurtiram.length}})</a>
 	                  <span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
 	                </div>
 	                <!-- /.box-body -->
 	                <div class="  box-footer box-comments">
 	                  <div class="box-comment" *ngFor="let comentario of pub.comentarios">
 	                    <!-- User image -->
-	                    <img class="img-circle img-sm" src="{{comentario.imagem}}" alt="User Image">
+	                    <img class="img-circle img-sm" src="{{comentario.usuario.imagem}}" alt="User Image">
 
 	                    <div class="comment-text">
 	                          <span class="username">
-	                            {{comentario.nome}}
-	                            <span class="text-muted pull-right">{{comentario.data| date: 'medium'}}</span>
-								<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, 'dani')"><i class="fa fa-trash" aria-hidden="true"></i></button>
+	                            {{comentario.usuario.nome}}
+	                            <span class="text-muted pull-right">{{comentario.dataCriacao| date: 'medium'}}</span>
+								<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, usuarioLogado.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 								</span><!-- /.username -->
 	                      	{{comentario.texto}}
 	                    </div>
