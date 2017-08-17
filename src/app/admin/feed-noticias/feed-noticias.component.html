@@ -19,6 +19,7 @@
 								<i class="fa fa-film" aria-hidden="true">
 									<input type="file" accept="video/*" name="vid" id="myVideos" #videos>
 									<label for="myVideos">Vídeos</label>
+									<span id="nomeArquivo"></span>
 								</i>
 							</div>
 							<button type="reset" class="btn pull-right btn-reset">
@@ -36,9 +37,9 @@
 			<div class="box box-widget" *ngFor="let pub of feed">
 				<div class="box-header with-border">
 					<div class="user-block">
-						<img class="img-circle" src="{{pub.imagem}}" alt="Imagem do usuário">
-						<span class="username">{{pub.nome}}</span>
-						<span class="description">{{pub.data| date: 'medium'}}</span>
+						<img class="img-circle" src="{{pub.usuario.imagem}}" alt="Imagem do usuário">
+						<span class="username">{{pub.usuario.nome}}</span>
+						<span class="description">{{pub.dataCriacao| date: 'medium'}}</span>
 					</div>
 					<!-- /.user-block -->
 					<div class="box-tools">
@@ -100,10 +101,10 @@
 					<div class="box-footer box-comments">
 						<div class="box-comment" *ngFor="let comentario of pub.comentarios">
 							<!-- User image -->
-							<img class="img-circle img-sm" src="{{comentario.imagem}}" alt="Imagem do Usuário">
+							<img class="img-circle img-sm" src="{{comentario.usuario.imagem}}" alt="Imagem do Usuário">
 							<div class="comment-text">
 								<span class="username">
-	                            {{comentario.nome}}
+	                            {{comentario.usuario.nome}}
 									
 									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, usuarioLogado.id)"><i class="fa fa-trash" aria-hidden="true" ></i></button>
 									
@@ -128,7 +129,7 @@
 										</div>
 									</div>-->
 									
-									<span class="text-muted push-left">{{comentario.data| date:'medium'}}</span>
+									<span class="text-muted push-left">{{comentario.dataCriacao| date:'medium'}}</span>
 								</span>
 								<!-- /.username -->
 								{{comentario.texto}}
