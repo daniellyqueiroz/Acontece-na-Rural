@@ -3,15 +3,17 @@
 # ~~~~
 
 
-# An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
 
+POST	/bruno		@controllers.UsuarioController.requisicaoAva2()
+
 
 POST	/requisicao				@controllers.UsuarioController.requisicaoAva
 GET		/user/listar			@controllers.UsuarioController.listarTodos()
+POST	/user/calendar			@controllers.CalendarioAcademicoController.cadastrar()
+GET		/user/listarCalendar	@controllers.CalendarioAcademicoController.listar() 
 POST	/user/pub        		@controllers.PublicacaoController.cadastrar()
 GET  	/user/pub				@controllers.PublicacaoController.listarTodas()
 GET  	/user/login				@controllers.UsuarioController.login()

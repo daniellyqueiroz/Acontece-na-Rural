@@ -3,6 +3,16 @@
 
 # --- !Ups
 
+create table calendario_academico (
+  id                            bigint not null,
+  title                         varchar(255) not null,
+  start                         varchar(255) not null,
+  end                           varchar(255) not null,
+  color                         varchar(255) not null,
+  constraint pk_calendario_academico primary key (id)
+);
+create sequence calendario_academico_seq;
+
 create table comentario (
   id                            bigint not null,
   publicacao_id                 bigint,
@@ -89,6 +99,9 @@ drop index if exists ix_reacao_publicacao_id;
 
 alter table reacao drop constraint if exists fk_reacao_usuario_id;
 drop index if exists ix_reacao_usuario_id;
+
+drop table if exists calendario_academico;
+drop sequence if exists calendario_academico_seq;
 
 drop table if exists comentario;
 drop sequence if exists comentario_seq;

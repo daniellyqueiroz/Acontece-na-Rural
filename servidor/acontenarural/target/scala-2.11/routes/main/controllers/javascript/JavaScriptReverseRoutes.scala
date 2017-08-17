@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Wed Aug 16 11:57:31 BRT 2017
+// @DATE:Wed Aug 16 21:07:42 BRT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -11,11 +11,11 @@ import play.core.routing.{ HandlerDef, ReverseRouteContext, queryString, dynamic
 import _root_.controllers.Assets.Asset
 import _root_.play.libs.F
 
-// @LINE:7
+// @LINE:8
 package controllers.javascript {
   import ReverseRouteContext.empty
 
-  // @LINE:10
+  // @LINE:8
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -23,7 +23,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:10
+    // @LINE:8
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
@@ -35,7 +35,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:15
+  // @LINE:17
   class ReversePublicacaoController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -43,7 +43,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:15
+    // @LINE:17
     def cadastrar: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PublicacaoController.cadastrar",
       """
@@ -53,7 +53,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:16
+    // @LINE:18
     def listarTodas: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.PublicacaoController.listarTodas",
       """
@@ -65,7 +65,37 @@ package controllers.javascript {
   
   }
 
-  // @LINE:20
+  // @LINE:15
+  class ReverseCalendarioAcademicoController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:15
+    def cadastrar: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CalendarioAcademicoController.cadastrar",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/calendar"})
+        }
+      """
+    )
+  
+    // @LINE:16
+    def listar: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.CalendarioAcademicoController.listar",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/listarCalendar"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:22
   class ReverseUserController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -73,7 +103,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:20
+    // @LINE:22
     def getUser: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UserController.getUser",
       """
@@ -85,27 +115,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:7
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:7
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:13
+  // @LINE:10
   class ReverseUsuarioController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -113,7 +123,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:20
     def sair: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.sair",
       """
@@ -133,7 +143,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:19
+    // @LINE:10
+    def requisicaoAva2: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.UsuarioController.requisicaoAva2",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "bruno"})
+        }
+      """
+    )
+  
+    // @LINE:21
     def remover: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.remover",
       """
@@ -153,7 +173,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:17
+    // @LINE:19
     def login: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.UsuarioController.login",
       """

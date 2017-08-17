@@ -229,6 +229,10 @@ public class Usuario extends Model{
 		return Ebean.createQuery(Usuario.class).where().eq("id", id).findUnique();
 	}
 	
+	public static Usuario buscar(String username){
+		return Ebean.createQuery(Usuario.class).where().eq("username", username).findUnique();
+	}
+	
 	public static Usuario getUserToken(String token) {
 		
 		 return Ebean.createQuery(Usuario.class).where().eq("token", token).findUnique();
