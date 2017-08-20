@@ -1,4 +1,5 @@
-import{ Http, Jsonp} from "@angular/http";
+import { Component, OnInit } from '@angular/core';
+import{ Http, Jsonp, Headers} from "@angular/http";
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
@@ -11,40 +12,26 @@ import { TiposReacao } from '../classes-basicas/tipo-reacao';
 import { TempoAva } from '../classes-basicas/tempo-ava';
 
 @Injectable()
-export class PublicacaoService {
+export class PublicacaoService implements OnInit{
     private timeout: number = 7500;
 
-    //private banco: Publicacao[];
+    //public feed: any;
+
     public feed: Publicacao[];
     public usuario: Usuario;
     public usuario2: Usuario;
 
-   // constructor(public http: Http, public jsonp: Jsonp) {
-    //this.http = http;
-    //this.jsonp = jsonp;
-    constructor(){ 
-        this.feed = this.getBanco();
-        this.usuario2 = 
-        {
-            id: 4,
-            idAva: 3,
-            matricula: "kdhjkdah",
-            nome: 'Danielly Queiroz',
-            nomeUsuario: 'dani',
-            cidade:"Recife",
-            pais: "Brasil",
-            instituicao: "UFRPE",
-            email: "danny.hj@out",
-            departamento: 'Ciência da Computação',
-            imagem: "assets/img/joao.jpg",
-            imagemPequena: "assets/img/joao.jpg",
-            descricao: "tudo certo",
-            publicacoesSalvas: [],
-            tempoLembreteAVA: TempoAva.DOZE_HORAS,
-            token: "kdjhjsga",
-            dataCriacao: 9494,
-            dataModificacao: 9487
-        };
+    public usuarios: Usuario[];
+    ngOnInit(){
+           
+    }
+
+    urlUsuarios: string = "http://localhost:9000/user/listar";
+    urlPublicacoes: string = "http://localhost:9000/user/pub";
+
+    constructor(public http: Http){     
+        this.feed = this.getBanco();//que funciona
+        //this.getPublicacoes();
 
         this.usuario = {
             id: 1,
@@ -63,7 +50,27 @@ export class PublicacaoService {
             publicacoesSalvas: [
                 {
                     "id": 2,
-                    "usuario": this.usuario2,
+                    "usuario": 
+                    {
+                        "id": 1,
+                        "idAva": 3,
+                        "matricula": "kdhjkdah",
+                        "nome": 'Danny',
+                        "nomeUsuario": 'takanio',
+                        "cidade":"Recife",
+                        "pais": "Brasil",
+                        "instituicao": "UFRPE",
+                        "email": "danny@out",
+                        "departamento": 'Ciência Comp',
+                        "imagem": "assets/img/fotouser.jpg",
+                        "imagemPequena": "assets/img/fotouser.jpg",
+                        "descricao": "tudo certo",
+                        "publicacoesSalvas": [],
+                        "tempoLembreteAVA": TempoAva.DOZE_HORAS,
+                        "token": "kdjhjsga",
+                        "dataCriacao": 9494,
+                        "dataModificacao": 9487
+                    },
                     "texto": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer et diam sit amet tortor euismod convallis. Etiam id commodo magna, nec porta sapien. Vestibulum tempus dolor velit, et ornare urna consectetur vitae. Maecenas egestas laoreet dapibus. Cras maximus sem sit amet justo tristique, nec condimentum mauris pretium. Morbi imperdiet porta ligula, a placerat urna sagittis efficitur. Morbi lacus orci, elementum quis maximus et, fringilla nec quam. Pellentesque suscipit tellus nec semper mattis. Suspendisse ultricies eget lectus et efficitur.",
                     "fotos": [],
                     "videos": [],
@@ -79,6 +86,54 @@ export class PublicacaoService {
             dataCriacao: 9494,
             dataModificacao: 9487
           };
+    }
+
+    getPublicacoes() {
+        this.http.get(this.urlPublicacoes)
+                .map(res => res.json())
+                .subscribe(
+                       data => this.feed = data, 
+                       err => this.logErro(err),
+                       () => console.log("Pegou Publicações")
+                );
+    }
+
+    
+    getUsuarios() {
+        this.http.get(this.urlUsuarios)
+                   .map(res => res.json())
+                   .subscribe(
+                        data => this.usuarios = data,
+                        err => this.logErro(err),
+                        () => console.log("Pegou Usuários")
+                   );
+    }
+
+    autenticar(username: String, password: String) {      
+        var creds = "{username:" + username + ",password:" + password + "}";
+      
+        var headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+      
+        this.http.post('http://localhost:9000/req', creds, {
+          headers: headers
+          })
+          .map(res => res.json())
+          .subscribe(
+            data => this.saveJwt(data.token),
+            err => this.logErro(err),
+            () => console.log('Authentication Complete')
+          );
+    }
+
+    saveJwt(jwt) {
+        if(jwt) {
+          localStorage.setItem('token', jwt)
+        }
+      }
+
+    logErro(err){
+        console.error("Erro: " + err);
     }
 
     adicionarPublicacao(pub: Publicacao) {
@@ -228,20 +283,6 @@ export class PublicacaoService {
     public salvarBanco(){
 
     }
-
-    /*
-    public getBanco2(): any {
-        return this.http.get("http://localhost:3000/postagens")
-        .timeout(this.timeout)
-        .map(res => res.text());
-    }
-
-    public getBanco3(): any {
-        return this.jsonp.get("http://localhost:3000/postagens")
-        .toPromise().then(resp => resp.text());
-    }
-    */
-
     public getBanco(): any {
         return [
             {
