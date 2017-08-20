@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup, FormControl } from '@angular/forms';
-import {AvaService} from '../../services/ava.service';
+import {Component} from '@angular/core';
+import { AvaService } from '../../services/ava.service';
+import { FormsModule }   from '@angular/forms'; 
 
 
 @Component({
@@ -8,17 +8,50 @@ import {AvaService} from '../../services/ava.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   providers: [AvaService]
-  
+
 })
+
+
 export class LoginComponent {
-    servico: AvaService;
+  public erroLogin : boolean;
+  public erroSenha : boolean;
+  public erroMessage :String;
 
-    constructor(servico: AvaService){
-      this.servico = servico;
+  public data:  any = {};
+
+    constructor(private avaService: AvaService){
+      this.erroSenha = false;
+      this.erroLogin = false;
+      this.erroMessage = "";
+
     }
 
-    logar (usuario: string, senha: string){
-      console.log(usuario + " " + senha);
-      this.servico.logar(usuario, senha);
-    }
+  sendComment(username:any, password: any){
+    if(username.length == 0|| password.length == 0){
+      this.erroLogin = username.length == 0;
+      this.erroSenha = password.length ==0;
+      return ;
+    }else{
+      this.erroLogin = false;
+      this.erroSenha = false;
+      this.data.username = username;
+      this.data.password = password;
+      this.avaService.signUp(this.data)
+      .subscribe(
+        data => {
+          if (data.hasOwnProperty('message')) {
+            this.erroMessage = data.message;
+    // todo msg para o usuário 
+
+          }else {
+               this.avaService.setUser(data);
+          }
+        },
+        error => {
+          console.log('erro de conexao');
+      });
+      
+  }
+}
+
 }

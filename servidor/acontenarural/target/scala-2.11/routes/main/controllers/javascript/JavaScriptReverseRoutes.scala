@@ -1,7 +1,7 @@
 
 // @GENERATOR:play-routes-compiler
 // @SOURCE:/Users/air/Documents/workspace/servidor/acontenarural/conf/routes
-// @DATE:Thu Aug 17 09:56:10 BRT 2017
+// @DATE:Sun Aug 20 02:34:07 BRT 2017
 
 import play.api.routing.JavaScriptReverseRoute
 import play.api.mvc.{ QueryStringBindable, PathBindable, Call, JavascriptLiteral }
@@ -48,7 +48,7 @@ package controllers.javascript {
       "controllers.PublicacaoController.cadastrar",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/pub"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/pub"})
         }
       """
     )
@@ -58,7 +58,7 @@ package controllers.javascript {
       "controllers.PublicacaoController.listarTodas",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/pub"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/pub"})
         }
       """
     )
@@ -78,7 +78,7 @@ package controllers.javascript {
       "controllers.CalendarioAcademicoController.cadastrar",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/calendar"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/calendar"})
         }
       """
     )
@@ -88,7 +88,7 @@ package controllers.javascript {
       "controllers.CalendarioAcademicoController.listar",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/listarCalendar"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/listarCalendar"})
         }
       """
     )
@@ -108,7 +108,7 @@ package controllers.javascript {
       "controllers.UserController.getUser",
       """
         function(id0,email1) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("email", encodeURIComponent(email1))})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0) + "/" + (""" + implicitly[PathBindable[String]].javascriptUnbind + """)("email", encodeURIComponent(email1))})
         }
       """
     )
@@ -128,7 +128,7 @@ package controllers.javascript {
       "controllers.ComentarioController.cadastrar",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "user/comentario"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/comentario"})
         }
       """
     )
@@ -138,7 +138,7 @@ package controllers.javascript {
       "controllers.ComentarioController.listar",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/comentario"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/comentario"})
         }
       """
     )
@@ -160,7 +160,7 @@ package controllers.javascript {
         function() {
         
           if (true) {
-            return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "sair"})
+            return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/sair"})
           }
         
         }
@@ -172,7 +172,7 @@ package controllers.javascript {
       "controllers.UsuarioController.listarTodos",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/listar"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/listar"})
         }
       """
     )
@@ -182,7 +182,7 @@ package controllers.javascript {
       "controllers.UsuarioController.requisicaoAva2",
       """
         function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "login"})
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "api/login"})
         }
       """
     )
@@ -192,7 +192,7 @@ package controllers.javascript {
       "controllers.UsuarioController.remover",
       """
         function(id0) {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/remover/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/remover/" + (""" + implicitly[PathBindable[Long]].javascriptUnbind + """)("id", id0)})
         }
       """
     )
@@ -202,7 +202,7 @@ package controllers.javascript {
       "controllers.UsuarioController.login",
       """
         function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "user/login"})
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "api/user/login"})
         }
       """
     )

@@ -15,6 +15,9 @@ import { NoticiasOficiaisComponent } from './admin/noticias-oficiais/noticias-of
 import { PerfilComponent } from './admin/perfil/perfil.component';
 import { PubliSalvasComponent } from './admin/publi-salvas/publi-salvas.component';
 
+// Import HttpClientModule from @angular/common/http
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +34,7 @@ import { PubliSalvasComponent } from './admin/publi-salvas/publi-salvas.componen
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     RouterModule.forRoot([
     {
 	    path: '',

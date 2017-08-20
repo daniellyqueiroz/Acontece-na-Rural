@@ -11,6 +11,8 @@ import javax.inject.Inject;
 
 
 import com.fasterxml.jackson.databind.JsonNode;
+
+import interceptors.ApiInterceptor;
 import models.Usuario;
 import play.Logger;
 import play.libs.Json;
@@ -21,8 +23,9 @@ import play.mvc.Controller;
 import play.mvc.Result;
 
 import tyrex.services.UUID;
-
+@play.mvc.With({ ApiInterceptor.class })
 public class UsuarioController extends Controller{
+	
 	
 	@Inject WSClient ws;
 	private static final String TAG = UsuarioController.class.getSimpleName()+": ";
@@ -137,6 +140,9 @@ public class UsuarioController extends Controller{
 	//
 	
 	public Result requisicaoAva2(){
+		response().setContentType("application/json; charset=utf-8");
+		response().setHeader("Access-Control-Allow-Origin","*");
+		response().setHeader("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT, OPTIONS");
 		
 		// O Play é compatível com a sua biblioteca WS, que fornece uma maneira de fazer chamadas HTTP assíncronas.
 		try {
