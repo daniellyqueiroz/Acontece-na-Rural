@@ -32,5 +32,8 @@ export class AvaService {
    	return AvaService.user;
 
    }
+   isSession():boolean{
+    return AvaService.user!=null;
+   }
 
 }

@@ -10,3 +10,6 @@ $ ng serve —-open
 comandos para o ngrok
 
 ngrok http -host-header=localhost 4200
+
+para carregar o proxy:
+npm start

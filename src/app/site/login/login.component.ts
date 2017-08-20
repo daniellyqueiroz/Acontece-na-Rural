@@ -1,6 +1,8 @@
 import {Component} from '@angular/core';
 import { AvaService } from '../../services/ava.service';
 import { FormsModule }   from '@angular/forms'; 
+import {Router} from '@angular/router';
+import { Http, Headers, RequestOptions } from "@angular/http";
 
 
 @Component({
@@ -19,14 +21,14 @@ export class LoginComponent {
 
   public data:  any = {};
 
-    constructor(private avaService: AvaService){
+    constructor(private avaService: AvaService, private http: Http, private router:Router){
       this.erroSenha = false;
       this.erroLogin = false;
       this.erroMessage = "";
 
     }
 
-  sendComment(username:any, password: any){
+  loginAva(username:any, password: any){
     if(username.length == 0|| password.length == 0){
       this.erroLogin = username.length == 0;
       this.erroSenha = password.length ==0;
@@ -41,10 +43,11 @@ export class LoginComponent {
         data => {
           if (data.hasOwnProperty('message')) {
             this.erroMessage = data.message;
-    // todo msg para o usuário 
+        // todo msg para o usuário 
 
           }else {
-               this.avaService.setUser(data);
+            this.avaService.setUser(data);
+            //this.router.navigate(['/user/feed']);
           }
         },
         error => {
