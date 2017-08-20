@@ -47,7 +47,7 @@ export class LoginComponent {
 
           }else {
             this.avaService.setUser(data);
-            //this.router.navigate(['/user/feed']);
+            this.router.navigate(['/user/feed']);
           }
         },
         error => {

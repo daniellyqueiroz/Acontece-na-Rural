@@ -1,9 +1,9 @@
-2017-08-20 02:35:13,495 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-20 02:35:13,526 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
-2017-08-20 02:35:14,258 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:h2:mem:play
-2017-08-20 02:35:22,374 [ERROR] from application in netty-event-loop-3 - 
+2017-08-20 14:09:00,953 [WARN] from application in ForkJoinPool-1-worker-1 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-20 14:09:00,986 [INFO] from application in ForkJoinPool-1-worker-1 - Creating Pool for datasource 'default'
+2017-08-20 14:09:02,100 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-1 - Database [default] connected at jdbc:h2:mem:play
+2017-08-20 14:09:11,552 [ERROR] from application in netty-event-loop-3 - 
 
-! @7541ohcgf - Internal server error, for (GET) [/] ->
+! @7545bjpoa - Internal server error, for (GET) [/] ->
  
 play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evolution![An SQL script need to be run on your database.]
 	at play.api.db.evolutions.ApplicationEvolutions$$anonfun$play$api$db$evolutions$ApplicationEvolutions$$runEvolutions$1.apply$mcV$sp(ApplicationEvolutions.scala:77)
@@ -55,8 +55,10 @@ play.api.db.evolutions.InvalidDatabaseRevision: Database 'default' needs evoluti
 	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1056)
 	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1692)
 	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:157)
-2017-08-20 02:35:37,422 [INFO] from application in ForkJoinPool-1-worker-0 - Shutting down connection pool.
-2017-08-20 02:35:44,441 [WARN] from application in ForkJoinPool-1-worker-0 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
-2017-08-20 02:35:44,442 [INFO] from application in ForkJoinPool-1-worker-0 - Creating Pool for datasource 'default'
-2017-08-20 02:35:44,459 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-0 - Database [default] connected at jdbc:h2:mem:play
-2017-08-20 02:35:46,260 [INFO] from play.api.Play in ForkJoinPool-1-worker-0 - Application started (Dev)
+2017-08-20 14:09:23,577 [INFO] from application in ForkJoinPool-1-worker-0 - Shutting down connection pool.
+2017-08-20 14:09:29,453 [WARN] from application in ForkJoinPool-1-worker-0 - application.conf @ file:/Users/air/Documents/workspace/servidor/acontenarural/target/scala-2.11/classes/application.conf: 4: user is deprecated, use username instead
+2017-08-20 14:09:29,454 [INFO] from application in ForkJoinPool-1-worker-0 - Creating Pool for datasource 'default'
+2017-08-20 14:09:29,465 [INFO] from play.api.db.DefaultDBApi in ForkJoinPool-1-worker-0 - Database [default] connected at jdbc:h2:mem:play
+2017-08-20 14:09:30,840 [INFO] from play.api.Play in ForkJoinPool-1-worker-0 - Application started (Dev)
+2017-08-20 14:41:34,942 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Thread starvation or clock leap detected (housekeeper delta=25m35s42ms).
+2017-08-20 15:10:05,522 [WARN] from com.zaxxer.hikari.pool.HikariPool in HikariPool-2 housekeeper - HikariPool-2 - Retrograde clock change detected (housekeeper delta=29s868ms), soft-evicting connections from pool.
