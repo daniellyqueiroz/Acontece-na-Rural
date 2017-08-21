@@ -74,7 +74,6 @@ public class Usuario extends Model{
     
     public Usuario(int avaId, String matricula, String username, String nome,String email, String instituicao, 
     		 String departamento, String cidade, String pais, String imagem, String imagemSmall){
-    	
     	this.avaId = avaId;
     	this.matricula = matricula;
     	this.username = username;

@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Date;
+import java.util.List;
 
 import com.avaje.ebean.Ebean;
 import com.avaje.ebean.Model;
@@ -41,8 +42,7 @@ public class Reacao extends Model{
 	@Column  
 	private Date dataModificacao;
 	
-	public Reacao(Long id, TiposReacao tipo, Publicacao publicacao, Usuario usuario){
-		this.id = id;
+	public Reacao(TiposReacao tipo, Publicacao publicacao, Usuario usuario){
 		this.tipo = tipo;
 		this.publicacao = publicacao;
 		this.usuario = usuario;
@@ -148,9 +148,18 @@ public class Reacao extends Model{
 	}
 
 	public static Reacao buscar(Long id) {
-		
 		return Ebean.createQuery(Reacao.class).where().eq("id", id).findUnique();
 	}
+
+	public static  List<Reacao> listar(){
+		return Ebean.createQuery(Reacao.class).where().findList();
+	}
+
+	public static  List<Reacao> listarPorPub(){
+		return Ebean.createQuery(Reacao.class).where().findList();
+	}
+
+
 	
 	
 }

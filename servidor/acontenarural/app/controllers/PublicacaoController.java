@@ -36,7 +36,7 @@ public class PublicacaoController extends Controller {
 		return ok(Json.toJson(map));
 	}
 	
-	public Result listarTodas(){
+	public Result listar(){
 		try{
 			return ok(Json.toJson(Publicacao.listar()));
 		

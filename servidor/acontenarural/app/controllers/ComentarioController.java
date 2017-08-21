@@ -24,10 +24,10 @@ public class ComentarioController extends Controller{
 			usuario = Usuario.getUserToken(t); 
 			pub = Publicacao.buscar(resultado.get("idPublicacao").asLong());
 			
-			Comentario comentario  = new Comentario(pub, usuario,resultado.get("texto").asText());
+			Comentario comentario  = new Comentario(pub, usuario, resultado.get("texto").asText());
 			comentario.save();
 		
-		return ok(Json.toJson(comentario));
+			return ok(Json.toJson(comentario));
 		} catch (Exception e) {
 			Logger.info("Erro em cadastrar Comentario ",e.getMessage());
 			e.printStackTrace();
@@ -37,6 +37,7 @@ public class ComentarioController extends Controller{
 		map.put("message", "Erro na conexao");
 		return ok(Json.toJson(map));
 	}
+
 	public Result listar(){
 		try{
 			return ok(Json.toJson(Comentario.listar()));
@@ -52,8 +53,17 @@ public class ComentarioController extends Controller{
 	}
 
 	public Result remover(Long id){
-		Comentario comentario = Comentario.buscar(id);
-		comentario.delete();
-		return ok("comentario removido");
+		try{
+			Comentario comentario = Comentario.buscar(id);
+			comentario.delete();
+			return ok("comentario removido");
+		} catch (Exception e) {
+			Logger.info("Erro em excluir Comentario ",e.getMessage());
+			e.printStackTrace();
+		}
+		
+		HashMap<String, String> map = new HashMap<>();
+		map.put("message", "Erro na conexao");
+		return ok(Json.toJson(map));
 	}
 }

@@ -2,15 +2,8 @@ package models;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
-
-import com.avaje.ebean.Ebean;
-import com.avaje.ebean.Model;
-import com.avaje.ebean.annotation.WhenCreated;
-import com.avaje.ebean.annotation.WhenModified;
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -21,6 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.Table;
+
+import com.avaje.ebean.Ebean;
+import com.avaje.ebean.Model;
+import com.avaje.ebean.annotation.WhenCreated;
+import com.avaje.ebean.annotation.WhenModified;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 @Entity
 @Table
@@ -60,7 +59,6 @@ public class Publicacao extends Model{
 	
 	
 	public Publicacao(Usuario usuario, String texto){
-		
 		this.usuario = usuario;
 		this.texto = texto;
 		this.reacao= new ArrayList<Reacao>();

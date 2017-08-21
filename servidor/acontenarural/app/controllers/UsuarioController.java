@@ -257,7 +257,7 @@ public class UsuarioController extends Controller{
 	
 	//
 	
-	public Result listarTodos(){
+	public Result listar(){
 		try{
 	
 			return ok(Json.toJson(Usuario.listar()));

@@ -34,7 +34,7 @@
 
 	<div class="row">
 		<div class="col col-md-11 col-sm-12">
-			<div class="box box-widget" *ngFor="let pub of feed">
+			<div class="box box-widget" *ngFor="let pub of carregarPostagens()">
 				<div class="box-header with-border">
 					<div class="user-block">
 						<img class="img-circle" src="{{pub.usuario.imagem}}" alt="Imagem do usuário">
@@ -45,7 +45,7 @@
 					<div class="box-tools">
 						<button type="button" class="btn btn-box-tool" [ngStyle]="{'color': estaSalvaPublicacao(pub) === true? '#ffcc00' : '#444'}"
 						 data-widget="favorita"><i class="fa" [ngClass]="{'fa-star': estaSalvaPublicacao(pub) === true, 'fa-star-o': estaSalvaPublicacao(pub) === false}" aria-hidden="true" (click)="salvarPublicacao(pub)"></i></button>
-						<button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, usuarioLogado.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+						<button type="button" class="btn btn-box-tool" data-widget="remove" (click)="removerPublicacao(pub, usuario.id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
 					</div>
 				<!--
 					<button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="modal" data-target="#confRemocao"><i class="fa fa-trash" aria-hidden="true"></i></button>
@@ -61,7 +61,7 @@
 						</div>
 						<div class="modal-footer">
 						  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-						  <button type="button" class="btn btn-primary" (click)="removerPublicacao(pub, usuarioLogado.idUsuario)">Sim</button>
+						  <button type="button" class="btn btn-primary" (click)="removerPublicacao(pub, usuario.idUsuario)">Sim</button>
 						</div>
 					</div>
 				</div>
@@ -92,8 +92,8 @@
 					<!-- /.attachment-block -->
 
 					<!-- Social sharing buttons -->
-					<a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuarioLogado.id) === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{quantidadeNaoGostar(pub).length}})</a>
-					<a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuarioLogado.id) === true? '#3c8dbc' : '#444'}" [ngStyle]="{'strong': gostou(pub, usuarioLogado.id) === true? 'true' : 'false'}" (click)="gostarPublicacao(pub, usuarioLogado.id)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{quantidadeGostar(pub).length}})</a>
+					<a class="link-black link-action text-sm margin-r-5" [ngStyle]="{'color': naoGostou(pub, usuario.id) === true? '#dc5847' : '#444'}" (click)="naoGostarPublicacao(pub, usuario.id)"><i class="fa fa-thumbs-o-down" aria-hidden="true"></i> Não gostei ({{quantidadeNaoGostar(pub).length}})</a>
+					<a class="link-black link-action text-sm" [ngStyle]="{'color': gostou(pub, usuario.id) === true? '#3c8dbc' : '#444'}" [ngStyle]="{'strong': gostou(pub, usuario.id) === true? 'true' : 'false'}" (click)="gostarPublicacao(pub, usuario.id)"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> Gostei ({{quantidadeGostar(pub).length}})</a>
 					<span class="pull-right link-black text-sm">comentários ({{pub.comentarios.length}})</span>
 				</div>
 				<!-- /.box-body -->
@@ -106,7 +106,7 @@
 								<span class="username">
 	                            {{comentario.usuario.nome}}
 									
-									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, usuarioLogado.id)"><i class="fa fa-trash" aria-hidden="true" ></i></button>
+									<button type="button" class="btn btn-box-tool pull-right" data-widget="remove" (click)="removerComentario(pub,comentario, usuario.id)"><i class="fa fa-trash" aria-hidden="true" ></i></button>
 									
 
 									<!--
@@ -123,7 +123,7 @@
 											</div>
 											<div class="modal-footer">
 											  <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
-											  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="removerComentario(pub,comentario, usuarioLogado.nomeUsuario)">Sim</button>
+											  <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="removerComentario(pub,comentario, usuario.nomeUsuario)">Sim</button>
 											</div>
 										  </div>
 										</div>
@@ -141,7 +141,7 @@
 				<!-- /.box-footer -->
 				<div class="box-footer">
 					<form>
-						<img class="img-responsive img-circle img-sm" src="{{usuarioLogado.imagem}}" alt="Imagem do Usuário">
+						<img class="img-responsive img-circle img-sm" src="{{usuario.imagem}}" alt="Imagem do Usuário">
 						<!-- .img-push is used to add margin to elements next to floating images -->
 						<div class="img-push">
 							<div class="input-group">

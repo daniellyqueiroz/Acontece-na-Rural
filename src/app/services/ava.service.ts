@@ -1,6 +1,4 @@
 import { Usuario } from '../classes-basicas/usuario';
-import '../../bdUsuarios.json';
-import '../../bdPostagem.json';
 import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from "@angular/http";
 
