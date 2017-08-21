@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UfrpeService } from  '../../services/ufrpe.service';
-import { PublicacaoService } from  '../../services/publicacao.service';
+import { AvaService } from  '../../services/ava.service';
 import * as xml2js from 'xml2js';
 
 let resp: any;
@@ -10,17 +10,17 @@ declare function setSettings();
   selector: 'app-noticias-oficiais',
   templateUrl: './noticias-oficiais.component.html',
   styleUrls: ['./noticias-oficiais.component.css'],
-  providers: [UfrpeService]
+  providers: [UfrpeService, AvaService]
 })
 export class NoticiasOficiaisComponent implements OnInit {
 
- public oficial: any[];
+  public oficial: any[];
   public usuarioLogado: any;
   public textValue: string = '';
 
 
-  constructor(private ufrpeService: UfrpeService, private pubService: PublicacaoService) { 
-  	this.usuarioLogado = this.pubService.usuario;
+  constructor(private ufrpeService: UfrpeService, private avaService: AvaService) { 
+  	this.usuarioLogado = this.avaService.getUser();
   }
 
 

@@ -44,9 +44,13 @@ export class FeedNoticiasComponent implements OnInit {
   }
 
   carregarPostagens(){
-    this.pubService.listarPub()
+    return this.pubService.listarPub()
     .subscribe(
-      data => this.feed = data,
+      data => 
+	{
+	if (data != null & data.length) this.feed = data;
+	else this.feed = [];
+	},
       err => { console.log("Deu ruim Post") },
       () => console.log("Tudo Certo Post")
    );

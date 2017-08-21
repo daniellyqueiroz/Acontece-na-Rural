@@ -6,19 +6,21 @@ import { Usuario } from '../../classes-basicas/usuario';
 import { Reacao } from '../../classes-basicas/reacao';
 import { PublicacaoService } from '../../services/publicacao.service';
 
+import { AvaService } from '../../services/ava.service';
+
 @Component({
   selector: 'app-perfil',
   templateUrl: './perfil.component.html',
   styleUrls: ['./perfil.component.css'],
-  providers: [PublicacaoService]
+  providers: [PublicacaoService, AvaService]
 })
 export class PerfilComponent implements OnInit {
 
   public feed: Publicacao[];
   public usuarioLogado: Usuario;
 
-  constructor(private pubService: PublicacaoService) {
-    this.usuarioLogado = this.pubService.usuario;
+  constructor(private pubService: PublicacaoService, private avaService: AvaService) {
+    this.usuarioLogado = this.avaService.getUser();
     this.feed = this.pubService.feed;
     //this.pubService.getBanco3().then(postagens => this.feed = postagens);    
   }
