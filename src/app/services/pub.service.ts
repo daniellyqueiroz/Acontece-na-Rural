@@ -33,10 +33,10 @@ export class PubService {
    }
 
    //data = id da publicação
-   deletarPub(data:any){
+   deletarPub(id:number){
     let headers = new Headers({'Content-Type': 'application/json'});
     let options = new RequestOptions({ headers: headers });
-    return this.http.delete(PubService.API_HOST+'/api/user/pub/id=' + data, options)  
+    return this.http.delete(PubService.API_HOST+'/api/user/pub/${id}', options)  
        .timeout(PubService.TIMEOUT)
        .map(res => { return res.json();});
  }
@@ -60,10 +60,10 @@ listarCom(){
 }
 
 //data = id de comentário
-deletarCom(data:any){
+deletarCom(id:number){
 let headers = new Headers({'Content-Type': 'application/json'});
 let options = new RequestOptions({ headers: headers });
-return this.http.delete(PubService.API_HOST+'/api/user/comentario/id=' + data, options)  
+return this.http.delete(PubService.API_HOST+'/api/user/comentario/${id}', options)  
    .timeout(PubService.TIMEOUT)
    .map(res => { return res.json();});
 }
@@ -87,10 +87,10 @@ listarReacao(){
 }
 
 //data = id de reação
-deletarReacao(data:any){
+deletarReacao(id:number){
 let headers = new Headers({'Content-Type': 'application/json'});
 let options = new RequestOptions({ headers: headers });
-return this.http.delete(PubService.API_HOST+'/api/user/reacao/id=' + data, options)  
+return this.http.delete(PubService.API_HOST+'/api/user/reacao/${id}', options)  
    .timeout(PubService.TIMEOUT)
    .map(res => { return res.json();});
 }

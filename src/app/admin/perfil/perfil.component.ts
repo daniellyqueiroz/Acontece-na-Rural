@@ -17,7 +17,7 @@ import { AvaService } from '../../services/ava.service';
 export class PerfilComponent implements OnInit {
 
   public feed: Publicacao[];
-  public usuarioLogado: Usuario;
+  public usuarioLogado: any;
 
   constructor(private pubService: PublicacaoService, private avaService: AvaService) {
     this.usuarioLogado = this.avaService.getUser();

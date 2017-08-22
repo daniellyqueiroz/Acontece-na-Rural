@@ -25,5 +25,5 @@ POST	/api/user/calendario		@controllers.CalendarioAcademicoController.cadastrar(
 GET		/api/user/calendario		@controllers.CalendarioAcademicoController.listar() 
 GET  	/api/user/login				@controllers.UsuarioController.login()
 GET  	/api/user/sair				@controllers.UsuarioController.sair()
-DELETE  /api/user/:id			@controllers.UsuarioController.remover(id:Long)
+DELETE  /api/user/:id			    @controllers.UsuarioController.remover(id:Long)
 GET   	/api/user/:id/:email		@controllers.UserController.getUser(id:Long, email:String)

@@ -20,14 +20,14 @@ import { PublicacaoService } from '../../services/publicacao.service';
 
 export class FeedNoticiasComponent implements OnInit {
 
-  public feed: any[];
+  public feed: Publicacao[];
 
   //necessário serem diferentes para evitar acúmulo de propriedades no objeto
   public dataPub: any = {};
   public dataCom: any = {};
   public dataReacao: any = {}; 
 
-  public usuario: Usuario;
+  public usuario: any;
 
   constructor(private pubService: PubService, private avaService: AvaService, 
     private publiService: PublicacaoService) {
@@ -40,18 +40,18 @@ export class FeedNoticiasComponent implements OnInit {
 
 
   ngOnInit() {
-    
+    this.carregarPostagens();
   }
 
   carregarPostagens(){
-    return this.pubService.listarPub()
+    this.pubService.listarPub()
     .subscribe(
-      data => 
-	{
-	if (data != null & data.length) this.feed = data;
-	else this.feed = [];
-	},
-      err => { console.log("Deu ruim Post") },
+      (data: any[]) => 
+          {
+          if (data != null && data.length > 0) this.feed = data;
+          else this.feed = [];
+          },
+      err => { console.log(this.feed) },
       () => console.log("Tudo Certo Post")
    );
   }

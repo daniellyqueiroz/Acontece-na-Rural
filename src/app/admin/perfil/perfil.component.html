@@ -1,7 +1,9 @@
 <div class="col col-md-9">	
 	<div class="row">
 				<div class="col col-md-11 col-sm-12">
-										<span class="principal margin-br">Informações sobre {{usuarioLogado.nome}}</span>
+										<span class="principal margin-br">Dados Pessoais</span>
+										<br/>
+										<span class="infos margin-br">{{usuarioLogado.nome}}</span>
 										<br/>
 										<span class="infos margin-br">{{usuarioLogado.departamento}}</span>
 										<br/>
@@ -12,7 +14,7 @@
 										<span class="infos margin-br">{{usuarioLogado.pais}}</span>
 										<br/>			
 	
-							<span class="principal margin-br">Suas Publicações</span>
+							<!--<span class="principal margin-br">Suas Publicações</span>-->
 							<br/>
 					<div class="box box-widget" *ngFor="let pub of feed">
 										<div class="box-header with-border">
